@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="260px" viewBox="0 0 1920 260" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>5dd5ba79bfa2905a34c38d71_Footer Bg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1920" height="260"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="5dd5ba79bfa2905a34c38d71_Footer-Bg">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Rectangle_58"></g>
+            <g id="Footer_Bg" mask="url(#mask-2)" fill="#0B5439" fill-rule="nonzero">
+                <g transform="translate(-3721.000000, -5938.000000)" id="Ellipse_33">
+                    <ellipse cx="4681" cy="5205.5" rx="4680.5" ry="4681.5"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

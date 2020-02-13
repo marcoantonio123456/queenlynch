@@ -319,7 +319,7 @@ html.w-mod-touch * {
 .w-button {
 	display: inline-block;
 	padding: 9px 15px;
-	background-color: #3898EC;
+	background-color: #37735D;
 	color: white;
 	border: 0;
 	line-height: inherit;
@@ -2090,7 +2090,7 @@ body {
 h1 {
 	margin-top: 20px;
 	margin-bottom: 10px;
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 48px;
 	line-height: 54px;
 	font-weight: 700;
@@ -2099,7 +2099,7 @@ h1 {
 h2 {
 	margin-top: 20px;
 	margin-bottom: 10px;
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 42px;
 	line-height: 48px;
 	font-weight: 700;
@@ -2108,7 +2108,7 @@ h2 {
 h3 {
 	margin-top: 20px;
 	margin-bottom: 10px;
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 36px;
 	line-height: 42px;
 	font-weight: 700;
@@ -2117,7 +2117,7 @@ h3 {
 h4 {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 30px;
 	line-height: 36px;
 	font-weight: 700;
@@ -2126,7 +2126,7 @@ h4 {
 h5 {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 24px;
 	line-height: 30px;
 	font-weight: 700;
@@ -2135,7 +2135,7 @@ h5 {
 h6 {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 18px;
 	line-height: 26px;
 	font-weight: 700;
@@ -2147,14 +2147,14 @@ p {
 }
 
 li {
-	color: #042c5c;
+	color: #0B5439;
 }
 
 blockquote {
 	margin-bottom: 10px;
 	padding: 24px 16px;
 	border-left: 0px solid #000;
-	background-color: #0047cc;
+	background-color: #093E2A;
 	color: #fff;
 	font-size: 18px;
 	line-height: 22px;
@@ -2192,7 +2192,7 @@ figcaption {
 	background-color: #fff;
 	-webkit-transition: background-color 200ms ease;
 	transition: background-color 200ms ease;
-	color: #0047cc;
+	color: #093E2A;
 	font-size: 16px;
 	line-height: 22px;
 	font-weight: 700;
@@ -2299,7 +2299,7 @@ figcaption {
 	-ms-flex-align: center;
 	align-items: center;
 	background-color: #fbfcfc;
-	background-image: url("https://assets.website-files.com/5dd4413d36613959e9a5f5ea/5dd442043661397c1fa5ffa2_Circles.svg");
+	background-image: url("http://www.queenlynch.com/images/queen_header.svg");
 	background-position: 0px 0px;
 	background-size: cover;
 	letter-spacing: 0.5px;
@@ -2344,7 +2344,7 @@ figcaption {
 }
 
 .color-block.slate-blue {
-	background-color: #0D3364;
+	background-color: #093E2A;
 }
 
 .color-block.paragraphs {
@@ -2352,7 +2352,7 @@ figcaption {
 }
 
 .color-block.midnight-blue {
-	background-color: #0D3364;
+	background-color: #093E2A;
 }
 
 .color-block.border-color {
@@ -2451,7 +2451,7 @@ figcaption {
 .section.blue {
 	position: relative;
 	overflow: hidden;
-	background-color: #0047cc;
+	background-color: #093E2A;
 }
 
 .section.utility {
@@ -2470,11 +2470,11 @@ figcaption {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
-	background-color: #0047cc;
+	background-color: #093E2A;
 }
 
 .style-guide-title {
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 24px;
 	line-height: 32px;
 	font-weight: 700;
@@ -2562,7 +2562,7 @@ figcaption {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-	background-color: #042c5c;
+	background-color: #0B5439;
 }
 
 .grayscale-block._20 {
@@ -2650,7 +2650,7 @@ figcaption {
 	padding: 16px 32px;
 	border: 2px solid transparent;
 	border-radius: 4px;
-	background-color: #0047cc;
+	background-color: #093E2A;
 	-webkit-transition: background-color 200ms ease;
 	transition: background-color 200ms ease;
 	color: #fff;
@@ -2849,7 +2849,7 @@ figcaption {
 	background-color: #e5ecfa;
 	-webkit-transition: background-color 200ms ease;
 	transition: background-color 200ms ease;
-	color: #0047cc;
+	color: #093E2A;
 	font-size: 16px;
 	line-height: 22px;
 	font-weight: 700;
@@ -2984,7 +2984,7 @@ figcaption {
 	padding-bottom: 40px;
 	border-top-left-radius: 16px;
 	border-top-right-radius: 16px;
-	background-color: #0047cc;
+	background-color: #093E2A;
 }
 
 .pricing-table-row {
@@ -2993,7 +2993,7 @@ figcaption {
 }
 
 .pricing-row-text {
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 14px;
 	font-weight: 600;
 	text-align: center;
@@ -3103,7 +3103,7 @@ figcaption {
 	-ms-flex-align: stretch;
 	align-items: stretch;
 	background-color: #fbfcfc;
-	background-image: url("https://assets.website-files.com/5dd4413d36613959e9a5f5ea/5dd5ba79bfa2905a34c38d71_Footer%20Bg.svg");
+	background-image: url("https://www.queenlynch.com/images/queen_footer.svg");
 	background-position: 50% 50%;
 	background-size: cover;
 }
@@ -3229,7 +3229,7 @@ figcaption {
 	overflow: hidden;
 	padding-top: 120px;
 	padding-bottom: 120px;
-	background-color: #0047cc;
+	background-color: #093E2A;
 }
 
 .page-header-title {
@@ -3295,7 +3295,7 @@ figcaption {
 
 .changelog-text {
 	margin-bottom: 10px;
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 16px;
 	font-weight: 600;
 }
@@ -3325,7 +3325,7 @@ figcaption {
 }
 
 .licensing-title {
-	color: #042c5c;
+	color: #0B5439;
 	font-size: 18px;
 	line-height: 24px;
 	font-weight: 600;
@@ -3353,7 +3353,7 @@ figcaption {
 }
 
 .licensing-link {
-	color: #0047cc;
+	color: #093E2A;
 	font-weight: 600;
 }
 
@@ -3437,13 +3437,13 @@ figcaption {
 		background-color: #fff;
 	}
 	.nav-link {
-		color: #042c5c;
+		color: #0B5439;
 		text-align: center;
 	}
 	.nav-link.w--current {
 		border-bottom-color: transparent;
 		opacity: 1;
-		color: #0047cc;
+		color: #0B5439;
 	}
 	.hero-section {
 		padding-top: 0px;
@@ -3866,11 +3866,11 @@ figcaption {
 		height: 32px;
 	}
 	.nav-link {
-		color: #042c5c;
+		color: #0B5439;
 	}
 	.nav-link.w--current {
 		opacity: 1;
-		color: #0047cc;
+		color: #093E2A;
 	}
 	.style-guide-block {
 		padding: 32px 24px;
