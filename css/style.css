@@ -2694,10 +2694,10 @@ figcaption {
 	display: grid;
 	margin-top: 40px;
 	grid-auto-columns: 1fr;
-	grid-column-gap: 16px;
-	grid-row-gap: 16px;
-	-ms-grid-columns: 1.25fr 1fr;
-	grid-template-columns: 1.25fr 1fr;
+	/*grid-column-gap: 16px;*/
+	/*grid-row-gap: 16px;*/
+/*	-ms-grid-columns: 1.25fr 1fr;
+	grid-template-columns: 1.25fr 1fr;*/
 	-ms-grid-rows: auto;
 	grid-template-rows: auto;
 }
@@ -2711,7 +2711,7 @@ figcaption {
 }
 
 .mockup-img {
-	width: 100%;
+	width: 80%;
 }
 
 .hero-paragraph {
@@ -2723,6 +2723,7 @@ figcaption {
 
 .left-hero-block {
 	margin-top: -80px;
+	margin-left: 120px;
 }
 
 .features-grid {
