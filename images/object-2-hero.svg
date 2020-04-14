@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="110px" height="220px" viewBox="0 0 110 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>object-2-hero</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="object-2-hero" fill-rule="nonzero">
+            <rect id="Rectangle" fill="#093022" x="0" y="110" width="110" height="110"></rect>
+            <path d="M110,-0.000244141 C110,14.4452 107.155,28.7491 101.627,42.0949 C96.0987,55.4407 87.9962,67.5671 77.7818,77.7815 C67.5673,87.9959 55.441,96.0985 42.0952,101.627 C28.7494,107.155 14.4454,110 0,110 L0,-0.000244141 L110,-0.000244141 Z" id="Path" fill="#0B5439"></path>
+        </g>
+    </g>
+</svg>

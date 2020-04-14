@@ -1,8 +1,15 @@
-! function(t) {
+/*!
+ * Webflow: Front-end site library
+ * @license MIT
+ * Inline scripts may access the api using an async handler:
+ *   var Webflow = Webflow || [];
+ *   Webflow.push(readyFunction);
+ */
+!function(t) {
     var e = {};
-
     function n(r) {
-        if (e[r]) return e[r].exports;
+        if (e[r])
+            return e[r].exports;
         var i = e[r] = {
             i: r,
             l: !1,
@@ -22,16 +29,19 @@
             value: !0
         })
     }, n.t = function(t, e) {
-        if (1 & e && (t = n(t)), 8 & e) return t;
-        if (4 & e && "object" == typeof t && t && t.__esModule) return t;
+        if (1 & e && (t = n(t)), 8 & e)
+            return t;
+        if (4 & e && "object" == typeof t && t && t.__esModule)
+            return t;
         var r = Object.create(null);
         if (n.r(r), Object.defineProperty(r, "default", {
-                enumerable: !0,
-                value: t
-            }), 2 & e && "string" != typeof t)
-            for (var i in t) n.d(r, i, function(e) {
-                return t[e]
-            }.bind(null, i));
+            enumerable: !0,
+            value: t
+        }), 2 & e && "string" != typeof t)
+            for (var i in t)
+                n.d(r, i, function(e) {
+                    return t[e]
+                }.bind(null, i));
         return r
     }, n.n = function(t) {
         var e = t && t.__esModule ? function() {
@@ -101,15 +111,15 @@
         d = r.tram = n(54) && u.tram,
         p = !1,
         v = !1;
-
     function E(t) {
         r.env() && (f(t.design) && c.on("__wf_design", t.design), f(t.preview) && c.on("__wf_preview", t.preview)), f(t.destroy) && c.on("__wf_destroy", t.destroy), t.ready && f(t.ready) && function(t) {
-            if (p) return void t.ready();
-            if (l.contains(o, t.ready)) return;
+            if (p)
+                return void t.ready();
+            if (l.contains(o, t.ready))
+                return;
             o.push(t.ready)
         }(t)
     }
-
     function h(t) {
         f(t.design) && c.off("__wf_design", t.design), f(t.preview) && c.off("__wf_preview", t.preview), f(t.destroy) && c.off("__wf_destroy", t.destroy), t.ready && f(t.ready) && function(t) {
             o = l.filter(o, function(e) {
@@ -130,7 +140,8 @@
             n = void 0 !== e;
         return t ? "design" === t ? n && e : "preview" === t ? n && !e : "slug" === t ? n && window.__wf_slug : "editor" === t ? window.WebflowEditor : "test" === t ? window.__wf_test : "frame" === t ? window !== window.top : void 0 : n
     };
-    var _, g = navigator.userAgent.toLowerCase(),
+    var _,
+        g = navigator.userAgent.toLowerCase(),
         I = r.env.touch = "ontouchstart" in window || window.DocumentTouch && document instanceof window.DocumentTouch,
         T = r.env.chrome = /chrome/.test(g) && /Google/.test(navigator.vendor) && parseInt(g.match(/chrome\/(\d+)\./)[1], 10),
         y = r.env.ios = /(ipod|iphone|ipad)/.test(g);
@@ -141,8 +152,8 @@
     } : function() {
         return !0
     };
-    var m, O = "resize.webflow orientationchange.webflow load.webflow";
-
+    var O,
+        m = "resize.webflow orientationchange.webflow load.webflow";
     function A(t, e) {
         var n = [],
             r = {};
@@ -158,22 +169,20 @@
             }) : []
         }, r
     }
-
     function S(t) {
         f(t) && t()
     }
-
     function R() {
-        m && (m.reject(), c.off("load", m.resolve)), m = new u.Deferred, c.on("load", m.resolve)
+        O && (O.reject(), c.off("load", O.resolve)), O = new u.Deferred, c.on("load", O.resolve)
     }
-    r.resize = A(c, O), r.scroll = A(c, "scroll.webflow resize.webflow orientationchange.webflow load.webflow"), r.redraw = A(), r.location = function(t) {
+    r.resize = A(c, m), r.scroll = A(c, "scroll.webflow resize.webflow orientationchange.webflow load.webflow"), r.redraw = A(), r.location = function(t) {
         window.location = t
     }, r.env() && (r.location = function() {}), r.ready = function() {
         p = !0, v ? (v = !1, l.each(i, E)) : l.each(o, S), l.each(a, S), r.resize.up()
     }, r.load = function(t) {
-        m.then(t)
+        O.then(t)
     }, r.destroy = function(t) {
-        t = t || {}, v = !0, c.triggerHandler("__wf_destroy"), null != t.domready && (p = t.domready), l.each(i, h), r.resize.off(), r.scroll.off(), r.redraw.off(), o = [], a = [], "pending" === m.state() && R()
+        t = t || {}, v = !0, c.triggerHandler("__wf_destroy"), null != t.domready && (p = t.domready), l.each(i, h), r.resize.off(), r.scroll.off(), r.redraw.off(), o = [], a = [], "pending" === O.state() && R()
     }, u(r.ready), R(), t.exports = window.Webflow = r
 }, function(t, e) {
     t.exports = function(t) {
@@ -223,7 +232,8 @@
     var r = n(25),
         i = 1 / 0;
     t.exports = function(t) {
-        if ("string" == typeof t || r(t)) return t;
+        if ("string" == typeof t || r(t))
+            return t;
         var e = t + "";
         return "0" == e && 1 / t == -i ? "-0" : e
     }
@@ -237,40 +247,38 @@
     } : function(t) {
         return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t
     };
-    e.clone = c, e.addLast = l, e.addFirst = d, e.removeLast = p, e.removeFirst = v, e.insert = E, e.removeAt = h, e.replaceAt = _, e.getIn = g, e.set = I, e.setIn = T, e.update = y, e.updateIn = m, e.merge = O, e.mergeDeep = A, e.mergeIn = S, e.omit = R, e.addDefaults = b;
+    e.clone = c, e.addLast = l, e.addFirst = d, e.removeLast = p, e.removeFirst = v, e.insert = E, e.removeAt = h, e.replaceAt = _, e.getIn = g, e.set = I, e.setIn = T, e.update = y, e.updateIn = O, e.merge = m, e.mergeDeep = A, e.mergeIn = S, e.omit = R, e.addDefaults = b;
     /*!
-     * Timm
-     *
-     * Immutability helpers with fast reads and acceptable writes.
-     *
-     * @copyright Guillermo Grau Panea 2016
-     * @license MIT
-     */
+ * Timm
+ *
+ * Immutability helpers with fast reads and acceptable writes.
+ *
+ * @copyright Guillermo Grau Panea 2016
+ * @license MIT
+ */
     var i = "INVALID_ARGS";
-
     function o(t) {
         throw new Error(t)
     }
-
     function a(t) {
         var e = Object.keys(t);
         return Object.getOwnPropertySymbols ? e.concat(Object.getOwnPropertySymbols(t)) : e
     }
     var u = {}.hasOwnProperty;
-
     function c(t) {
-        if (Array.isArray(t)) return t.slice();
+        if (Array.isArray(t))
+            return t.slice();
         for (var e = a(t), n = {}, r = 0; r < e.length; r++) {
             var i = e[r];
             n[i] = t[i]
         }
         return n
     }
-
     function s(t, e, n) {
         var r = n;
         null == r && o(i);
-        for (var u = !1, l = arguments.length, d = Array(l > 3 ? l - 3 : 0), p = 3; p < l; p++) d[p - 3] = arguments[p];
+        for (var u = !1, l = arguments.length, d = Array(l > 3 ? l - 3 : 0), p = 3; p < l; p++)
+            d[p - 3] = arguments[p];
         for (var v = 0; v < d.length; v++) {
             var E = d[v];
             if (null != E) {
@@ -287,59 +295,52 @@
         }
         return r
     }
-
     function f(t) {
         var e = void 0 === t ? "undefined" : r(t);
         return null != t && ("object" === e || "function" === e)
     }
-
     function l(t, e) {
         return Array.isArray(e) ? t.concat(e) : t.concat([e])
     }
-
     function d(t, e) {
         return Array.isArray(e) ? e.concat(t) : [e].concat(t)
     }
-
     function p(t) {
         return t.length ? t.slice(0, t.length - 1) : t
     }
-
     function v(t) {
         return t.length ? t.slice(1) : t
     }
-
     function E(t, e, n) {
         return t.slice(0, e).concat(Array.isArray(n) ? n : [n]).concat(t.slice(e))
     }
-
     function h(t, e) {
         return e >= t.length || e < 0 ? t : t.slice(0, e).concat(t.slice(e + 1))
     }
-
     function _(t, e, n) {
-        if (t[e] === n) return t;
-        for (var r = t.length, i = Array(r), o = 0; o < r; o++) i[o] = t[o];
+        if (t[e] === n)
+            return t;
+        for (var r = t.length, i = Array(r), o = 0; o < r; o++)
+            i[o] = t[o];
         return i[e] = n, i
     }
-
     function g(t, e) {
         if (!Array.isArray(e) && o(i), null != t) {
             for (var n = t, r = 0; r < e.length; r++) {
                 var a = e[r];
-                if (void 0 === (n = null != n ? n[a] : void 0)) return n
+                if (void 0 === (n = null != n ? n[a] : void 0))
+                    return n
             }
             return n
         }
     }
-
     function I(t, e, n) {
         var r = null == t ? "number" == typeof e ? [] : {} : t;
-        if (r[e] === n) return r;
+        if (r[e] === n)
+            return r;
         var i = c(r);
         return i[e] = n, i
     }
-
     function T(t, e, n) {
         return e.length ? function t(e, n, r, i) {
             var o = void 0,
@@ -348,47 +349,46 @@
             return I(e, a, o)
         }(t, e, n, 0) : n
     }
-
     function y(t, e, n) {
         return I(t, e, n(null == t ? void 0 : t[e]))
     }
-
-    function m(t, e, n) {
+    function O(t, e, n) {
         return T(t, e, n(g(t, e)))
     }
-
-    function O(t, e, n, r, i, o) {
-        for (var a = arguments.length, u = Array(a > 6 ? a - 6 : 0), c = 6; c < a; c++) u[c - 6] = arguments[c];
+    function m(t, e, n, r, i, o) {
+        for (var a = arguments.length, u = Array(a > 6 ? a - 6 : 0), c = 6; c < a; c++)
+            u[c - 6] = arguments[c];
         return u.length ? s.call.apply(s, [null, !1, !1, t, e, n, r, i, o].concat(u)) : s(!1, !1, t, e, n, r, i, o)
     }
-
     function A(t, e, n, r, i, o) {
-        for (var a = arguments.length, u = Array(a > 6 ? a - 6 : 0), c = 6; c < a; c++) u[c - 6] = arguments[c];
+        for (var a = arguments.length, u = Array(a > 6 ? a - 6 : 0), c = 6; c < a; c++)
+            u[c - 6] = arguments[c];
         return u.length ? s.call.apply(s, [null, !1, !0, t, e, n, r, i, o].concat(u)) : s(!1, !0, t, e, n, r, i, o)
     }
-
     function S(t, e, n, r, i, o, a) {
         var u = g(t, e);
         null == u && (u = {});
-        for (var c = arguments.length, f = Array(c > 7 ? c - 7 : 0), l = 7; l < c; l++) f[l - 7] = arguments[l];
+        for (var c = arguments.length, f = Array(c > 7 ? c - 7 : 0), l = 7; l < c; l++)
+            f[l - 7] = arguments[l];
         return T(t, e, f.length ? s.call.apply(s, [null, !1, !1, u, n, r, i, o, a].concat(f)) : s(!1, !1, u, n, r, i, o, a))
     }
-
     function R(t, e) {
         for (var n = Array.isArray(e) ? e : [e], r = !1, i = 0; i < n.length; i++)
             if (u.call(t, n[i])) {
                 r = !0;
                 break
-            } if (!r) return t;
+            }
+        if (!r)
+            return t;
         for (var o = {}, c = a(t), s = 0; s < c.length; s++) {
             var f = c[s];
             n.indexOf(f) >= 0 || (o[f] = t[f])
         }
         return o
     }
-
     function b(t, e, n, r, i, o) {
-        for (var a = arguments.length, u = Array(a > 6 ? a - 6 : 0), c = 6; c < a; c++) u[c - 6] = arguments[c];
+        for (var a = arguments.length, u = Array(a > 6 ? a - 6 : 0), c = 6; c < a; c++)
+            u[c - 6] = arguments[c];
         return u.length ? s.call.apply(s, [null, !0, !1, t, e, n, r, i, o].concat(u)) : s(!0, !1, t, e, n, r, i, o)
     }
     var w = {
@@ -404,8 +404,8 @@
         set: I,
         setIn: T,
         update: y,
-        updateIn: m,
-        merge: O,
+        updateIn: O,
+        merge: m,
         mergeDeep: A,
         mergeIn: S,
         omit: R,
@@ -429,7 +429,6 @@
             return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t
         })(t)
     }
-
     function r(e) {
         return "function" == typeof Symbol && "symbol" === n(Symbol.iterator) ? t.exports = r = function(t) {
             return n(t)
@@ -440,14 +439,16 @@
     t.exports = r
 }, function(t, e) {
     t.exports = function(t) {
-        if (t && t.__esModule) return t;
+        if (t && t.__esModule)
+            return t;
         var e = {};
         if (null != t)
             for (var n in t)
                 if (Object.prototype.hasOwnProperty.call(t, n)) {
                     var r = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(t, n) : {};
                     r.get || r.set ? Object.defineProperty(e, n, r) : e[n] = t[n]
-                } return e.default = t, e
+                }
+        return e.default = t, e
     }
 }, function(t, e, n) {
     var r = n(123),
@@ -455,7 +456,6 @@
         o = n(125),
         a = n(126),
         u = n(127);
-
     function c(t) {
         var e = -1,
             n = null == t ? 0 : t.length;
@@ -469,7 +469,8 @@
     var r = n(32);
     t.exports = function(t, e) {
         for (var n = t.length; n--;)
-            if (r(t[n][0], e)) return n;
+            if (r(t[n][0], e))
+                return n;
         return -1
     }
 }, function(t, e, n) {
@@ -538,7 +539,6 @@
 }, function(t, e, n) {
     "use strict";
     var r = n(105);
-
     function i(t, e) {
         var n = document.createEvent("CustomEvent");
         n.initCustomEvent(e, !0, !0, null), t.dispatchEvent(n)
@@ -572,51 +572,52 @@
         o = {
             INIT: "@@redux/INIT"
         };
-
     function a(t, e, n) {
         var u;
         if ("function" == typeof e && void 0 === n && (n = e, e = void 0), void 0 !== n) {
-            if ("function" != typeof n) throw new Error("Expected the enhancer to be a function.");
+            if ("function" != typeof n)
+                throw new Error("Expected the enhancer to be a function.");
             return n(a)(t, e)
         }
-        if ("function" != typeof t) throw new Error("Expected the reducer to be a function.");
+        if ("function" != typeof t)
+            throw new Error("Expected the reducer to be a function.");
         var c = t,
             s = e,
             f = [],
             l = f,
             d = !1;
-
         function p() {
             l === f && (l = f.slice())
         }
-
         function v() {
             return s
         }
-
         function E(t) {
-            if ("function" != typeof t) throw new Error("Expected listener to be a function.");
+            if ("function" != typeof t)
+                throw new Error("Expected listener to be a function.");
             var e = !0;
-            return p(), l.push(t),
-                function() {
-                    if (e) {
-                        e = !1, p();
-                        var n = l.indexOf(t);
-                        l.splice(n, 1)
-                    }
+            return p(), l.push(t), function() {
+                if (e) {
+                    e = !1, p();
+                    var n = l.indexOf(t);
+                    l.splice(n, 1)
                 }
+            }
         }
-
         function h(t) {
-            if (!Object(r.default)(t)) throw new Error("Actions must be plain objects. Use custom middleware for async actions.");
-            if (void 0 === t.type) throw new Error('Actions may not have an undefined "type" property. Have you misspelled a constant?');
-            if (d) throw new Error("Reducers may not dispatch actions.");
+            if (!Object(r.default)(t))
+                throw new Error("Actions must be plain objects. Use custom middleware for async actions.");
+            if (void 0 === t.type)
+                throw new Error('Actions may not have an undefined "type" property. Have you misspelled a constant?');
+            if (d)
+                throw new Error("Reducers may not dispatch actions.");
             try {
                 d = !0, s = c(s, t)
             } finally {
                 d = !1
             }
-            for (var e = f = l, n = 0; n < e.length; n++) e[n]();
+            for (var e = f = l, n = 0; n < e.length; n++)
+                e[n]();
             return t
         }
         return h({
@@ -626,17 +627,19 @@
             subscribe: E,
             getState: v,
             replaceReducer: function(t) {
-                if ("function" != typeof t) throw new Error("Expected the nextReducer to be a function.");
+                if ("function" != typeof t)
+                    throw new Error("Expected the nextReducer to be a function.");
                 c = t, h({
                     type: o.INIT
                 })
             }
         })[i.default] = function() {
-            var t, e = E;
+            var t,
+                e = E;
             return (t = {
                 subscribe: function(t) {
-                    if ("object" != typeof t) throw new TypeError("Expected the observer to be an object.");
-
+                    if ("object" != typeof t)
+                        throw new TypeError("Expected the observer to be an object.");
                     function n() {
                         t.next && t.next(v())
                     }
@@ -662,13 +665,15 @@
     t.exports = n
 }, function(t, e, n) {
     "use strict";
-
     function r() {
-        for (var t = arguments.length, e = Array(t), n = 0; n < t; n++) e[n] = arguments[n];
-        if (0 === e.length) return function(t) {
-            return t
-        };
-        if (1 === e.length) return e[0];
+        for (var t = arguments.length, e = Array(t), n = 0; n < t; n++)
+            e[n] = arguments[n];
+        if (0 === e.length)
+            return function(t) {
+                return t
+            };
+        if (1 === e.length)
+            return e[0];
         var r = e[e.length - 1],
             i = e.slice(0, -1);
         return function() {
@@ -705,7 +710,8 @@
         try {
             for (var n = e.length, r = 0; r < n; r++) {
                 var i = e[r];
-                if (t.style.display = i, t.style.display === i) return i
+                if (t.style.display = i, t.style.display === i)
+                    return i
             }
             return ""
         } catch (t) {
@@ -718,7 +724,8 @@
         if (null == t.style.transform)
             for (var e = ["Webkit", "Moz", "ms"], n = e.length, r = 0; r < n; r++) {
                 var i = e[r] + "Transform";
-                if (void 0 !== t.style[i]) return i
+                if (void 0 !== t.style[i])
+                    return i
             }
         return "transform"
     }, "transform");
@@ -739,7 +746,6 @@
         o = n(148),
         a = n(149),
         u = n(150);
-
     function c(t) {
         var e = -1,
             n = null == t ? 0 : t.length;
@@ -751,7 +757,8 @@
     c.prototype.clear = r, c.prototype.delete = i, c.prototype.get = o, c.prototype.has = a, c.prototype.set = u, t.exports = c
 }, function(t, e) {
     t.exports = function(t, e) {
-        for (var n = -1, r = e.length, i = t.length; ++n < r;) t[i + n] = e[n];
+        for (var n = -1, r = e.length, i = t.length; ++n < r;)
+            t[i + n] = e[n];
         return t
     }
 }, function(t, e, n) {
@@ -788,9 +795,11 @@
         i = n(170),
         o = Object.prototype.hasOwnProperty;
     t.exports = function(t) {
-        if (!r(t)) return i(t);
+        if (!r(t))
+            return i(t);
         var e = [];
-        for (var n in Object(t)) o.call(t, n) && "constructor" != n && e.push(n);
+        for (var n in Object(t))
+            o.call(t, n) && "constructor" != n && e.push(n);
         return e
     }
 }, function(t, e) {
@@ -817,7 +826,8 @@
         var e = c(t),
             n = "[object Object]" == e ? t.constructor : void 0,
             r = n ? s(n) : "";
-        if (r) switch (r) {
+        if (r)
+            switch (r) {
             case f:
                 return "[object DataView]";
             case l:
@@ -828,14 +838,15 @@
                 return "[object Set]";
             case v:
                 return "[object WeakMap]"
-        }
+            }
         return e
     }), t.exports = E
 }, function(t, e, n) {
     var r = n(24),
         i = n(12);
     t.exports = function(t, e) {
-        for (var n = 0, o = (e = r(e, t)).length; null != t && n < o;) t = t[i(e[n++])];
+        for (var n = 0, o = (e = r(e, t)).length; null != t && n < o;)
+            t = t[i(e[n++])];
         return n && n == o ? t : void 0
     }
 }, function(t, e, n) {
@@ -844,7 +855,8 @@
         o = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
         a = /^\w*$/;
     t.exports = function(t, e) {
-        if (r(t)) return !1;
+        if (r(t))
+            return !1;
         var n = typeof t;
         return !("number" != n && "symbol" != n && "boolean" != n && null != t && !i(t)) || a.test(t) || !o.test(t) || null != e && t in Object(e)
     }
@@ -869,13 +881,16 @@
         s = /^0o[0-7]+$/i,
         f = parseInt;
     t.exports = function(t) {
-        if ("number" == typeof t) return t;
-        if (i(t)) return o;
+        if ("number" == typeof t)
+            return t;
+        if (i(t))
+            return o;
         if (r(t)) {
             var e = "function" == typeof t.valueOf ? t.valueOf() : t;
             t = r(e) ? e + "" : e
         }
-        if ("string" != typeof t) return 0 === t ? t : +t;
+        if ("string" != typeof t)
+            return 0 === t ? t : +t;
         t = t.replace(a, "");
         var n = c.test(t);
         return n || s.test(t) ? f(t.slice(2), n ? 2 : 8) : u.test(t) ? o : +t
@@ -1009,17 +1024,18 @@
         I = a.IX2_PARAMETER_CHANGED,
         T = a.IX2_INSTANCE_ADDED,
         y = a.IX2_INSTANCE_STARTED,
-        m = a.IX2_INSTANCE_REMOVED,
-        O = a.IX2_ELEMENT_STATE_CHANGED,
+        O = a.IX2_INSTANCE_REMOVED,
+        m = a.IX2_ELEMENT_STATE_CHANGED,
         A = a.IX2_ACTION_LIST_PLAYBACK_CHANGED,
         S = a.IX2_VIEWPORT_WIDTH_CHANGED,
         R = a.IX2_MEDIA_QUERIES_DEFINED,
-        b = o.IX2EngineItemTypes.GENERAL_START_ACTION,
-        w = o.IX2VanillaUtils.reifyState;
+        b = o.IX2EngineItemTypes,
+        w = b.GENERAL_START_ACTION,
+        N = (b.GENERAL_CONTINUOUS_ACTION, o.IX2VanillaUtils.reifyState);
     e.rawDataImported = function(t) {
         return {
             type: u,
-            payload: (0, i.default)({}, w(t))
+            payload: (0, i.default)({}, N(t))
         }
     };
     e.sessionInitialized = function(t) {
@@ -1033,14 +1049,12 @@
     };
     e.sessionStarted = function() {
         return {
-            type: s,
-            payload: {}
+            type: s
         }
     };
     e.sessionStopped = function() {
         return {
-            type: f,
-            payload: {}
+            type: f
         }
     };
     e.previewRequested = function(t) {
@@ -1056,7 +1070,7 @@
     };
     e.playbackRequested = function(t) {
         var e = t.actionTypeId,
-            n = void 0 === e ? b : e,
+            n = void 0 === e ? w : e,
             r = t.actionListId,
             i = t.actionItemId,
             o = t.eventId,
@@ -1090,8 +1104,7 @@
     };
     e.clearRequested = function() {
         return {
-            type: v,
-            payload: {}
+            type: v
         }
     };
     e.eventListenerAdded = function(t, e) {
@@ -1156,7 +1169,7 @@
     };
     e.instanceRemoved = function(t) {
         return {
-            type: m,
+            type: O,
             payload: {
                 instanceId: t
             }
@@ -1164,7 +1177,7 @@
     };
     e.elementStateChanged = function(t, e, n, r) {
         return {
-            type: O,
+            type: m,
             payload: {
                 elementId: t,
                 actionTypeId: e,
@@ -1197,14 +1210,12 @@
     };
     e.mediaQueriesDefined = function() {
         return {
-            type: R,
-            payload: {}
+            type: R
         }
     }
 }, function(t, e, n) {
     var r = n(98),
         i = n(52);
-
     function o(t, e) {
         this.__wrapped__ = t, this.__actions__ = [], this.__chain__ = !!e, this.__index__ = 0, this.__values__ = void 0
     }
@@ -1215,7 +1226,6 @@
     var r = n(98),
         i = n(52),
         o = 4294967295;
-
     function a(t) {
         this.__wrapped__ = t, this.__actions__ = [], this.__dir__ = 1, this.__filtered__ = !1, this.__iteratees__ = [], this.__takeCount__ = o, this.__views__ = []
     }
@@ -1227,34 +1237,28 @@
         function e(t, e) {
             return (new G.Bare).init(t, e)
         }
-
         function n(t) {
             return t.replace(/[A-Z]/g, function(t) {
                 return "-" + t.toLowerCase()
             })
         }
-
         function i(t) {
             var e = parseInt(t.slice(1), 16);
             return [e >> 16 & 255, e >> 8 & 255, 255 & e]
         }
-
         function o(t, e, n) {
             return "#" + (1 << 24 | t << 16 | e << 8 | n).toString(16).slice(1)
         }
-
         function a() {}
-
         function u(t, e, n) {
             s("Units do not match [" + t + "]: " + e + ", " + n)
         }
-
         function c(t, e, n) {
-            if (void 0 !== e && (n = e), void 0 === t) return n;
+            if (void 0 !== e && (n = e), void 0 === t)
+                return n;
             var r = n;
             return $.test(t) || !Z.test(t) ? r = parseInt(t, 10) : Z.test(t) && (r = 1e3 * parseFloat(t)), 0 > r && (r = 0), r == r ? r : n
         }
-
         function s(t) {
             H.debug && window && window.console.warn(t)
         }
@@ -1262,27 +1266,26 @@
                 function i(t) {
                     return "object" == (0, r.default)(t)
                 }
-
                 function o(t) {
                     return "function" == typeof t
                 }
-
                 function a() {}
                 return function r(u, c) {
                     function s() {
                         var t = new f;
                         return o(t.init) && t.init.apply(t, arguments), t
                     }
-
                     function f() {}
                     c === n && (c = u, u = Object), s.Bare = f;
-                    var l, d = a[t] = u[t],
+                    var l,
+                        d = a[t] = u[t],
                         p = f[t] = s[t] = new a;
                     return p.constructor = s, s.mixin = function(e) {
                         return f[t] = s[t] = r(s, e)[t], s
                     }, s.open = function(t) {
                         if (l = {}, o(t) ? l = t.call(s, p, d, s, u) : i(t) && (l = t), i(l))
-                            for (var n in l) e.call(l, n) && (p[n] = l[n]);
+                            for (var n in l)
+                                e.call(l, n) && (p[n] = l[n]);
                         return o(p.init) || (p.init = u), s
                     }, s.open(c)
                 }
@@ -1398,8 +1401,8 @@
             I = /^(rgb|#)/,
             T = /(em|cm|mm|in|pt|pc|px)$/,
             y = /(em|cm|mm|in|pt|pc|px|%)$/,
-            m = /(deg|rad|turn)$/,
-            O = "unitless",
+            O = /(deg|rad|turn)$/,
+            m = "unitless",
             A = /(all|none) 0s ease 0s/,
             S = /^(width|height)$/,
             R = " ",
@@ -1407,18 +1410,23 @@
             w = ["Webkit", "Moz", "O", "ms"],
             N = ["-webkit-", "-moz-", "-o-", "-ms-"],
             C = function(t) {
-                if (t in b.style) return {
-                    dom: t,
-                    css: t
-                };
-                var e, n, r = "",
+                if (t in b.style)
+                    return {
+                        dom: t,
+                        css: t
+                    };
+                var e,
+                    n,
+                    r = "",
                     i = t.split("-");
-                for (e = 0; e < i.length; e++) r += i[e].charAt(0).toUpperCase() + i[e].slice(1);
+                for (e = 0; e < i.length; e++)
+                    r += i[e].charAt(0).toUpperCase() + i[e].slice(1);
                 for (e = 0; e < w.length; e++)
-                    if ((n = w[e] + r) in b.style) return {
-                        dom: n,
-                        css: N[e] + t
-                    }
+                    if ((n = w[e] + r) in b.style)
+                        return {
+                            dom: n,
+                            css: N[e] + t
+                        }
             },
             L = e.support = {
                 bind: Function.prototype.bind,
@@ -1430,7 +1438,8 @@
         if (L.transition) {
             var x = L.timing.dom;
             if (b.style[x] = l["ease-in-back"][0], !b.style[x])
-                for (var D in d) l[D][0] = d[D]
+                for (var D in d)
+                    l[D][0] = d[D]
         }
         var P = e.frame = function() {
                 var t = v.requestAnimationFrame || v.webkitRequestAnimationFrame || v.mozRequestAnimationFrame || v.oRequestAnimationFrame || v.msRequestAnimationFrame;
@@ -1457,39 +1466,41 @@
                         r = n[0];
                     e = e || {};
                     var i = Q[r];
-                    if (!i) return s("Unsupported property: " + r);
+                    if (!i)
+                        return s("Unsupported property: " + r);
                     if (!e.weak || !this.props[r]) {
                         var o = i[0],
                             a = this.props[r];
                         return a || (a = this.props[r] = new o.Bare), a.init(this.$el, n, i, e), a
                     }
                 }
-
                 function o(t, e, n) {
                     if (t) {
                         var o = (0, r.default)(t);
-                        if (e || (this.timer && this.timer.destroy(), this.queue = [], this.active = !1), "number" == o && e) return this.timer = new W({
-                            duration: t,
-                            context: this,
-                            complete: a
-                        }), void(this.active = !0);
+                        if (e || (this.timer && this.timer.destroy(), this.queue = [], this.active = !1), "number" == o && e)
+                            return this.timer = new W({
+                                duration: t,
+                                context: this,
+                                complete: a
+                            }), void (this.active = !0);
                         if ("string" == o && e) {
                             switch (t) {
-                                case "hide":
-                                    f.call(this);
-                                    break;
-                                case "stop":
-                                    u.call(this);
-                                    break;
-                                case "redraw":
-                                    l.call(this);
-                                    break;
-                                default:
-                                    i.call(this, t, n && n[1])
+                            case "hide":
+                                f.call(this);
+                                break;
+                            case "stop":
+                                u.call(this);
+                                break;
+                            case "redraw":
+                                l.call(this);
+                                break;
+                            default:
+                                i.call(this, t, n && n[1])
                             }
                             return a.call(this)
                         }
-                        if ("function" == o) return void t.call(this, this);
+                        if ("function" == o)
+                            return void t.call(this, this);
                         if ("object" == o) {
                             var s = 0;
                             p.call(this, t, function(t, e) {
@@ -1511,64 +1522,65 @@
                         }
                     }
                 }
-
                 function a() {
                     if (this.timer && this.timer.destroy(), this.active = !1, this.queue.length) {
                         var t = this.queue.shift();
                         o.call(this, t.options, !0, t.args)
                     }
                 }
-
                 function u(t) {
                     var e;
                     this.timer && this.timer.destroy(), this.queue = [], this.active = !1, "string" == typeof t ? (e = {})[t] = 1 : e = "object" == (0, r.default)(t) && null != t ? t : this.props, p.call(this, e, v), d.call(this)
                 }
-
                 function f() {
                     u.call(this), this.el.style.display = "none"
                 }
-
                 function l() {
                     this.el.offsetHeight
                 }
-
                 function d() {
-                    var t, e, n = [];
-                    for (t in this.upstream && n.push(this.upstream), this.props)(e = this.props[t]).active && n.push(e.string);
+                    var t,
+                        e,
+                        n = [];
+                    for (t in this.upstream && n.push(this.upstream), this.props)
+                        (e = this.props[t]).active && n.push(e.string);
                     n = n.join(","), this.style !== n && (this.style = n, this.el.style[L.transition.dom] = n)
                 }
-
                 function p(t, e, r) {
-                    var o, a, u, c, s = e !== v,
+                    var o,
+                        a,
+                        u,
+                        c,
+                        s = e !== v,
                         f = {};
-                    for (o in t) u = t[o], o in q ? (f.transform || (f.transform = {}), f.transform[o] = u) : (_.test(o) && (o = n(o)), o in Q ? f[o] = u : (c || (c = {}), c[o] = u));
+                    for (o in t)
+                        u = t[o], o in q ? (f.transform || (f.transform = {}), f.transform[o] = u) : (_.test(o) && (o = n(o)), o in Q ? f[o] = u : (c || (c = {}), c[o] = u));
                     for (o in f) {
                         if (u = f[o], !(a = this.props[o])) {
-                            if (!s) continue;
+                            if (!s)
+                                continue;
                             a = i.call(this, o)
                         }
                         e.call(this, a, u)
                     }
                     r && c && r.call(this, c)
                 }
-
                 function v(t) {
                     t.stop()
                 }
-
                 function h(t, e) {
                     t.set(e)
                 }
-
                 function g(t) {
                     this.$el.css(t)
                 }
-
                 function I(t, n) {
                     e[t] = function() {
                         return this.children ? function(t, e) {
-                            var n, r = this.children.length;
-                            for (n = 0; r > n; n++) t.apply(this.children[n], e);
+                            var n,
+                                r = this.children.length;
+                            for (n = 0; r > n; n++)
+                                t.apply(this.children[n], e);
                             return this
                         }.call(this, n, arguments) : (this.el && n.apply(this, arguments), this)
                     }
@@ -1591,7 +1603,7 @@
                     return this.active ? (this.queue.push({
                         options: t,
                         args: arguments
-                    }), void(this.timer.complete = a)) : s("No active transition timer. Use start() or wait() before then().")
+                    }), void (this.timer.complete = a)) : s("No active transition timer. Use start() or wait() before then().")
                 }), I("next", a), I("stop", u), I("set", function(t) {
                     u.call(this, t), p.call(this, t, h, g)
                 }), I("show", function(t) {
@@ -1607,8 +1619,10 @@
                 }
                 e.init = function(e, r) {
                     var i = t(e);
-                    if (!i.length) return this;
-                    if (1 === i.length) return n(i[0], r);
+                    if (!i.length)
+                        return this;
+                    if (1 === i.length)
+                        return n(i[0], r);
                     var o = [];
                     return i.each(function(t, e) {
                         o.push(n(e, r))
@@ -1622,7 +1636,6 @@
                     var e = this.get();
                     return this.update(t), e
                 }
-
                 function n(t) {
                     var e = /rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(t);
                     return (e ? o(e[1], e[2], e[3]) : t).replace(/#(\w)(\w)(\w)$/, "#$1$1$2$2$3$3")
@@ -1660,41 +1673,55 @@
                     var t = this.tween;
                     t && t.context && t.destroy()
                 }, t.convert = function(t, e) {
-                    if ("auto" == t && this.auto) return t;
-                    var i, o = "number" == typeof t,
+                    if ("auto" == t && this.auto)
+                        return t;
+                    var i,
+                        o = "number" == typeof t,
                         a = "string" == typeof t;
                     switch (e) {
-                        case g:
-                            if (o) return t;
-                            if (a && "" === t.replace(h, "")) return +t;
-                            i = "number(unitless)";
-                            break;
-                        case I:
-                            if (a) {
-                                if ("" === t && this.original) return this.original;
-                                if (e.test(t)) return "#" == t.charAt(0) && 7 == t.length ? t : n(t)
-                            }
-                            i = "hex or rgb string";
-                            break;
-                        case T:
-                            if (o) return t + this.unit;
-                            if (a && e.test(t)) return t;
-                            i = "number(px) or string(unit)";
-                            break;
-                        case y:
-                            if (o) return t + this.unit;
-                            if (a && e.test(t)) return t;
-                            i = "number(px) or string(unit or %)";
-                            break;
-                        case m:
-                            if (o) return t + this.angle;
-                            if (a && e.test(t)) return t;
-                            i = "number(deg) or string(angle)";
-                            break;
-                        case O:
-                            if (o) return t;
-                            if (a && y.test(t)) return t;
-                            i = "number(unitless) or string(unit or %)"
+                    case g:
+                        if (o)
+                            return t;
+                        if (a && "" === t.replace(h, ""))
+                            return +t;
+                        i = "number(unitless)";
+                        break;
+                    case I:
+                        if (a) {
+                            if ("" === t && this.original)
+                                return this.original;
+                            if (e.test(t))
+                                return "#" == t.charAt(0) && 7 == t.length ? t : n(t)
+                        }
+                        i = "hex or rgb string";
+                        break;
+                    case T:
+                        if (o)
+                            return t + this.unit;
+                        if (a && e.test(t))
+                            return t;
+                        i = "number(px) or string(unit)";
+                        break;
+                    case y:
+                        if (o)
+                            return t + this.unit;
+                        if (a && e.test(t))
+                            return t;
+                        i = "number(px) or string(unit or %)";
+                        break;
+                    case O:
+                        if (o)
+                            return t + this.angle;
+                        if (a && e.test(t))
+                            return t;
+                        i = "number(deg) or string(angle)";
+                        break;
+                    case m:
+                        if (o)
+                            return t;
+                        if (a && y.test(t))
+                            return t;
+                        i = "number(unitless) or string(unit or %)"
                     }
                     return function(t, e) {
                         s("Type warning: Expected: [" + t + "] Got: [" + (0, r.default)(e) + "] " + e)
@@ -1703,12 +1730,12 @@
                     this.el.offsetHeight
                 }
             }),
-            V = f(j, function(t, e) {
+            U = f(j, function(t, e) {
                 t.init = function() {
                     e.init.apply(this, arguments), this.original || (this.original = this.convert(this.get(), I))
                 }
             }),
-            U = f(j, function(t, e) {
+            V = f(j, function(t, e) {
                 t.init = function() {
                     e.init.apply(this, arguments), this.animate = this.fallback
                 }, t.get = function() {
@@ -1719,8 +1746,13 @@
             }),
             X = f(j, function(t, e) {
                 function n(t, e) {
-                    var n, r, i, o, a;
-                    for (n in t) i = (o = q[n])[0], r = o[1] || n, a = this.convert(t[n], i), e.call(this, r, a, i)
+                    var n,
+                        r,
+                        i,
+                        o,
+                        a;
+                    for (n in t)
+                        i = (o = q[n])[0], r = o[1] || n, a = this.convert(t[n], i), e.call(this, r, a, i)
                 }
                 t.init = function() {
                     e.init.apply(this, arguments), this.current || (this.current = {}, q.perspective && H.perspective && (this.current.perspective = H.perspective, Y(this.el, this.name, this.style(this.current)), this.redraw()))
@@ -1737,8 +1769,10 @@
                         delay: this.delay,
                         ease: this.ease
                     });
-                    var n, r = {};
-                    for (n in this.current) r[n] = n in e ? e[n] : this.current[n];
+                    var n,
+                        r = {};
+                    for (n in this.current)
+                        r[n] = n in e ? e[n] : this.current[n];
                     this.active = !0, this.nextStyle = this.style(r)
                 }, t.fallback = function(t) {
                     var e = this.values(t);
@@ -1754,11 +1788,14 @@
                 }, t.update = function() {
                     Y(this.el, this.name, this.style(this.current))
                 }, t.style = function(t) {
-                    var e, n = "";
-                    for (e in t) n += e + "(" + t[e] + ") ";
+                    var e,
+                        n = "";
+                    for (e in t)
+                        n += e + "(" + t[e] + ") ";
                     return n
                 }, t.values = function(t) {
-                    var e, r = {};
+                    var e,
+                        r = {};
                     return n.call(this, t, function(t, n, i) {
                         r[t] = n, void 0 === this.current[t] && (e = 0, ~t.indexOf("scale") && (e = 1), this.current[t] = this.convert(e, i))
                     }), r
@@ -1766,9 +1803,13 @@
             }),
             k = f(function(e) {
                 function n() {
-                    var t, e, r, i = c.length;
+                    var t,
+                        e,
+                        r,
+                        i = c.length;
                     if (i)
-                        for (P(n), e = M(), t = i; t--;)(r = c[t]) && r.render(e)
+                        for (P(n), e = M(), t = i; t--;)
+                            (r = c[t]) && r.render(e)
                 }
                 var r = {
                     ease: l.ease[1],
@@ -1786,12 +1827,16 @@
                     var t;
                     this.active || (this.start || (this.start = M()), this.active = !0, t = this, 1 === c.push(t) && P(n))
                 }, e.stop = function() {
-                    var e, n, r;
+                    var e,
+                        n,
+                        r;
                     this.active && (this.active = !1, e = this, (r = t.inArray(e, c)) >= 0 && (n = c.slice(r + 1), c.length = r, n.length && (c = c.concat(n))))
                 }, e.render = function(t) {
-                    var e, n = t - this.start;
+                    var e,
+                        n = t - this.start;
                     if (this.delay) {
-                        if (n <= this.delay) return;
+                        if (n <= this.delay)
+                            return;
                         n -= this.delay
                     }
                     if (n < this.duration) {
@@ -1804,7 +1849,8 @@
                     }
                     e = this.endHex || this.begin + this.change, this.value = e + this.unit, this.update.call(this.context, this.value), this.complete.call(this.context), this.destroy()
                 }, e.format = function(t, e) {
-                    if (e += "", "#" == (t += "").charAt(0)) return this.startRGB = i(e), this.endRGB = i(t), this.endHex = t, this.begin = 0, void(this.change = 1);
+                    if (e += "", "#" == (t += "").charAt(0))
+                        return this.startRGB = i(e), this.endRGB = i(t), this.endHex = t, this.begin = 0, void (this.change = 1);
                     if (!this.unit) {
                         var n = e.replace(h, "");
                         n !== t.replace(h, "") && u("tween", e, t), this.unit = n
@@ -1825,25 +1871,31 @@
             }),
             B = f(k, function(t, e) {
                 t.init = function(t) {
-                    var e, n;
-                    for (e in this.context = t.context, this.update = t.update, this.tweens = [], this.current = t.current, t.values) n = t.values[e], this.current[e] !== n && this.tweens.push(new k({
-                        name: e,
-                        from: this.current[e],
-                        to: n,
-                        duration: t.duration,
-                        delay: t.delay,
-                        ease: t.ease,
-                        autoplay: !1
-                    }));
+                    var e,
+                        n;
+                    for (e in this.context = t.context, this.update = t.update, this.tweens = [], this.current = t.current, t.values)
+                        n = t.values[e], this.current[e] !== n && this.tweens.push(new k({
+                            name: e,
+                            from: this.current[e],
+                            to: n,
+                            duration: t.duration,
+                            delay: t.delay,
+                            ease: t.ease,
+                            autoplay: !1
+                        }));
                     this.play()
                 }, t.render = function(t) {
-                    var e, n, r = !1;
-                    for (e = this.tweens.length; e--;)(n = this.tweens[e]).context && (n.render(t), this.current[n.name] = n.value, r = !0);
-                    return r ? void(this.update && this.update.call(this.context)) : this.destroy()
+                    var e,
+                        n,
+                        r = !1;
+                    for (e = this.tweens.length; e--;)
+                        (n = this.tweens[e]).context && (n.render(t), this.current[n.name] = n.value, r = !0);
+                    return r ? void (this.update && this.update.call(this.context)) : this.destroy()
                 }, t.destroy = function() {
                     if (e.destroy.call(this), this.tweens) {
                         var t;
-                        for (t = this.tweens.length; t--;) this.tweens[t].destroy();
+                        for (t = this.tweens.length; t--;)
+                            this.tweens[t].destroy();
                         this.tweens = null, this.current = null
                     }
                 }
@@ -1859,7 +1911,8 @@
                 agentTests: []
             };
         e.fallback = function(t) {
-            if (!L.transition) return H.fallback = !0;
+            if (!L.transition)
+                return H.fallback = !0;
             H.agentTests.push("(" + t + ")");
             var e = new RegExp(H.agentTests.join("|"), "i");
             H.fallback = e.test(navigator.userAgent)
@@ -1880,14 +1933,14 @@
                 transform: L.transform && L.transform.css
             },
             Q = {
-                color: [V, I],
-                background: [V, I, "background-color"],
-                "outline-color": [V, I],
-                "border-color": [V, I],
-                "border-top-color": [V, I],
-                "border-right-color": [V, I],
-                "border-bottom-color": [V, I],
-                "border-left-color": [V, I],
+                color: [U, I],
+                background: [U, I, "background-color"],
+                "outline-color": [U, I],
+                "border-color": [U, I],
+                "border-top-color": [U, I],
+                "border-right-color": [U, I],
+                "border-bottom-color": [U, I],
+                "border-left-color": [U, I],
                 "border-width": [j, T],
                 "border-top-width": [j, T],
                 "border-right-width": [j, T],
@@ -1920,24 +1973,24 @@
                 height: [j, y],
                 "min-height": [j, y],
                 "max-height": [j, y],
-                "line-height": [j, O],
-                "scroll-top": [U, g, "scrollTop"],
-                "scroll-left": [U, g, "scrollLeft"]
+                "line-height": [j, m],
+                "scroll-top": [V, g, "scrollTop"],
+                "scroll-left": [V, g, "scrollLeft"]
             },
             q = {};
         L.transform && (Q.transform = [X], q = {
             x: [y, "translateX"],
             y: [y, "translateY"],
-            rotate: [m],
-            rotateX: [m],
-            rotateY: [m],
+            rotate: [O],
+            rotateX: [O],
+            rotateY: [O],
             scale: [g],
             scaleX: [g],
             scaleY: [g],
-            skew: [m],
-            skewX: [m],
-            skewY: [m]
-        }), L.transform && L.backface && (q.z = [y, "translateZ"], q.rotateZ = [m], q.scaleZ = [g], q.perspective = [T]);
+            skew: [O],
+            skewX: [O],
+            skewY: [O]
+        }), L.transform && L.backface && (q.z = [y, "translateZ"], q.rotateZ = [O], q.scaleZ = [g], q.perspective = [T]);
         var $ = /ms/,
             Z = /s|\./;
         return t.tram = e
@@ -1979,9 +2032,11 @@
         f = c.hasOwnProperty,
         l = s.call(Object);
     e.default = function(t) {
-        if (!Object(o.default)(t) || Object(r.default)(t) != a) return !1;
+        if (!Object(o.default)(t) || Object(r.default)(t) != a)
+            return !1;
         var e = Object(i.default)(t);
-        if (null === e) return !0;
+        if (null === e)
+            return !0;
         var n = f.call(e, "constructor") && e.constructor;
         return "function" == typeof n && n instanceof n && s.call(n) == l
     }
@@ -1997,28 +2052,29 @@
     });
     var r = n(28);
     n(56), n(59);
-
     function i(t, e) {
         var n = e && e.type;
         return "Given action " + (n && '"' + n.toString() + '"' || "an action") + ', reducer "' + t + '" returned undefined. To ignore an action, you must explicitly return the previous state.'
     }
-
     function o(t) {
         for (var e = Object.keys(t), n = {}, o = 0; o < e.length; o++) {
             var a = e[o];
             0, "function" == typeof t[a] && (n[a] = t[a])
         }
-        var u, c = Object.keys(n);
+        var u,
+            c = Object.keys(n);
         try {
-            ! function(t) {
+            !function(t) {
                 Object.keys(t).forEach(function(e) {
                     var n = t[e];
                     if (void 0 === n(void 0, {
-                            type: r.ActionTypes.INIT
-                        })) throw new Error('Reducer "' + e + '" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state. The initial state may not be undefined.');
+                        type: r.ActionTypes.INIT
+                    }))
+                        throw new Error('Reducer "' + e + '" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state. The initial state may not be undefined.');
                     if (void 0 === n(void 0, {
-                            type: "@@redux/PROBE_UNKNOWN_ACTION_" + Math.random().toString(36).substring(7).split("").join(".")
-                        })) throw new Error('Reducer "' + e + "\" returned undefined when probed with a random type. Don't try to handle " + r.ActionTypes.INIT + ' or other actions in "redux/*" namespace. They are considered private. Instead, you must return the current state for any unknown actions, unless it is undefined, in which case you must return the initial state, regardless of the action type. The initial state may not be undefined.')
+                        type: "@@redux/PROBE_UNKNOWN_ACTION_" + Math.random().toString(36).substring(7).split("").join(".")
+                    }))
+                        throw new Error('Reducer "' + e + "\" returned undefined when probed with a random type. Don't try to handle " + r.ActionTypes.INIT + ' or other actions in "redux/*" namespace. They are considered private. Instead, you must return the current state for any unknown actions, unless it is undefined, in which case you must return the initial state, regardless of the action type. The initial state may not be undefined.')
                 })
             }(n)
         } catch (t) {
@@ -2027,7 +2083,8 @@
         return function() {
             var t = arguments.length <= 0 || void 0 === arguments[0] ? {} : arguments[0],
                 e = arguments[1];
-            if (u) throw u;
+            if (u)
+                throw u;
             for (var r = !1, o = {}, a = 0; a < c.length; a++) {
                 var s = c[a],
                     f = n[s],
@@ -2044,7 +2101,6 @@
     }
 }, function(t, e, n) {
     "use strict";
-
     function r(t) {
         "undefined" != typeof console && "function" == typeof console.error && console.error(t);
         try {
@@ -2056,16 +2112,16 @@
     })
 }, function(t, e, n) {
     "use strict";
-
     function r(t, e) {
         return function() {
             return e(t.apply(void 0, arguments))
         }
     }
-
     function i(t, e) {
-        if ("function" == typeof t) return r(t, e);
-        if ("object" != typeof t || null === t) throw new Error("bindActionCreators expected an object or a function, instead received " + (null === t ? "null" : typeof t) + '. Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
+        if ("function" == typeof t)
+            return r(t, e);
+        if ("object" != typeof t || null === t)
+            throw new Error("bindActionCreators expected an object or a function, instead received " + (null === t ? "null" : typeof t) + '. Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
         for (var n = Object.keys(t), i = {}, o = 0; o < n.length; o++) {
             var a = n[o],
                 u = t[a];
@@ -2085,16 +2141,18 @@
         i = Object.assign || function(t) {
             for (var e = 1; e < arguments.length; e++) {
                 var n = arguments[e];
-                for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (t[r] = n[r])
+                for (var r in n)
+                    Object.prototype.hasOwnProperty.call(n, r) && (t[r] = n[r])
             }
             return t
         };
-
     function o() {
-        for (var t = arguments.length, e = Array(t), n = 0; n < t; n++) e[n] = arguments[n];
+        for (var t = arguments.length, e = Array(t), n = 0; n < t; n++)
+            e[n] = arguments[n];
         return function(t) {
             return function(n, o, a) {
-                var u, c = t(n, o, a),
+                var u,
+                    c = t(n, o, a),
                     s = c.dispatch,
                     f = {
                         getState: c.getState,
@@ -2137,7 +2195,6 @@
         a = n(130),
         u = n(131),
         c = n(132);
-
     function s(t) {
         var e = this.__data__ = new r(t);
         this.size = e.size
@@ -2151,7 +2208,8 @@
         u = "[object GeneratorFunction]",
         c = "[object Proxy]";
     t.exports = function(t) {
-        if (!i(t)) return !1;
+        if (!i(t))
+            return !1;
         var e = r(t);
         return e == a || e == u || e == o || e == c
     }
@@ -2189,25 +2247,30 @@
         var l = n & a,
             d = t.length,
             p = e.length;
-        if (d != p && !(l && p > d)) return !1;
+        if (d != p && !(l && p > d))
+            return !1;
         var v = f.get(t);
-        if (v && f.get(e)) return v == e;
+        if (v && f.get(e))
+            return v == e;
         var E = -1,
             h = !0,
             _ = n & u ? new r : void 0;
         for (f.set(t, e), f.set(e, t); ++E < d;) {
             var g = t[E],
                 I = e[E];
-            if (c) var T = l ? c(I, g, E, e, t, f) : c(g, I, E, t, e, f);
+            if (c)
+                var T = l ? c(I, g, E, e, t, f) : c(g, I, E, t, e, f);
             if (void 0 !== T) {
-                if (T) continue;
+                if (T)
+                    continue;
                 h = !1;
                 break
             }
             if (_) {
                 if (!i(e, function(t, e) {
-                        if (!o(_, e) && (g === t || s(g, t, n, c, f))) return _.push(e)
-                    })) {
+                    if (!o(_, e) && (g === t || s(g, t, n, c, f)))
+                        return _.push(e)
+                })) {
                     h = !1;
                     break
                 }
@@ -2256,7 +2319,8 @@
             p = n || f || l || d,
             v = p ? r(t.length, String) : [],
             E = v.length;
-        for (var h in t) !e && !s.call(t, h) || p && ("length" == h || l && ("offset" == h || "parent" == h) || d && ("buffer" == h || "byteLength" == h || "byteOffset" == h) || u(h, E)) || v.push(h);
+        for (var h in t)
+            !e && !s.call(t, h) || p && ("length" == h || l && ("offset" == h || "parent" == h) || d && ("buffer" == h || "byteLength" == h || "byteOffset" == h) || u(h, E)) || v.push(h);
         return v
     }
 }, function(t, e) {
@@ -2307,15 +2371,19 @@
         c = r ? r.prototype : void 0,
         s = c ? c.toString : void 0;
     t.exports = function t(e) {
-        if ("string" == typeof e) return e;
-        if (o(e)) return i(e, t) + "";
-        if (a(e)) return s ? s.call(e) : "";
+        if ("string" == typeof e)
+            return e;
+        if (o(e))
+            return i(e, t) + "";
+        if (a(e))
+            return s ? s.call(e) : "";
         var n = e + "";
         return "0" == n && 1 / e == -u ? "-0" : n
     }
 }, function(t, e) {
     t.exports = function(t, e) {
-        for (var n = -1, r = null == t ? 0 : t.length, i = Array(r); ++n < r;) i[n] = e(t[n], n, t);
+        for (var n = -1, r = null == t ? 0 : t.length, i = Array(r); ++n < r;)
+            i[n] = e(t[n], n, t);
         return i
     }
 }, function(t, e) {
@@ -2327,7 +2395,8 @@
 }, function(t, e) {
     t.exports = function(t, e, n, r) {
         for (var i = t.length, o = n + (r ? 1 : -1); r ? o-- : ++o < i;)
-            if (e(t[o], o, t)) return o;
+            if (e(t[o], o, t))
+                return o;
         return -1
     }
 }, function(t, e, n) {
@@ -2340,28 +2409,32 @@
     }, e.outQuad = function(t) {
         return -(Math.pow(t - 1, 2) - 1)
     }, e.inOutQuad = function(t) {
-        if ((t /= .5) < 1) return .5 * Math.pow(t, 2);
+        if ((t /= .5) < 1)
+            return .5 * Math.pow(t, 2);
         return -.5 * ((t -= 2) * t - 2)
     }, e.inCubic = function(t) {
         return Math.pow(t, 3)
     }, e.outCubic = function(t) {
         return Math.pow(t - 1, 3) + 1
     }, e.inOutCubic = function(t) {
-        if ((t /= .5) < 1) return .5 * Math.pow(t, 3);
+        if ((t /= .5) < 1)
+            return .5 * Math.pow(t, 3);
         return .5 * (Math.pow(t - 2, 3) + 2)
     }, e.inQuart = function(t) {
         return Math.pow(t, 4)
     }, e.outQuart = function(t) {
         return -(Math.pow(t - 1, 4) - 1)
     }, e.inOutQuart = function(t) {
-        if ((t /= .5) < 1) return .5 * Math.pow(t, 4);
+        if ((t /= .5) < 1)
+            return .5 * Math.pow(t, 4);
         return -.5 * ((t -= 2) * Math.pow(t, 3) - 2)
     }, e.inQuint = function(t) {
         return Math.pow(t, 5)
     }, e.outQuint = function(t) {
         return Math.pow(t - 1, 5) + 1
     }, e.inOutQuint = function(t) {
-        if ((t /= .5) < 1) return .5 * Math.pow(t, 5);
+        if ((t /= .5) < 1)
+            return .5 * Math.pow(t, 5);
         return .5 * (Math.pow(t - 2, 5) + 2)
     }, e.inSine = function(t) {
         return 1 - Math.cos(t * (Math.PI / 2))
@@ -2374,16 +2447,20 @@
     }, e.outExpo = function(t) {
         return 1 === t ? 1 : 1 - Math.pow(2, -10 * t)
     }, e.inOutExpo = function(t) {
-        if (0 === t) return 0;
-        if (1 === t) return 1;
-        if ((t /= .5) < 1) return .5 * Math.pow(2, 10 * (t - 1));
+        if (0 === t)
+            return 0;
+        if (1 === t)
+            return 1;
+        if ((t /= .5) < 1)
+            return .5 * Math.pow(2, 10 * (t - 1));
         return .5 * (2 - Math.pow(2, -10 * --t))
     }, e.inCirc = function(t) {
         return -(Math.sqrt(1 - t * t) - 1)
     }, e.outCirc = function(t) {
         return Math.sqrt(1 - Math.pow(t - 1, 2))
     }, e.inOutCirc = function(t) {
-        if ((t /= .5) < 1) return -.5 * (Math.sqrt(1 - t * t) - 1);
+        if ((t /= .5) < 1)
+            return -.5 * (Math.sqrt(1 - t * t) - 1);
         return .5 * (Math.sqrt(1 - (t -= 2) * t) + 1)
     }, e.outBounce = function(t) {
         return t < 1 / 2.75 ? 7.5625 * t * t : t < 2 / 2.75 ? 7.5625 * (t -= 1.5 / 2.75) * t + .75 : t < 2.5 / 2.75 ? 7.5625 * (t -= 2.25 / 2.75) * t + .9375 : 7.5625 * (t -= 2.625 / 2.75) * t + .984375
@@ -2393,14 +2470,17 @@
         return (t -= 1) * t * ((o + 1) * t + o) + 1
     }, e.inOutBack = function(t) {
         var e = o;
-        if ((t /= .5) < 1) return t * t * ((1 + (e *= 1.525)) * t - e) * .5;
+        if ((t /= .5) < 1)
+            return t * t * ((1 + (e *= 1.525)) * t - e) * .5;
         return .5 * ((t -= 2) * t * ((1 + (e *= 1.525)) * t + e) + 2)
     }, e.inElastic = function(t) {
         var e = o,
             n = 0,
             r = 1;
-        if (0 === t) return 0;
-        if (1 === t) return 1;
+        if (0 === t)
+            return 0;
+        if (1 === t)
+            return 1;
         n || (n = .3);
         r < 1 ? (r = 1, e = n / 4) : e = n / (2 * Math.PI) * Math.asin(1 / r);
         return -r * Math.pow(2, 10 * (t -= 1)) * Math.sin((t - e) * (2 * Math.PI) / n)
@@ -2408,8 +2488,10 @@
         var e = o,
             n = 0,
             r = 1;
-        if (0 === t) return 0;
-        if (1 === t) return 1;
+        if (0 === t)
+            return 0;
+        if (1 === t)
+            return 1;
         n || (n = .3);
         r < 1 ? (r = 1, e = n / 4) : e = n / (2 * Math.PI) * Math.asin(1 / r);
         return r * Math.pow(2, -10 * t) * Math.sin((t - e) * (2 * Math.PI) / n) + 1
@@ -2417,11 +2499,14 @@
         var e = o,
             n = 0,
             r = 1;
-        if (0 === t) return 0;
-        if (2 == (t /= .5)) return 1;
+        if (0 === t)
+            return 0;
+        if (2 == (t /= .5))
+            return 1;
         n || (n = .3 * 1.5);
         r < 1 ? (r = 1, e = n / 4) : e = n / (2 * Math.PI) * Math.asin(1 / r);
-        if (t < 1) return r * Math.pow(2, 10 * (t -= 1)) * Math.sin((t - e) * (2 * Math.PI) / n) * -.5;
+        if (t < 1)
+            return r * Math.pow(2, 10 * (t -= 1)) * Math.sin((t - e) * (2 * Math.PI) / n) * -.5;
         return r * Math.pow(2, -10 * (t -= 1)) * Math.sin((t - e) * (2 * Math.PI) / n) * .5 + 1
     }, e.swingFromTo = function(t) {
         var e = o;
@@ -2453,45 +2538,45 @@
         a = 11,
         u = 1 / (a - 1),
         c = "function" == typeof Float32Array;
-
     function s(t, e) {
         return 1 - 3 * e + 3 * t
     }
-
     function f(t, e) {
         return 3 * e - 6 * t
     }
-
     function l(t) {
         return 3 * t
     }
-
     function d(t, e, n) {
         return ((s(e, n) * t + f(e, n)) * t + l(e)) * t
     }
-
     function p(t, e, n) {
         return 3 * s(e, n) * t * t + 2 * f(e, n) * t + l(e)
     }
     t.exports = function(t, e, s, f) {
-        if (!(0 <= t && t <= 1 && 0 <= s && s <= 1)) throw new Error("bezier x values must be in [0, 1] range");
+        if (!(0 <= t && t <= 1 && 0 <= s && s <= 1))
+            throw new Error("bezier x values must be in [0, 1] range");
         var l = c ? new Float32Array(a) : new Array(a);
         if (t !== e || s !== f)
-            for (var v = 0; v < a; ++v) l[v] = d(v * u, t, s);
-
+            for (var v = 0; v < a; ++v)
+                l[v] = d(v * u, t, s);
         function E(e) {
-            for (var c = 0, f = 1, v = a - 1; f !== v && l[f] <= e; ++f) c += u;
+            for (var c = 0, f = 1, v = a - 1; f !== v && l[f] <= e; ++f)
+                c += u;
             var E = c + (e - l[--f]) / (l[f + 1] - l[f]) * u,
                 h = p(E, t, s);
             return h >= r ? function(t, e, r, i) {
                 for (var o = 0; o < n; ++o) {
                     var a = p(e, r, i);
-                    if (0 === a) return e;
+                    if (0 === a)
+                        return e;
                     e -= (d(e, r, i) - t) / a
                 }
                 return e
             }(e, E, t, s) : 0 === h ? E : function(t, e, n, r, a) {
-                var u, c, s = 0;
+                var u,
+                    c,
+                    s = 0;
                 do {
                     (u = d(c = e + (n - e) / 2, r, a) - t) > 0 ? n = c : e = c
                 } while (Math.abs(u) > i && ++s < o);
@@ -2512,14 +2597,16 @@
     }), e.optimizeFloat = c, e.createBezierEasing = function(t) {
         return u.default.apply(void 0, (0, r.default)(t))
     }, e.applyEasing = function(t, e, n) {
-        if (0 === e) return 0;
-        if (1 === e) return 1;
-        if (n) return c(e > 0 ? n(e) : e);
+        if (0 === e)
+            return 0;
+        if (1 === e)
+            return 1;
+        if (n)
+            return c(e > 0 ? n(e) : e);
         return c(e > 0 && t && a[t] ? a[t](e) : e)
     };
     var a = o(n(84)),
         u = i(n(85));
-
     function c(t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 5,
             n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 10,
@@ -2616,13 +2703,16 @@
         });
     var c = function(t) {
             return function(e) {
-                if (!a.IS_BROWSER_ENV) return function() {
-                    return null
-                };
+                if (!a.IS_BROWSER_ENV)
+                    return function() {
+                        return null
+                    };
                 var n = u[e];
-                if (!n) throw new Error("IX2 no plugin configured for: ".concat(e));
+                if (!n)
+                    throw new Error("IX2 no plugin configured for: ".concat(e));
                 var r = n[t];
-                if (!r) throw new Error("IX2 invalid plugin method: ".concat(t));
+                if (!r)
+                    throw new Error("IX2 invalid plugin method: ".concat(t));
                 return r
             }
         },
@@ -2653,7 +2743,8 @@
 }, function(t, e, n) {
     "use strict";
     e.__esModule = !0;
-    var r, i = n(203),
+    var r,
+        i = n(203),
         o = (r = i) && r.__esModule ? r : {
             default: r
         };
@@ -2695,7 +2786,7 @@
             },
             onChange: ft
         })
-    }, e.startEngine = lt, e.stopEngine = dt, e.stopAllActionGroups = Tt, e.stopActionGroup = yt, e.startActionGroup = mt;
+    }, e.startEngine = lt, e.stopEngine = dt, e.stopAllActionGroups = Tt, e.stopActionGroup = yt, e.startActionGroup = Ot;
     var a = o(n(26)),
         u = o(n(208)),
         c = o(n(62)),
@@ -2712,9 +2803,9 @@
         I = n(50),
         T = i(n(237)),
         y = o(n(238)),
-        m = g.IX2EngineEventTypes,
-        O = m.MOUSE_CLICK,
-        A = m.MOUSE_SECOND_CLICK,
+        O = g.IX2EngineEventTypes,
+        m = O.MOUSE_CLICK,
+        A = O.MOUSE_SECOND_CLICK,
         S = g.IX2EngineConstants,
         R = S.COLON_DELIMITER,
         b = S.BOUNDARY_SELECTOR,
@@ -2729,8 +2820,8 @@
         F = P.getElementId,
         G = P.getDestinationValues,
         j = P.observeStore,
-        V = P.getInstanceId,
-        U = P.renderHTMLElement,
+        U = P.getInstanceId,
+        V = P.renderHTMLElement,
         X = P.clearAllStyles,
         k = P.getMaxDurationItemIndex,
         W = P.getComputedStyle,
@@ -2749,7 +2840,6 @@
         nt = navigator.userAgent,
         rt = nt.match(/iPad/i) || nt.match(/iPhone/),
         it = 12;
-
     function ot(t, e) {
         var n = t.rawData,
             r = function() {
@@ -2761,15 +2851,12 @@
             };
         t.defer ? setTimeout(r, 0) : r()
     }
-
     function at() {
         document.dispatchEvent(new CustomEvent("IX2_PAGE_UPDATE"))
     }
-
     function ut(t) {
         return t && (0, E.default)(t, "_EFFECT")
     }
-
     function ct(t, e) {
         var n = t.actionTypeId,
             r = t.actionListId,
@@ -2781,16 +2868,20 @@
             s = t.verbose,
             f = void 0 === s || s,
             l = t.rawData;
-        if (r && i && l && u && (l = H({
-                actionListId: r,
+        if (r && i && l && u) {
+            var d = l.actionLists[r];
+            d && (l = H({
+                actionList: d,
                 actionItemId: i,
                 rawData: l
-            })), lt({
-                store: e,
-                rawData: l,
-                allowEvents: a,
-                testManual: c
-            }), r && n === x || ut(n)) {
+            }))
+        }
+        if (lt({
+            store: e,
+            rawData: l,
+            allowEvents: a,
+            testManual: c
+        }), r && n === x || ut(n)) {
             yt({
                 store: e,
                 actionListId: r
@@ -2799,20 +2890,19 @@
                 actionListId: r,
                 eventId: o
             });
-            var d = mt({
+            var p = Ot({
                 store: e,
                 eventId: o,
                 actionListId: r,
                 immediate: u,
                 verbose: f
             });
-            f && d && e.dispatch((0, I.actionListPlaybackChanged)({
+            f && p && e.dispatch((0, I.actionListPlaybackChanged)({
                 actionListId: r,
                 isPlaying: !u
             }))
         }
     }
-
     function st(t, e) {
         var n = t.actionListId;
         n ? yt({
@@ -2822,16 +2912,15 @@
             store: e
         }), dt(e)
     }
-
     function ft(t, e) {
         dt(e), X({
             store: e,
             elementApi: T
         })
     }
-
     function lt(t) {
-        var e, n = t.store,
+        var e,
+            n = t.store,
             i = t.rawData,
             o = t.allowEvents,
             a = t.testManual,
@@ -2846,7 +2935,7 @@
                     var e = t.logic,
                         n = t.store,
                         i = t.events;
-                    ! function(t) {
+                    !function(t) {
                         if (rt) {
                             var e = {},
                                 n = "";
@@ -2855,7 +2944,7 @@
                                     o = i.eventTypeId,
                                     a = i.target,
                                     u = T.getQuerySelector(a);
-                                e[u] || o !== O && o !== A || (e[u] = !0, n += u + "{cursor: pointer;touch-action: manipulation;}")
+                                e[u] || o !== m && o !== A || (e[u] = !0, n += u + "{cursor: pointer;touch-action: manipulation;}")
                             }
                             if (n) {
                                 var c = document.createElement("style");
@@ -2889,7 +2978,7 @@
                                         d = (e.restingState || 0) / 100;
                                     a && t.forEach(function(t, i) {
                                         var o = f + R + i;
-                                        ! function(t) {
+                                        !function(t) {
                                             var e = t.store,
                                                 n = t.eventStateKey,
                                                 i = t.eventTarget,
@@ -2908,9 +2997,9 @@
                                                 g = {},
                                                 I = [],
                                                 y = c.continuousActionGroups,
-                                                m = c.id;
-                                            Y(h, a) && (m = z(n, m));
-                                            var O = v.hasBoundaryNodes && i ? T.getClosestElement(i, b) : null;
+                                                O = c.id;
+                                            Y(h, a) && (O = z(n, O));
+                                            var m = v.hasBoundaryNodes && i ? T.getClosestElement(i, b) : null;
                                             y.forEach(function(t) {
                                                 var e = t.keyframe,
                                                     n = t.actionItems;
@@ -2918,20 +3007,21 @@
                                                     var n = t.actionTypeId,
                                                         o = t.config.target;
                                                     if (o) {
-                                                        var a = o.boundaryMode ? O : null,
+                                                        var a = o.boundaryMode ? m : null,
                                                             u = q(o) + R + n;
                                                         if (g[u] = function() {
-                                                                var t, e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
-                                                                    n = arguments.length > 1 ? arguments[1] : void 0,
-                                                                    i = arguments.length > 2 ? arguments[2] : void 0,
-                                                                    o = (0, r.default)(e);
-                                                                return o.some(function(e, r) {
-                                                                    return e.keyframe === n && (t = r, !0)
-                                                                }), null == t && (t = o.length, o.push({
-                                                                    keyframe: n,
-                                                                    actionItems: []
-                                                                })), o[t].actionItems.push(i), o
-                                                            }(g[u], e, t), !_[u]) {
+                                                            var t,
+                                                                e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
+                                                                n = arguments.length > 1 ? arguments[1] : void 0,
+                                                                i = arguments.length > 2 ? arguments[2] : void 0,
+                                                                o = (0, r.default)(e);
+                                                            return o.some(function(e, r) {
+                                                                return e.keyframe === n && (t = r, !0)
+                                                            }), null == t && (t = o.length, o.push({
+                                                                keyframe: n,
+                                                                actionItems: []
+                                                            })), o[t].actionItems.push(i), o
+                                                        }(g[u], e, t), !_[u]) {
                                                             _[u] = !0;
                                                             var c = t.config;
                                                             M({
@@ -2961,7 +3051,7 @@
                                                         actionItem: a,
                                                         elementApi: T
                                                     }, d);
-                                                Ot({
+                                                mt({
                                                     store: e,
                                                     element: n,
                                                     eventId: o,
@@ -2969,7 +3059,7 @@
                                                     actionItem: a,
                                                     destination: p,
                                                     continuous: !0,
-                                                    parameterId: m,
+                                                    parameterId: O,
                                                     actionGroups: i,
                                                     smoothing: f,
                                                     restingValue: l,
@@ -2989,7 +3079,8 @@
                                         })
                                     })
                                 })
-                            }(a.actionTypeId === x || ut(a.actionTypeId)) && It({
+                            }
+                            (a.actionTypeId === x || ut(a.actionTypeId)) && It({
                                 store: n,
                                 actionListId: v,
                                 eventId: f
@@ -3020,7 +3111,8 @@
                                         if (l.actionTypeId === D) {
                                             var E = Array.isArray(s.config) ? s.config : [s.config];
                                             E.forEach(v)
-                                        } else v()
+                                        } else
+                                            v()
                                     }
                                 })
                             },
@@ -3067,7 +3159,7 @@
                 }
             })
         }(n)), n.dispatch((0, I.sessionStarted)()), function(t, e) {
-            ! function n(r) {
+            !function n(r) {
                 var i = t.getState(),
                     o = i.ixSession,
                     a = i.ixParameters;
@@ -3085,19 +3177,16 @@
             }(window.performance.now())
         }(n, a))
     }
-
     function dt(t) {
         var e = t.getState().ixSession;
         e.active && (e.eventListeners.forEach(pt), t.dispatch((0, I.sessionStopped)()))
     }
-
     function pt(t) {
         var e = t.target,
             n = t.listenerParams;
         e.removeEventListener.apply(e, n)
     }
     var vt = ["resize", "orientationchange"];
-
     function Et(t) {
         var e = t.getState(),
             n = e.ixSession,
@@ -3130,7 +3219,6 @@
                 elementApi: T
             })
         };
-
     function It(t) {
         var e = t.store,
             n = t.actionListId,
@@ -3144,7 +3232,8 @@
         if (f && f.useFirstGroupAsInitialState) {
             var l = (0, s.default)(f, "actionItemGroups[0].actionItems", []),
                 d = (0, s.default)(c, "mediaQueries", o.mediaQueryKeys);
-            if (!K(d, a.mediaQueryKey)) return;
+            if (!K(d, a.mediaQueryKey))
+                return;
             l.forEach(function(t) {
                 var i = t.config,
                     o = t.actionTypeId,
@@ -3156,7 +3245,7 @@
                     u = J(o);
                 a.forEach(function(i) {
                     var a = u ? tt(o)(i, t) : null;
-                    Ot({
+                    mt({
                         destination: G({
                             element: i,
                             actionItem: t,
@@ -3174,7 +3263,6 @@
             })
         }
     }
-
     function Tt(t) {
         var e = t.store,
             n = e.getState().ixInstances;
@@ -3189,7 +3277,6 @@
             }
         })
     }
-
     function yt(t) {
         var e = t.store,
             n = t.eventId,
@@ -3203,7 +3290,8 @@
             var r = (0, s.default)(t, "actionItem.config.target.boundaryMode"),
                 a = !i || t.eventStateKey === i;
             if (t.actionListId === o && t.eventId === n && a) {
-                if (c && r && !T.elementContains(c, t.element)) return;
+                if (c && r && !T.elementContains(c, t.element))
+                    return;
                 At(t, e), t.verbose && e.dispatch((0, I.actionListPlaybackChanged)({
                     actionListId: o,
                     isPlaying: !1
@@ -3211,8 +3299,7 @@
             }
         })
     }
-
-    function mt(t) {
+    function Ot(t) {
         var e = t.store,
             n = t.eventId,
             r = t.eventTarget,
@@ -3231,21 +3318,25 @@
             _ = (0, s.default)(d, "actionLists.".concat(o), {}),
             g = _.actionItemGroups,
             I = _.useFirstGroupAsInitialState;
+        if (!g || !g.length)
+            return !1;
         u >= g.length && (0, s.default)(v, "config.loop") && (u = 0), 0 === u && I && u++;
         var y = (0 === u || 1 === u && I) && ut(v.action && v.action.actionTypeId) ? v.config.delay : void 0,
-            m = (0, s.default)(g, [u, "actionItems"], []);
-        if (!m.length) return !1;
-        if (!K(h, p.mediaQueryKey)) return !1;
-        var O = p.hasBoundaryNodes && r ? T.getClosestElement(r, b) : null,
-            A = k(m),
+            O = (0, s.default)(g, [u, "actionItems"], []);
+        if (!O.length)
+            return !1;
+        if (!K(h, p.mediaQueryKey))
+            return !1;
+        var m = p.hasBoundaryNodes && r ? T.getClosestElement(r, b) : null,
+            A = k(O),
             S = !1;
-        return m.forEach(function(t, a) {
+        return O.forEach(function(t, a) {
             var s = t.config,
                 l = t.actionTypeId,
                 d = J(l),
                 p = s.target;
             if (p) {
-                var E = p.boundaryMode ? O : null;
+                var E = p.boundaryMode ? m : null;
                 M({
                     config: s,
                     event: v,
@@ -3266,7 +3357,7 @@
                             actionItem: t,
                             elementApi: T
                         }, v);
-                    Ot({
+                    mt({
                         store: e,
                         element: s,
                         actionItem: t,
@@ -3288,8 +3379,7 @@
             }
         }), S
     }
-
-    function Ot(t) {
+    function mt(t) {
         var e = t.store,
             n = t.computedStyle,
             r = (0, u.default)(t, ["store", "computedStyle"]),
@@ -3298,7 +3388,7 @@
             c = r.actionItem,
             s = r.immediate,
             f = r.pluginInstance,
-            l = V(),
+            l = U(),
             d = e.getState(),
             p = d.ixElements,
             v = d.ixSession,
@@ -3322,7 +3412,6 @@
             onChange: Rt
         }), i && e.dispatch((0, I.instanceStarted)(l, v.tick)))
     }
-
     function At(t, e) {
         St(document.body, "ix2-animation-stopping", {
             instanceId: t.id,
@@ -3334,12 +3423,10 @@
             o = i.ref;
         i.refType === w && Q(o, r, T), e.dispatch((0, I.instanceRemoved)(t.id))
     }
-
     function St(t, e, n) {
         var r = document.createEvent("CustomEvent");
         r.initCustomEvent(e, !0, !0, n), t.dispatchEvent(r)
     }
-
     function Rt(t, e) {
         var n = t.active,
             r = t.continuous,
@@ -3359,11 +3446,11 @@
             _ = t.verbose,
             g = t.pluginInstance,
             y = e.getState(),
-            m = y.ixData,
-            O = y.ixSession,
-            A = (m.events[l] || {}).mediaQueries,
-            S = void 0 === A ? m.mediaQueryKeys : A;
-        if (K(S, O.mediaQueryKey) && (r || n || i)) {
+            O = y.ixData,
+            m = y.ixSession,
+            A = (O.events[l] || {}).mediaQueries,
+            S = void 0 === A ? O.mediaQueryKeys : A;
+        if (K(S, m.mediaQueryKey) && (r || n || i)) {
             if (s || c === N && i) {
                 e.dispatch((0, I.elementStateChanged)(o, u, s, a));
                 var R = e.getState().ixElements[o] || {},
@@ -3372,13 +3459,13 @@
                     L = R.refState,
                     x = L && L[u];
                 switch (C) {
-                    case w:
-                        U(b, L, x, l, a, h, T, c, g)
+                case w:
+                    V(b, L, x, l, a, h, T, c, g)
                 }
             }
             if (i) {
                 if (E) {
-                    var D = mt({
+                    var D = Ot({
                         store: e,
                         eventId: l,
                         eventTarget: d,
@@ -3425,8 +3512,10 @@
         o = function() {
             function t() {}
             return function(e) {
-                if (!r(e)) return {};
-                if (i) return i(e);
+                if (!r(e))
+                    return {};
+                if (i)
+                    return i(e);
                 t.prototype = e;
                 var n = new t;
                 return t.prototype = void 0, n
@@ -3447,17 +3536,19 @@
         for (var e = t.name + "", n = r[e], o = i.call(r, e) ? n.length : 0; o--;) {
             var a = n[o],
                 u = a.func;
-            if (null == u || u == t) return a.name
+            if (null == u || u == t)
+                return a.name
         }
         return e
     }
 }, function(t, e, n) {
-    n(102), n(104), n(27), n(106), n(259), n(260), n(261), n(262), n(267), t.exports = n(268)
+    n(102), n(104), n(27), n(106), n(259), n(260), n(261), n(262), n(263), t.exports = n(268)
 }, function(t, e, n) {
     "use strict";
     var r = n(4);
     r.define("brand", t.exports = function(t) {
-        var e, n = {},
+        var e,
+            n = {},
             i = document,
             o = t("html"),
             a = t("body"),
@@ -3465,25 +3556,53 @@
             c = window.location,
             s = /PhantomJS/i.test(navigator.userAgent),
             f = "fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange";
-
         function l() {
             var n = i.fullScreen || i.mozFullScreen || i.webkitIsFullScreen || i.msFullscreenElement || Boolean(i.webkitFullscreenElement);
             t(e).attr("style", n ? "display: none !important;" : "")
         }
-
         function d() {
             var t = a.children(u),
                 n = t.length && t.get(0) === e,
                 i = r.env("editor");
             n ? i && t.remove() : (t.length && t.remove(), i || a.append(e))
         }
+        return n.ready = function() {
+            var n,
+                r,
+                a,
+                u = o.attr("data-wf-status"),
+                p = o.attr("data-wf-domain") || "";
+            /\.webflow\.io$/i.test(p) && c.hostname !== p && (u = !0), u && !s && (e = e || (n = t('<a class="w-webflow-badge"></a>').attr(), r = t("<img>").attr().attr("alt", "").css({
+                marginRight: "8px",
+                width: "16px"
+            }), a = t("<img>").attr().attr("alt", "Made in Webflow"), n.append(r, a), n[0]), d(), setTimeout(d, 500), t(i).off(f, l).on(f, l))
+        }, n
     })
 }, function(t, e, n) {
     "use strict";
     var r = window.$,
         i = n(54) && r.tram;
-
-
+    /*!
+ * Webflow._ (aka) Underscore.js 1.6.0 (custom build)
+ * _.each
+ * _.map
+ * _.find
+ * _.filter
+ * _.any
+ * _.contains
+ * _.delay
+ * _.defer
+ * _.throttle (webflow)
+ * _.debounce
+ * _.keys
+ * _.has
+ * _.now
+ *
+ * http://underscorejs.org
+ * (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Underscore may be freely distributed under the MIT license.
+ * @license MIT
+ */
     t.exports = function() {
         var t = {
                 VERSION: "1.6.0-Webflow"
@@ -3501,15 +3620,19 @@
             d = n.indexOf,
             p = (n.lastIndexOf, Array.isArray, Object.keys),
             v = (o.bind, t.each = t.forEach = function(n, r, i) {
-                if (null == n) return n;
-                if (c && n.forEach === c) n.forEach(r, i);
+                if (null == n)
+                    return n;
+                if (c && n.forEach === c)
+                    n.forEach(r, i);
                 else if (n.length === +n.length) {
                     for (var o = 0, a = n.length; o < a; o++)
-                        if (r.call(i, n[o], o, n) === e) return
+                        if (r.call(i, n[o], o, n) === e)
+                            return
                 } else {
                     var u = t.keys(n);
                     for (o = 0, a = u.length; o < a; o++)
-                        if (r.call(i, n[u[o]], u[o], n) === e) return
+                        if (r.call(i, n[u[o]], u[o], n) === e)
+                            return
                 }
                 return n
             });
@@ -3521,7 +3644,8 @@
         }, t.find = t.detect = function(t, e, n) {
             var r;
             return E(t, function(t, i, o) {
-                if (e.call(n, t, i, o)) return r = t, !0
+                if (e.call(n, t, i, o))
+                    return r = t, !0
             }), r
         }, t.filter = t.select = function(t, e, n) {
             var r = [];
@@ -3533,13 +3657,14 @@
             r || (r = t.identity);
             var o = !1;
             return null == n ? o : l && n.some === l ? n.some(r, i) : (v(n, function(t, n, a) {
-                if (o || (o = r.call(i, t, n, a))) return e
+                if (o || (o = r.call(i, t, n, a)))
+                    return e
             }), !!o)
         };
         t.contains = t.include = function(t, e) {
             return null != t && (d && t.indexOf === d ? -1 != t.indexOf(e) : E(t, function(t) {
-                return t === e
-            }))
+                    return t === e
+                }))
         }, t.delay = function(t, e) {
             var n = a.call(arguments, 2);
             return setTimeout(function() {
@@ -3548,34 +3673,46 @@
         }, t.defer = function(e) {
             return t.delay.apply(t, [e, 1].concat(a.call(arguments, 1)))
         }, t.throttle = function(t) {
-            var e, n, r;
+            var e,
+                n,
+                r;
             return function() {
                 e || (e = !0, n = arguments, r = this, i.frame(function() {
                     e = !1, t.apply(r, n)
                 }))
             }
         }, t.debounce = function(e, n, r) {
-            var i, o, a, u, c, s = function s() {
-                var f = t.now() - u;
-                f < n ? i = setTimeout(s, n - f) : (i = null, r || (c = e.apply(a, o), a = o = null))
-            };
+            var i,
+                o,
+                a,
+                u,
+                c,
+                s = function s() {
+                    var f = t.now() - u;
+                    f < n ? i = setTimeout(s, n - f) : (i = null, r || (c = e.apply(a, o), a = o = null))
+                };
             return function() {
                 a = this, o = arguments, u = t.now();
                 var f = r && !i;
                 return i || (i = setTimeout(s, n)), f && (c = e.apply(a, o), a = o = null), c
             }
         }, t.defaults = function(e) {
-            if (!t.isObject(e)) return e;
+            if (!t.isObject(e))
+                return e;
             for (var n = 1, r = arguments.length; n < r; n++) {
                 var i = arguments[n];
-                for (var o in i) void 0 === e[o] && (e[o] = i[o])
+                for (var o in i)
+                    void 0 === e[o] && (e[o] = i[o])
             }
             return e
         }, t.keys = function(e) {
-            if (!t.isObject(e)) return [];
-            if (p) return p(e);
+            if (!t.isObject(e))
+                return [];
+            if (p)
+                return p(e);
             var n = [];
-            for (var r in e) t.has(e, r) && n.push(r);
+            for (var r in e)
+                t.has(e, r) && n.push(r);
             return n
         }, t.has = function(t, e) {
             return u.call(t, e)
@@ -3625,54 +3762,53 @@
     "use strict";
     var r = n(4);
     r.define("edit", t.exports = function(t, e, n) {
-        if (n = n || {}, (r.env("test") || r.env("frame")) && !n.fixture && ! function() {
-                try {
-                    return window.top.__Cypress__
-                } catch (t) {
-                    return !1
-                }
-            }()) return {
-            exit: 1
-        };
-        var i, o = t(window),
+        if (n = n || {}, (r.env("test") || r.env("frame")) && !n.fixture && !function() {
+            try {
+                return window.top.__Cypress__
+            } catch (t) {
+                return !1
+            }
+        }())
+            return {
+                exit: 1
+            };
+        var i,
+            o = t(window),
             a = t(document.documentElement),
             u = document.location,
             c = "hashchange",
             s = n.load || function() {
-                i = !0, window.WebflowEditor = !0, o.off(c, l),
-                    function(t) {
-                        var e = window.document.createElement("iframe");
-                        e.src = "https://webflow.com/site/third-party-cookie-check.html", e.style.display = "none", e.sandbox = "allow-scripts allow-same-origin";
-                        var n = function n(r) {
-                            "WF_third_party_cookies_unsupported" === r.data ? (_(e, n), t(!1)) : "WF_third_party_cookies_supported" === r.data && (_(e, n), t(!0))
-                        };
-                        e.onerror = function() {
-                            _(e, n), t(!1)
-                        }, window.addEventListener("message", n, !1), window.document.body.appendChild(e)
-                    }(function(e) {
-                        t.ajax({
-                            url: h("https://editor-api.webflow.com/api/editor/view"),
-                            data: {
-                                siteId: a.attr("data-wf-site")
-                            },
-                            xhrFields: {
-                                withCredentials: !0
-                            },
-                            dataType: "json",
-                            crossDomain: !0,
-                            success: d(e)
-                        })
+                i = !0, window.WebflowEditor = !0, o.off(c, l), function(t) {
+                    var e = window.document.createElement("iframe");
+                    e.src = "https://webflow.com/site/third-party-cookie-check.html", e.style.display = "none", e.sandbox = "allow-scripts allow-same-origin";
+                    var n = function n(r) {
+                        "WF_third_party_cookies_unsupported" === r.data ? (_(e, n), t(!1)) : "WF_third_party_cookies_supported" === r.data && (_(e, n), t(!0))
+                    };
+                    e.onerror = function() {
+                        _(e, n), t(!1)
+                    }, window.addEventListener("message", n, !1), window.document.body.appendChild(e)
+                }(function(e) {
+                    t.ajax({
+                        url: h("https://editor-api.webflow.com/api/editor/view"),
+                        data: {
+                            siteId: a.attr("data-wf-site")
+                        },
+                        xhrFields: {
+                            withCredentials: !0
+                        },
+                        dataType: "json",
+                        crossDomain: !0,
+                        success: d(e)
                     })
+                })
             },
             f = !1;
         try {
             f = localStorage && localStorage.getItem && localStorage.getItem("WebflowEditor")
         } catch (t) {}
-
         function l() {
             i || /\?edit/.test(u.hash) && s()
         }
-
         function d(t) {
             return function(e) {
                 e ? (e.thirdPartyCookiesSupported = t, p(E(e.bugReporterScriptPath), function() {
@@ -3682,7 +3818,6 @@
                 })) : console.error("Could not load editor data")
             }
         }
-
         function p(e, n) {
             t.ajax({
                 type: "GET",
@@ -3691,19 +3826,15 @@
                 cache: !0
             }).then(n, v)
         }
-
         function v(t, e, n) {
             throw console.error("Could not load editor script: " + e), n
         }
-
         function E(t) {
             return t.indexOf("//") >= 0 ? t : h("https://editor-api.webflow.com" + t)
         }
-
         function h(t) {
             return t.replace(/([^:])\/\//g, "$1/")
         }
-
         function _(t, e) {
             window.removeEventListener("message", e, !1), t.remove()
         }
@@ -3770,7 +3901,6 @@
         c = r(n(50));
     e.actions = c;
     var s = (0, o.createStore)(a.default);
-
     function f() {
         (0, u.stopEngine)(s)
     }
@@ -3796,11 +3926,10 @@
     e.default = o
 }, function(t, e, n) {
     "use strict";
-    n.r(e),
-        function(t) {
-            var n = "object" == typeof t && t && t.Object === Object && t;
-            e.default = n
-        }.call(this, n(29))
+    n.r(e), function(t) {
+        var n = "object" == typeof t && t && t.Object === Object && t;
+        e.default = n
+    }.call(this, n(29))
 }, function(t, e, n) {
     "use strict";
     n.r(e);
@@ -3846,13 +3975,13 @@
     }
 }, function(t, e, n) {
     "use strict";
-    n.r(e),
-        function(t, r) {
-            var i, o = n(118);
-            i = "undefined" != typeof self ? self : "undefined" != typeof window ? window : void 0 !== t ? t : r;
-            var a = Object(o.default)(i);
-            e.default = a
-        }.call(this, n(29), n(117)(t))
+    n.r(e), function(t, r) {
+        var i,
+            o = n(118);
+        i = "undefined" != typeof self ? self : "undefined" != typeof window ? window : void 0 !== t ? t : r;
+        var a = Object(o.default)(i);
+        e.default = a
+    }.call(this, n(29), n(117)(t))
 }, function(t, e) {
     t.exports = function(t) {
         if (!t.webpackPolyfill) {
@@ -3875,9 +4004,9 @@
     }
 }, function(t, e, n) {
     "use strict";
-
     function r(t) {
-        var e, n = t.Symbol;
+        var e,
+            n = t.Symbol;
         return "function" == typeof n ? n.observable ? e = n.observable : (e = n("observable"), n.observable = e) : e = "@@observable", e
     }
     n.r(e), n.d(e, "default", function() {
@@ -3915,10 +4044,10 @@
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Object.freeze({}),
             e = arguments.length > 1 ? arguments[1] : void 0;
         switch (e.type) {
-            case r:
-                return e.payload.ixData || Object.freeze({});
-            default:
-                return t
+        case r:
+            return e.payload.ixData || Object.freeze({});
+        default:
+            return t
         }
     }
 }, function(t, e, n) {
@@ -3940,21 +4069,26 @@
         var c = n.length,
             s = c,
             f = !u;
-        if (null == t) return !s;
+        if (null == t)
+            return !s;
         for (t = Object(t); c--;) {
             var l = n[c];
-            if (f && l[2] ? l[1] !== t[l[0]] : !(l[0] in t)) return !1
+            if (f && l[2] ? l[1] !== t[l[0]] : !(l[0] in t))
+                return !1
         }
         for (; ++c < s;) {
             var d = (l = n[c])[0],
                 p = t[d],
                 v = l[1];
             if (f && l[2]) {
-                if (void 0 === p && !(d in t)) return !1
+                if (void 0 === p && !(d in t))
+                    return !1
             } else {
                 var E = new r;
-                if (u) var h = u(p, v, d, t, e, E);
-                if (!(void 0 === h ? i(v, p, o | a, u, E) : h)) return !1
+                if (u)
+                    var h = u(p, v, d, t, e, E);
+                if (!(void 0 === h ? i(v, p, o | a, u, E) : h))
+                    return !1
             }
         }
         return !0
@@ -4018,7 +4152,8 @@
         var n = this.__data__;
         if (n instanceof r) {
             var u = n.__data__;
-            if (!i || u.length < a - 1) return u.push([t, e]), this.size = ++n.size, this;
+            if (!i || u.length < a - 1)
+                return u.push([t, e]), this.size = ++n.size, this;
             n = this.__data__ = new o(u)
         }
         return n.set(t, e), this.size = n.size, this
@@ -4059,7 +4194,8 @@
         return n.call(t)
     }
 }, function(t, e, n) {
-    var r, i = n(137),
+    var r,
+        i = n(137),
         o = (r = /[^.]+$/.exec(i && i.keys && i.keys.IE_PROTO || "")) ? "Symbol(src)_1." + r : "";
     t.exports = function(t) {
         return !!o && o in t
@@ -4078,7 +4214,7 @@
     t.exports = function() {
         this.size = 0, this.__data__ = {
             hash: new r,
-            map: new(o || i),
+            map: new (o || i),
             string: new r
         }
     }
@@ -4088,7 +4224,6 @@
         o = n(143),
         a = n(144),
         u = n(145);
-
     function c(t) {
         var e = -1,
             n = null == t ? 0 : t.length;
@@ -4180,17 +4315,19 @@
         var I = c(t),
             T = c(e),
             y = I ? p : u(t),
-            m = T ? p : u(e),
-            O = (y = y == d ? v : y) == v,
-            A = (m = m == d ? v : m) == v,
-            S = y == m;
+            O = T ? p : u(e),
+            m = (y = y == d ? v : y) == v,
+            A = (O = O == d ? v : O) == v,
+            S = y == O;
         if (S && s(t)) {
-            if (!s(e)) return !1;
-            I = !0, O = !1
+            if (!s(e))
+                return !1;
+            I = !0, m = !1
         }
-        if (S && !O) return g || (g = new r), I || f(t) ? i(t, e, n, h, _, g) : o(t, e, y, n, h, _, g);
+        if (S && !m)
+            return g || (g = new r), I || f(t) ? i(t, e, n, h, _, g) : o(t, e, y, n, h, _, g);
         if (!(n & l)) {
-            var R = O && E.call(t, "__wrapped__"),
+            var R = m && E.call(t, "__wrapped__"),
                 b = A && E.call(e, "__wrapped__");
             if (R || b) {
                 var w = R ? t.value() : t,
@@ -4204,11 +4341,11 @@
     var r = n(34),
         i = n(153),
         o = n(154);
-
     function a(t) {
         var e = -1,
             n = null == t ? 0 : t.length;
-        for (this.__data__ = new r; ++e < n;) this.add(t[e])
+        for (this.__data__ = new r; ++e < n;)
+            this.add(t[e])
     }
     a.prototype.add = a.prototype.push = i, a.prototype.has = o, t.exports = a
 }, function(t, e) {
@@ -4223,7 +4360,8 @@
 }, function(t, e) {
     t.exports = function(t, e) {
         for (var n = -1, r = null == t ? 0 : t.length; ++n < r;)
-            if (e(t[n], n, t)) return !0;
+            if (e(t[n], n, t))
+                return !0;
         return !1
     }
 }, function(t, e) {
@@ -4250,36 +4388,40 @@
         I = "[object Symbol]",
         T = "[object ArrayBuffer]",
         y = "[object DataView]",
-        m = r ? r.prototype : void 0,
-        O = m ? m.valueOf : void 0;
-    t.exports = function(t, e, n, r, m, A, S) {
+        O = r ? r.prototype : void 0,
+        m = O ? O.valueOf : void 0;
+    t.exports = function(t, e, n, r, O, A, S) {
         switch (n) {
-            case y:
-                if (t.byteLength != e.byteLength || t.byteOffset != e.byteOffset) return !1;
-                t = t.buffer, e = e.buffer;
-            case T:
-                return !(t.byteLength != e.byteLength || !A(new i(t), new i(e)));
-            case l:
-            case d:
-            case E:
-                return o(+t, +e);
-            case p:
-                return t.name == e.name && t.message == e.message;
-            case h:
-            case g:
-                return t == e + "";
-            case v:
-                var R = u;
-            case _:
-                var b = r & s;
-                if (R || (R = c), t.size != e.size && !b) return !1;
-                var w = S.get(t);
-                if (w) return w == e;
-                r |= f, S.set(t, e);
-                var N = a(R(t), R(e), r, m, A, S);
-                return S.delete(t), N;
-            case I:
-                if (O) return O.call(t) == O.call(e)
+        case y:
+            if (t.byteLength != e.byteLength || t.byteOffset != e.byteOffset)
+                return !1;
+            t = t.buffer, e = e.buffer;
+        case T:
+            return !(t.byteLength != e.byteLength || !A(new i(t), new i(e)));
+        case l:
+        case d:
+        case E:
+            return o(+t, +e);
+        case p:
+            return t.name == e.name && t.message == e.message;
+        case h:
+        case g:
+            return t == e + "";
+        case v:
+            var R = u;
+        case _:
+            var b = r & s;
+            if (R || (R = c), t.size != e.size && !b)
+                return !1;
+            var w = S.get(t);
+            if (w)
+                return w == e;
+            r |= f, S.set(t, e);
+            var N = a(R(t), R(e), r, O, A, S);
+            return S.delete(t), N;
+        case I:
+            if (m)
+                return m.call(t) == m.call(e)
         }
         return !1
     }
@@ -4310,19 +4452,23 @@
         var s = n & i,
             f = r(t),
             l = f.length;
-        if (l != r(e).length && !s) return !1;
+        if (l != r(e).length && !s)
+            return !1;
         for (var d = l; d--;) {
             var p = f[d];
-            if (!(s ? p in e : o.call(e, p))) return !1
+            if (!(s ? p in e : o.call(e, p)))
+                return !1
         }
         var v = c.get(t);
-        if (v && c.get(e)) return v == e;
+        if (v && c.get(e))
+            return v == e;
         var E = !0;
         c.set(t, e), c.set(e, t);
         for (var h = s; ++d < l;) {
             var _ = t[p = f[d]],
                 g = e[p];
-            if (a) var I = s ? a(g, _, p, e, t, c) : a(_, g, p, t, e, c);
+            if (a)
+                var I = s ? a(g, _, p, e, t, c) : a(_, g, p, t, e, c);
             if (!(void 0 === I ? _ === g || u(_, g, n, a, c) : I)) {
                 E = !1;
                 break
@@ -4353,7 +4499,8 @@
     }
 }, function(t, e) {
     t.exports = function(t, e) {
-        for (var n = -1, r = Array(t); ++n < t;) r[n] = e(n);
+        for (var n = -1, r = Array(t); ++n < t;)
+            r[n] = e(n);
         return r
     }
 }, function(t, e, n) {
@@ -4458,18 +4605,19 @@
 }, function(t, e, n) {
     var r = n(34),
         i = "Expected a function";
-
     function o(t, e) {
-        if ("function" != typeof t || null != e && "function" != typeof e) throw new TypeError(i);
+        if ("function" != typeof t || null != e && "function" != typeof e)
+            throw new TypeError(i);
         var n = function() {
             var r = arguments,
                 i = e ? e.apply(this, r) : r[0],
                 o = n.cache;
-            if (o.has(i)) return o.get(i);
+            if (o.has(i))
+                return o.get(i);
             var a = t.apply(this, r);
             return n.cache = o.set(i, a) || o, a
         };
-        return n.cache = new(o.Cache || r), n
+        return n.cache = new (o.Cache || r), n
     }
     o.Cache = r, t.exports = o
 }, function(t, e, n) {
@@ -4492,7 +4640,8 @@
     t.exports = function(t, e, n) {
         for (var s = -1, f = (e = r(e, t)).length, l = !1; ++s < f;) {
             var d = c(e[s]);
-            if (!(l = null != t && n(t, d))) break;
+            if (!(l = null != t && n(t, d)))
+                break;
             t = t[d]
         }
         return l || ++s != f ? l : !!(f = null == t ? 0 : t.length) && u(f) && a(d, f) && (o(t) || i(t))
@@ -4519,7 +4668,8 @@
         a = Math.max;
     t.exports = function(t, e, n) {
         var u = null == t ? 0 : t.length;
-        if (!u) return -1;
+        if (!u)
+            return -1;
         var c = null == n ? 0 : o(n);
         return c < 0 && (c = a(u + c, 0)), r(t, i(e, 3), c)
     }
@@ -4533,13 +4683,15 @@
 }, function(t, e) {
     t.exports = function(t) {
         if (Array.isArray(t)) {
-            for (var e = 0, n = new Array(t.length); e < t.length; e++) n[e] = t[e];
+            for (var e = 0, n = new Array(t.length); e < t.length; e++)
+                n[e] = t[e];
             return n
         }
     }
 }, function(t, e) {
     t.exports = function(t) {
-        if (Symbol.iterator in Object(t) || "[object Arguments]" === Object.prototype.toString.call(t)) return Array.from(t)
+        if (Symbol.iterator in Object(t) || "[object Arguments]" === Object.prototype.toString.call(t))
+            return Array.from(t)
     }
 }, function(t, e) {
     t.exports = function() {
@@ -4555,7 +4707,6 @@
         o = n(88),
         a = {},
         u = "refState";
-
     function c(t, e, n, o, a) {
         var u = n === i.PLAIN_OBJECT ? (0, r.getIn)(a, ["config", "target", "objectId"]) : null;
         return (0, r.mergeIn)(t, [o], {
@@ -4565,7 +4716,6 @@
             refType: n
         })
     }
-
     function s(t, e, n, i, o) {
         var a = function(t) {
                 var e = t.config;
@@ -4584,31 +4734,26 @@
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : a,
             e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
         switch (e.type) {
-            case o.IX2_SESSION_STOPPED:
-                return a;
-            case o.IX2_INSTANCE_ADDED:
-                var n = e.payload,
-                    i = n.elementId,
-                    u = n.element,
-                    f = n.origin,
-                    l = n.actionItem,
-                    d = n.refType,
-                    p = l.actionTypeId,
-                    v = t;
-                return (0, r.getIn)(v, [i, u]) !== u && (v = c(v, u, d, i, l)), s(v, i, p, f, l);
-            case o.IX2_ELEMENT_STATE_CHANGED:
-                var E = e.payload;
-                return s(t, E.elementId, E.actionTypeId, E.current, E.actionItem);
-            default:
-                return t
+        case o.IX2_SESSION_STOPPED:
+            return a;
+        case o.IX2_INSTANCE_ADDED:
+            var n = e.payload,
+                i = n.elementId,
+                u = n.element,
+                f = n.origin,
+                l = n.actionItem,
+                d = n.refType,
+                p = l.actionTypeId,
+                v = t;
+            return (0, r.getIn)(v, [i, u]) !== u && (v = c(v, u, d, i, l)), s(v, i, p, f, l);
+        case o.IX2_ELEMENT_STATE_CHANGED:
+            var E = e.payload;
+            return s(t, E.elementId, E.actionTypeId, E.current, E.actionItem);
+        default:
+            return t
         }
     };
-    var f = [
-        [i.CONFIG_X_VALUE, i.CONFIG_X_UNIT],
-        [i.CONFIG_Y_VALUE, i.CONFIG_Y_UNIT],
-        [i.CONFIG_Z_VALUE, i.CONFIG_Z_UNIT],
-        [i.CONFIG_VALUE, i.CONFIG_UNIT]
-    ]
+    var f = [[i.CONFIG_X_VALUE, i.CONFIG_X_UNIT], [i.CONFIG_Y_VALUE, i.CONFIG_Y_UNIT], [i.CONFIG_Z_VALUE, i.CONFIG_Z_UNIT], [i.CONFIG_VALUE, i.CONFIG_UNIT]]
 }, function(t, e, n) {
     "use strict";
     Object.defineProperty(e, "__esModule", {
@@ -4708,14 +4853,15 @@
         return t.value
     };
     e.getPluginDuration = function(t, e) {
-        if ("auto" !== e.config.duration) return null;
+        if ("auto" !== e.config.duration)
+            return null;
         var n = parseFloat(t.getAttribute("data-duration"));
         return n > 0 ? 1e3 * n : 1e3 * parseFloat(t.getAttribute("data-default-duration"))
     };
     e.getPluginOrigin = function(t) {
         return t || {
-            value: 0
-        }
+                value: 0
+            }
     };
     e.getPluginDestination = function(t) {
         return {
@@ -4737,7 +4883,10 @@
     }
 }, function(t, e, n) {
     "use strict";
-    var r, i, o, a = n(0),
+    var r,
+        i,
+        o,
+        a = n(0),
         u = a(n(15)),
         c = a(n(14)),
         s = n(0);
@@ -4748,7 +4897,8 @@
     }, e.getElementId = function(t, e) {
         for (var n in t) {
             var r = t[n];
-            if (r && r.ref === e) return r.id
+            if (r && r.ref === e)
+                return r.id
         }
         return "e" + b++
     }, e.reifyState = function() {
@@ -4783,7 +4933,8 @@
             a = e.getState,
             u = (0, e.subscribe)(function() {
                 var t = n(a());
-                if (null == t) return void u();
+                if (null == t)
+                    return void u();
                 o(t, c) || r(c = t, e)
             }),
             c = n(a());
@@ -4791,16 +4942,17 @@
     }, e.getAffectedElements = C, e.getComputedStyle = function(t) {
         var e = t.element,
             n = t.actionItem;
-        if (!y.IS_BROWSER_ENV) return {};
+        if (!y.IS_BROWSER_ENV)
+            return {};
         switch (n.actionTypeId) {
-            case T.STYLE_SIZE:
-            case T.STYLE_BACKGROUND_COLOR:
-            case T.STYLE_BORDER:
-            case T.STYLE_TEXT_COLOR:
-            case T.GENERAL_DISPLAY:
-                return window.getComputedStyle(e);
-            default:
-                return {}
+        case T.STYLE_SIZE:
+        case T.STYLE_BACKGROUND_COLOR:
+        case T.STYLE_BORDER:
+        case T.STYLE_TEXT_COLOR:
+        case T.GENERAL_DISPLAY:
+            return window.getComputedStyle(e);
+        default:
+            return {}
         }
     }, e.getInstanceOrigin = function(t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
@@ -4809,217 +4961,234 @@
             i = (arguments.length > 4 ? arguments[4] : void 0).getStyle,
             o = r.actionTypeId,
             a = r.config;
-        if ((0, _.isPluginType)(o)) return (0, _.getPluginOrigin)(o)(e[o]);
+        if ((0, _.isPluginType)(o))
+            return (0, _.getPluginOrigin)(o)(e[o]);
         switch (o) {
-            case T.TRANSFORM_MOVE:
-            case T.TRANSFORM_SCALE:
-            case T.TRANSFORM_ROTATE:
-            case T.TRANSFORM_SKEW:
-                return e[o] || M[o];
-            case T.STYLE_FILTER:
-                return x(e[o], r.config.filters);
-            case T.STYLE_OPACITY:
+        case T.TRANSFORM_MOVE:
+        case T.TRANSFORM_SCALE:
+        case T.TRANSFORM_ROTATE:
+        case T.TRANSFORM_SKEW:
+            return e[o] || M[o];
+        case T.STYLE_FILTER:
+            return x(e[o], r.config.filters);
+        case T.STYLE_OPACITY:
+            return {
+                value: (0, f.default)(parseFloat(i(t, g.OPACITY)), 1)
+            };
+        case T.STYLE_SIZE:
+            var u,
+                c,
+                s = i(t, g.WIDTH),
+                l = i(t, g.HEIGHT);
+            return u = a.widthUnit === g.AUTO ? L.test(s) ? parseFloat(s) : parseFloat(n.width) : (0, f.default)(parseFloat(s), parseFloat(n.width)), c = a.heightUnit === g.AUTO ? L.test(l) ? parseFloat(l) : parseFloat(n.height) : (0, f.default)(parseFloat(l), parseFloat(n.height)), {
+                widthValue: u,
+                heightValue: c
+            };
+        case T.STYLE_BACKGROUND_COLOR:
+        case T.STYLE_BORDER:
+        case T.STYLE_TEXT_COLOR:
+            return function(t) {
+                var e = t.element,
+                    n = t.actionTypeId,
+                    r = t.computedStyle,
+                    i = t.getStyle,
+                    o = m[n],
+                    a = i(e, o),
+                    u = U.test(a) ? a : r[o],
+                    c = function(t, e) {
+                        var n = t.exec(e);
+                        return n ? n[1] : ""
+                    }(V, u).split(g.COMMA_DELIMITER);
                 return {
-                    value: (0, f.default)(parseFloat(i(t, g.OPACITY)), 1)
-                };
-            case T.STYLE_SIZE:
-                var u, c, s = i(t, g.WIDTH),
-                    l = i(t, g.HEIGHT);
-                return u = a.widthUnit === g.AUTO ? L.test(s) ? parseFloat(s) : parseFloat(n.width) : (0, f.default)(parseFloat(s), parseFloat(n.width)), c = a.heightUnit === g.AUTO ? L.test(l) ? parseFloat(l) : parseFloat(n.height) : (0, f.default)(parseFloat(l), parseFloat(n.height)), {
-                    widthValue: u,
-                    heightValue: c
-                };
-            case T.STYLE_BACKGROUND_COLOR:
-            case T.STYLE_BORDER:
-            case T.STYLE_TEXT_COLOR:
-                return function(t) {
-                    var e = t.element,
-                        n = t.actionTypeId,
-                        r = t.computedStyle,
-                        i = t.getStyle,
-                        o = O[n],
-                        a = i(e, o),
-                        u = V.test(a) ? a : r[o],
-                        c = function(t, e) {
-                            var n = t.exec(e);
-                            return n ? n[1] : ""
-                        }(U, u).split(g.COMMA_DELIMITER);
-                    return {
-                        rValue: (0, f.default)(parseInt(c[0], 10), 255),
-                        gValue: (0, f.default)(parseInt(c[1], 10), 255),
-                        bValue: (0, f.default)(parseInt(c[2], 10), 255),
-                        aValue: (0, f.default)(parseFloat(c[3]), 1)
-                    }
-                }({
-                    element: t,
-                    actionTypeId: o,
-                    computedStyle: n,
-                    getStyle: i
-                });
-            case T.GENERAL_DISPLAY:
-                return {
-                    value: (0, f.default)(i(t, g.DISPLAY), n.display)
-                };
-            case T.OBJECT_VALUE:
-                return e[o] || {
+                    rValue: (0, f.default)(parseInt(c[0], 10), 255),
+                    gValue: (0, f.default)(parseInt(c[1], 10), 255),
+                    bValue: (0, f.default)(parseInt(c[2], 10), 255),
+                    aValue: (0, f.default)(parseFloat(c[3]), 1)
+                }
+            }({
+                element: t,
+                actionTypeId: o,
+                computedStyle: n,
+                getStyle: i
+            });
+        case T.GENERAL_DISPLAY:
+            return {
+                value: (0, f.default)(i(t, g.DISPLAY), n.display)
+            };
+        case T.OBJECT_VALUE:
+            return e[o] || {
                     value: 0
                 };
-            default:
-                return
+        default:
+            return
         }
     }, e.getDestinationValues = function(t) {
         var e = t.element,
             n = t.actionItem,
             r = t.elementApi,
             i = n.actionTypeId;
-        if ((0, _.isPluginType)(i)) return (0, _.getPluginDestination)(i)(n.config);
+        if ((0, _.isPluginType)(i))
+            return (0, _.getPluginDestination)(i)(n.config);
         switch (i) {
-            case T.TRANSFORM_MOVE:
-            case T.TRANSFORM_SCALE:
-            case T.TRANSFORM_ROTATE:
-            case T.TRANSFORM_SKEW:
-                var o = n.config,
-                    a = o.xValue,
-                    u = o.yValue,
-                    c = o.zValue;
+        case T.TRANSFORM_MOVE:
+        case T.TRANSFORM_SCALE:
+        case T.TRANSFORM_ROTATE:
+        case T.TRANSFORM_SKEW:
+            var o = n.config,
+                a = o.xValue,
+                u = o.yValue,
+                c = o.zValue;
+            return {
+                xValue: a,
+                yValue: u,
+                zValue: c
+            };
+        case T.STYLE_SIZE:
+            var s = r.getStyle,
+                f = r.setStyle,
+                l = r.getProperty,
+                d = n.config,
+                p = d.widthUnit,
+                v = d.heightUnit,
+                E = n.config,
+                h = E.widthValue,
+                I = E.heightValue;
+            if (!y.IS_BROWSER_ENV)
                 return {
-                    xValue: a, yValue: u, zValue: c
-                };
-            case T.STYLE_SIZE:
-                var s = r.getStyle,
-                    f = r.setStyle,
-                    l = r.getProperty,
-                    d = n.config,
-                    p = d.widthUnit,
-                    v = d.heightUnit,
-                    E = n.config,
-                    h = E.widthValue,
-                    I = E.heightValue;
-                if (!y.IS_BROWSER_ENV) return {
                     widthValue: h,
                     heightValue: I
                 };
-                if (p === g.AUTO) {
-                    var m = s(e, g.WIDTH);
-                    f(e, g.WIDTH, ""), h = l(e, "offsetWidth"), f(e, g.WIDTH, m)
-                }
-                if (v === g.AUTO) {
-                    var O = s(e, g.HEIGHT);
-                    f(e, g.HEIGHT, ""), I = l(e, "offsetHeight"), f(e, g.HEIGHT, O)
-                }
-                return {
-                    widthValue: h, heightValue: I
-                };
-            case T.STYLE_BACKGROUND_COLOR:
-            case T.STYLE_BORDER:
-            case T.STYLE_TEXT_COLOR:
-                var A = n.config,
-                    S = A.rValue,
-                    R = A.gValue,
-                    b = A.bValue,
-                    w = A.aValue;
-                return {
-                    rValue: S, gValue: R, bValue: b, aValue: w
-                };
-            case T.STYLE_FILTER:
-                return n.config.filters.reduce(D, {});
-            default:
-                var N = n.config.value;
-                return {
-                    value: N
-                }
+            if (p === g.AUTO) {
+                var O = s(e, g.WIDTH);
+                f(e, g.WIDTH, ""), h = l(e, "offsetWidth"), f(e, g.WIDTH, O)
+            }
+            if (v === g.AUTO) {
+                var m = s(e, g.HEIGHT);
+                f(e, g.HEIGHT, ""), I = l(e, "offsetHeight"), f(e, g.HEIGHT, m)
+            }
+            return {
+                widthValue: h,
+                heightValue: I
+            };
+        case T.STYLE_BACKGROUND_COLOR:
+        case T.STYLE_BORDER:
+        case T.STYLE_TEXT_COLOR:
+            var A = n.config,
+                S = A.rValue,
+                R = A.gValue,
+                b = A.bValue,
+                w = A.aValue;
+            return {
+                rValue: S,
+                gValue: R,
+                bValue: b,
+                aValue: w
+            };
+        case T.STYLE_FILTER:
+            return n.config.filters.reduce(D, {});
+        default:
+            var N = n.config.value;
+            return {
+                value: N
+            }
         }
     }, e.getRenderType = P, e.getStyleProp = function(t, e) {
         return t === g.RENDER_STYLE ? e.replace("STYLE_", "").toLowerCase() : null
     }, e.renderHTMLElement = function(t, e, n, r, i, o, a, u, c) {
         switch (u) {
-            case g.RENDER_TRANSFORM:
-                return function(t, e, n, r, i) {
-                    var o = j.map(function(t) {
-                            var n = M[t],
-                                r = e[t] || {},
-                                i = r.xValue,
-                                o = void 0 === i ? n.xValue : i,
-                                a = r.yValue,
-                                u = void 0 === a ? n.yValue : a,
-                                c = r.zValue,
-                                s = void 0 === c ? n.zValue : c,
-                                f = r.xUnit,
-                                l = void 0 === f ? "" : f,
-                                d = r.yUnit,
-                                p = void 0 === d ? "" : d,
-                                v = r.zUnit,
-                                E = void 0 === v ? "" : v;
-                            switch (t) {
-                                case T.TRANSFORM_MOVE:
-                                    return "".concat(g.TRANSLATE_3D, "(").concat(o).concat(l, ", ").concat(u).concat(p, ", ").concat(s).concat(E, ")");
-                                case T.TRANSFORM_SCALE:
-                                    return "".concat(g.SCALE_3D, "(").concat(o).concat(l, ", ").concat(u).concat(p, ", ").concat(s).concat(E, ")");
-                                case T.TRANSFORM_ROTATE:
-                                    return "".concat(g.ROTATE_X, "(").concat(o).concat(l, ") ").concat(g.ROTATE_Y, "(").concat(u).concat(p, ") ").concat(g.ROTATE_Z, "(").concat(s).concat(E, ")");
-                                case T.TRANSFORM_SKEW:
-                                    return "".concat(g.SKEW, "(").concat(o).concat(l, ", ").concat(u).concat(p, ")");
-                                default:
-                                    return ""
-                            }
-                        }).join(" "),
-                        a = i.setStyle;
-                    X(t, y.TRANSFORM_PREFIXED, i), a(t, y.TRANSFORM_PREFIXED, o), u = r, c = n, s = u.actionTypeId, f = c.xValue, l = c.yValue, d = c.zValue, (s === T.TRANSFORM_MOVE && void 0 !== d || s === T.TRANSFORM_SCALE && void 0 !== d || s === T.TRANSFORM_ROTATE && (void 0 !== f || void 0 !== l)) && a(t, y.TRANSFORM_STYLE_PREFIXED, g.PRESERVE_3D);
-                    var u, c, s, f, l, d
-                }(t, e, n, i, a);
-            case g.RENDER_STYLE:
-                return function(t, e, n, r, i, o) {
-                    var a = o.setStyle,
-                        u = r.actionTypeId,
-                        c = r.config;
-                    switch (u) {
-                        case T.STYLE_SIZE:
-                            var s = r.config,
-                                f = s.widthUnit,
-                                d = void 0 === f ? "" : f,
-                                p = s.heightUnit,
-                                v = void 0 === p ? "" : p,
-                                E = n.widthValue,
-                                h = n.heightValue;
-                            void 0 !== E && (d === g.AUTO && (d = "px"), X(t, g.WIDTH, o), a(t, g.WIDTH, E + d)), void 0 !== h && (v === g.AUTO && (v = "px"), X(t, g.HEIGHT, o), a(t, g.HEIGHT, h + v));
-                            break;
-                        case T.STYLE_FILTER:
-                            ! function(t, e, n, r) {
-                                var i = (0, l.default)(e, function(t, e, r) {
-                                        return "".concat(t, " ").concat(r, "(").concat(e).concat(G(r, n), ")")
-                                    }, ""),
-                                    o = r.setStyle;
-                                X(t, g.FILTER, r), o(t, g.FILTER, i)
-                            }(t, n, c, o);
-                            break;
-                        case T.STYLE_BACKGROUND_COLOR:
-                        case T.STYLE_BORDER:
-                        case T.STYLE_TEXT_COLOR:
-                            var _ = O[u],
-                                I = Math.round(n.rValue),
-                                y = Math.round(n.gValue),
-                                m = Math.round(n.bValue),
-                                A = n.aValue;
-                            X(t, _, o), a(t, _, A >= 1 ? "rgb(".concat(I, ",").concat(y, ",").concat(m, ")") : "rgba(".concat(I, ",").concat(y, ",").concat(m, ",").concat(A, ")"));
-                            break;
+        case g.RENDER_TRANSFORM:
+            return function(t, e, n, r, i) {
+                var o = j.map(function(t) {
+                        var n = M[t],
+                            r = e[t] || {},
+                            i = r.xValue,
+                            o = void 0 === i ? n.xValue : i,
+                            a = r.yValue,
+                            u = void 0 === a ? n.yValue : a,
+                            c = r.zValue,
+                            s = void 0 === c ? n.zValue : c,
+                            f = r.xUnit,
+                            l = void 0 === f ? "" : f,
+                            d = r.yUnit,
+                            p = void 0 === d ? "" : d,
+                            v = r.zUnit,
+                            E = void 0 === v ? "" : v;
+                        switch (t) {
+                        case T.TRANSFORM_MOVE:
+                            return "".concat(g.TRANSLATE_3D, "(").concat(o).concat(l, ", ").concat(u).concat(p, ", ").concat(s).concat(E, ")");
+                        case T.TRANSFORM_SCALE:
+                            return "".concat(g.SCALE_3D, "(").concat(o).concat(l, ", ").concat(u).concat(p, ", ").concat(s).concat(E, ")");
+                        case T.TRANSFORM_ROTATE:
+                            return "".concat(g.ROTATE_X, "(").concat(o).concat(l, ") ").concat(g.ROTATE_Y, "(").concat(u).concat(p, ") ").concat(g.ROTATE_Z, "(").concat(s).concat(E, ")");
+                        case T.TRANSFORM_SKEW:
+                            return "".concat(g.SKEW, "(").concat(o).concat(l, ", ").concat(u).concat(p, ")");
                         default:
-                            var S = c.unit,
-                                R = void 0 === S ? "" : S;
-                            X(t, i, o), a(t, i, n.value + R)
-                    }
-                }(t, 0, n, i, o, a);
-            case g.RENDER_GENERAL:
-                return function(t, e, n) {
-                    var r = n.setStyle;
-                    switch (e.actionTypeId) {
-                        case T.GENERAL_DISPLAY:
-                            var i = e.config.value;
-                            return void(i === g.FLEX && y.IS_BROWSER_ENV ? r(t, g.DISPLAY, y.FLEX_PREFIXED) : r(t, g.DISPLAY, i))
-                    }
-                }(t, i, a);
-            case g.RENDER_PLUGIN:
-                var s = i.actionTypeId;
-                if ((0, _.isPluginType)(s)) return (0, _.renderPlugin)(s)(c, e, i)
+                            return ""
+                        }
+                    }).join(" "),
+                    a = i.setStyle;
+                X(t, y.TRANSFORM_PREFIXED, i), a(t, y.TRANSFORM_PREFIXED, o), u = r, c = n, s = u.actionTypeId, f = c.xValue, l = c.yValue, d = c.zValue, (s === T.TRANSFORM_MOVE && void 0 !== d || s === T.TRANSFORM_SCALE && void 0 !== d || s === T.TRANSFORM_ROTATE && (void 0 !== f || void 0 !== l)) && a(t, y.TRANSFORM_STYLE_PREFIXED, g.PRESERVE_3D);
+                var u,
+                    c,
+                    s,
+                    f,
+                    l,
+                    d
+            }(t, e, n, i, a);
+        case g.RENDER_STYLE:
+            return function(t, e, n, r, i, o) {
+                var a = o.setStyle,
+                    u = r.actionTypeId,
+                    c = r.config;
+                switch (u) {
+                case T.STYLE_SIZE:
+                    var s = r.config,
+                        f = s.widthUnit,
+                        d = void 0 === f ? "" : f,
+                        p = s.heightUnit,
+                        v = void 0 === p ? "" : p,
+                        E = n.widthValue,
+                        h = n.heightValue;
+                    void 0 !== E && (d === g.AUTO && (d = "px"), X(t, g.WIDTH, o), a(t, g.WIDTH, E + d)), void 0 !== h && (v === g.AUTO && (v = "px"), X(t, g.HEIGHT, o), a(t, g.HEIGHT, h + v));
+                    break;
+                case T.STYLE_FILTER:
+                    !function(t, e, n, r) {
+                        var i = (0, l.default)(e, function(t, e, r) {
+                                return "".concat(t, " ").concat(r, "(").concat(e).concat(G(r, n), ")")
+                            }, ""),
+                            o = r.setStyle;
+                        X(t, g.FILTER, r), o(t, g.FILTER, i)
+                    }(t, n, c, o);
+                    break;
+                case T.STYLE_BACKGROUND_COLOR:
+                case T.STYLE_BORDER:
+                case T.STYLE_TEXT_COLOR:
+                    var _ = m[u],
+                        I = Math.round(n.rValue),
+                        y = Math.round(n.gValue),
+                        O = Math.round(n.bValue),
+                        A = n.aValue;
+                    X(t, _, o), a(t, _, A >= 1 ? "rgb(".concat(I, ",").concat(y, ",").concat(O, ")") : "rgba(".concat(I, ",").concat(y, ",").concat(O, ",").concat(A, ")"));
+                    break;
+                default:
+                    var S = c.unit,
+                        R = void 0 === S ? "" : S;
+                    X(t, i, o), a(t, i, n.value + R)
+                }
+            }(t, 0, n, i, o, a);
+        case g.RENDER_GENERAL:
+            return function(t, e, n) {
+                var r = n.setStyle;
+                switch (e.actionTypeId) {
+                case T.GENERAL_DISPLAY:
+                    var i = e.config.value;
+                    return void (i === g.FLEX && y.IS_BROWSER_ENV ? r(t, g.DISPLAY, y.FLEX_PREFIXED) : r(t, g.DISPLAY, i))
+                }
+            }(t, i, a);
+        case g.RENDER_PLUGIN:
+            var s = i.actionTypeId;
+            if ((0, _.isPluginType)(s))
+                return (0, _.renderPlugin)(s)(c, e, i)
         }
     }, e.clearAllStyles = function(t) {
         var e = t.store,
@@ -5078,30 +5247,28 @@
             }
         }), u > 0 ? (0, h.optimizeFloat)(c / u) : 0
     }, e.reduceListToGroup = function(t) {
-        var e = t.actionListId,
+        var e = t.actionList,
             n = t.actionItemId,
             r = t.rawData,
-            i = r.actionLists[e];
-        if (!i) throw new Error(["IX2VanillaUtils: Could not find action list with ID ".concat(JSON.stringify(e)), "", "Raw Data:", JSON.stringify(r)].join("\n"));
-        var o = i.actionItemGroups,
-            a = i.continuousParameterGroups,
-            u = [],
-            s = function(t) {
-                return u.push((0, v.mergeIn)(t, ["config"], {
+            i = e.actionItemGroups,
+            o = e.continuousParameterGroups,
+            a = [],
+            u = function(t) {
+                return a.push((0, v.mergeIn)(t, ["config"], {
                     delay: 0,
                     duration: 0
                 })), t.id === n
             };
-        return o && o.some(function(t) {
-            return t.actionItems.some(s)
-        }), a && a.some(function(t) {
+        return i && i.some(function(t) {
+            return t.actionItems.some(u)
+        }), o && o.some(function(t) {
             return t.continuousActionGroups.some(function(t) {
-                return t.actionItems.some(s)
+                return t.actionItems.some(u)
             })
-        }), (0, v.setIn)(r, ["actionLists"], (0, c.default)({}, e, {
-            id: e,
+        }), (0, v.setIn)(r, ["actionLists"], (0, c.default)({}, e.id, {
+            id: e.id,
             actionItemGroups: [{
-                actionItems: u
+                actionItems: a
             }]
         }))
     }, e.shouldNamespaceEventParameter = function(t, e) {
@@ -5110,12 +5277,14 @@
     }, e.getNamespacedParameterId = function(t, e) {
         return t + g.COLON_DELIMITER + e
     }, e.shouldAllowMediaQuery = function(t, e) {
-        if (null == e) return !0;
+        if (null == e)
+            return !0;
         return -1 !== t.indexOf(e)
     }, e.mediaQueriesEqual = function(t, e) {
         return (0, E.default)(t && t.sort(), e && e.sort())
     }, e.stringifyTarget = function(t) {
-        if ("string" == typeof t) return t;
+        if ("string" == typeof t)
+            return t;
         var e = t.id,
             n = void 0 === e ? "" : e,
             r = t.selector,
@@ -5136,10 +5305,10 @@
         I = n(89),
         T = n(48),
         y = n(31),
-        m = function(t) {
+        O = function(t) {
             return t.trim()
         },
-        O = Object.freeze((r = {}, (0, c.default)(r, T.STYLE_BACKGROUND_COLOR, g.BACKGROUND_COLOR), (0, c.default)(r, T.STYLE_BORDER, g.BORDER_COLOR), (0, c.default)(r, T.STYLE_TEXT_COLOR, g.COLOR), r)),
+        m = Object.freeze((r = {}, (0, c.default)(r, T.STYLE_BACKGROUND_COLOR, g.BACKGROUND_COLOR), (0, c.default)(r, T.STYLE_BORDER, g.BORDER_COLOR), (0, c.default)(r, T.STYLE_TEXT_COLOR, g.COLOR), r)),
         A = Object.freeze((i = {}, (0, c.default)(i, y.TRANSFORM_PREFIXED, g.TRANSFORM), (0, c.default)(i, g.BACKGROUND_COLOR, g.BACKGROUND), (0, c.default)(i, g.OPACITY, g.OPACITY), (0, c.default)(i, g.FILTER, g.FILTER), (0, c.default)(i, g.WIDTH, g.WIDTH), (0, c.default)(i, g.HEIGHT, g.HEIGHT), i)),
         S = {},
         R = 1;
@@ -5147,7 +5316,6 @@
     var w = function(t, e) {
         return t === e
     };
-
     function N(t) {
         var e = (0, u.default)(t);
         return "string" === e ? {
@@ -5161,14 +5329,14 @@
             useEventTarget: t.useEventTarget
         } : {}
     }
-
     function C(t) {
         var e = t.config,
             n = t.event,
             r = t.eventTarget,
             i = t.elementRoot,
             o = t.elementApi;
-        if (!o) throw new Error("IX2 missing elementApi");
+        if (!o)
+            throw new Error("IX2 missing elementApi");
         var a = o.getValidDocument,
             u = o.getQuerySelector,
             c = o.queryDocument,
@@ -5178,44 +5346,52 @@
             d = o.elementContains,
             v = o.isSiblingNode,
             E = e.target;
-        if (!E) return [];
+        if (!E)
+            return [];
         var h = N(E),
             _ = h.id,
             T = h.objectId,
-            m = h.selector,
-            O = h.selectorGuids,
+            O = h.selector,
+            m = h.selectorGuids,
             A = h.appliesTo,
             R = h.useEventTarget;
-        if (T) return [S[T] || (S[T] = {})];
+        if (T)
+            return [S[T] || (S[T] = {})];
         if (A === I.PAGE) {
             var b = a(_);
             return b ? [b] : []
         }
-        var w, C, L, x = (0, p.default)(n, "action.config.affectedElements", {})[_ || m] || {},
+        var w,
+            C,
+            L,
+            x = (0, p.default)(n, "action.config.affectedElements", {})[_ || O] || {},
             D = Boolean(x.id || x.selector),
             P = n && u(N(n.target));
         if (D ? (w = x.limitAffectedElements, C = P, L = u(x)) : C = L = u({
-                id: _,
-                selector: m,
-                selectorGuids: O
-            }), n && R) {
+            id: _,
+            selector: O,
+            selectorGuids: m
+        }), n && R) {
             var M = r && (L || !0 === R) ? [r] : c(P);
             if (L) {
-                if (R === g.PARENT) return c(L).filter(function(t) {
-                    return M.some(function(e) {
-                        return d(t, e)
+                if (R === g.PARENT)
+                    return c(L).filter(function(t) {
+                        return M.some(function(e) {
+                            return d(t, e)
+                        })
+                    });
+                if (R === g.CHILDREN)
+                    return c(L).filter(function(t) {
+                        return M.some(function(e) {
+                            return d(e, t)
+                        })
+                    });
+                if (R === g.SIBLINGS)
+                    return c(L).filter(function(t) {
+                        return M.some(function(e) {
+                            return v(e, t)
+                        })
                     })
-                });
-                if (R === g.CHILDREN) return c(L).filter(function(t) {
-                    return M.some(function(e) {
-                        return d(e, t)
-                    })
-                });
-                if (R === g.SIBLINGS) return c(L).filter(function(t) {
-                    return M.some(function(e) {
-                        return v(e, t)
-                    })
-                })
             }
             return M
         }
@@ -5232,20 +5408,20 @@
     var D = function(t, e) {
         return e && (t[e.type] = e.value || 0), t
     };
-
     function P(t) {
         return /^TRANSFORM_/.test(t) ? g.RENDER_TRANSFORM : /^STYLE_/.test(t) ? g.RENDER_STYLE : /^GENERAL_/.test(t) ? g.RENDER_GENERAL : /^PLUGIN_/.test(t) ? g.RENDER_PLUGIN : void 0
     }
     e.getItemConfigByKey = function(t, e, n) {
-        if ((0, _.isPluginType)(t)) return (0, _.getPluginConfig)(t)(n, e);
+        if ((0, _.isPluginType)(t))
+            return (0, _.getPluginConfig)(t)(n, e);
         switch (t) {
-            case T.STYLE_FILTER:
-                var r = (0, d.default)(n.filters, function(t) {
-                    return t.type === e
-                });
-                return r ? r.value : 0;
-            default:
-                return n[e]
+        case T.STYLE_FILTER:
+            var r = (0, d.default)(n.filters, function(t) {
+                return t.type === e
+            });
+            return r ? r.value : 0;
+        default:
+            return n[e]
         }
     };
     var M = (o = {}, (0, c.default)(o, T.TRANSFORM_MOVE, Object.freeze({
@@ -5278,20 +5454,20 @@
             var n = (0, d.default)(e.filters, function(e) {
                 return e.type === t
             });
-            if (n && n.unit) return n.unit;
+            if (n && n.unit)
+                return n.unit;
             switch (t) {
-                case "blur":
-                    return "px";
-                case "hue-rotate":
-                    return "deg";
-                default:
-                    return "%"
+            case "blur":
+                return "px";
+            case "hue-rotate":
+                return "deg";
+            default:
+                return "%"
             }
         },
         j = Object.keys(M);
-    var V = /^rgb/,
-        U = RegExp("rgba?".concat("\\(([^)]+)\\)"));
-
+    var U = /^rgb/,
+        V = RegExp("rgba?".concat("\\(([^)]+)\\)"));
     function X(t, e, n) {
         if (y.IS_BROWSER_ENV) {
             var r = A[e];
@@ -5300,12 +5476,13 @@
                     o = n.setStyle,
                     a = i(t, g.WILL_CHANGE);
                 if (a) {
-                    var u = a.split(g.COMMA_DELIMITER).map(m); - 1 === u.indexOf(r) && o(t, g.WILL_CHANGE, u.concat(r).join(g.COMMA_DELIMITER))
-                } else o(t, g.WILL_CHANGE, r)
+                    var u = a.split(g.COMMA_DELIMITER).map(O);
+                    -1 === u.indexOf(r) && o(t, g.WILL_CHANGE, u.concat(r).join(g.COMMA_DELIMITER))
+                } else
+                    o(t, g.WILL_CHANGE, r)
             }
         }
     }
-
     function k(t, e, n) {
         if (y.IS_BROWSER_ENV) {
             var r = A[e];
@@ -5313,13 +5490,12 @@
                 var i = n.getStyle,
                     o = n.setStyle,
                     a = i(t, g.WILL_CHANGE);
-                a && -1 !== a.indexOf(r) && o(t, g.WILL_CHANGE, a.split(g.COMMA_DELIMITER).map(m).filter(function(t) {
+                a && -1 !== a.indexOf(r) && o(t, g.WILL_CHANGE, a.split(g.COMMA_DELIMITER).map(O).filter(function(t) {
                     return t !== r
                 }).join(g.COMMA_DELIMITER))
             }
         }
     }
-
     function W(t) {
         var e = t.actionList,
             n = void 0 === e ? {} : e,
@@ -5343,13 +5519,13 @@
             })
         })
     }
-
     function B(t) {
         var e = t.actionGroup,
             n = t.event,
             r = t.elementApi;
         e.actionItems.forEach(function(t) {
-            var e, i = t.actionTypeId,
+            var e,
+                i = t.actionTypeId,
                 o = t.config;
             e = (0, _.isPluginType)(i) ? (0, _.clearPlugin)(i) : H({
                 effect: Y,
@@ -5368,37 +5544,35 @@
             r = t.elementApi;
         return function(t) {
             switch (n) {
-                case T.TRANSFORM_MOVE:
-                case T.TRANSFORM_SCALE:
-                case T.TRANSFORM_ROTATE:
-                case T.TRANSFORM_SKEW:
-                    e(t, y.TRANSFORM_PREFIXED, r);
-                    break;
-                case T.STYLE_FILTER:
-                    e(t, g.FILTER, r);
-                    break;
-                case T.STYLE_OPACITY:
-                    e(t, g.OPACITY, r);
-                    break;
-                case T.STYLE_SIZE:
-                    e(t, g.WIDTH, r), e(t, g.HEIGHT, r);
-                    break;
-                case T.STYLE_BACKGROUND_COLOR:
-                case T.STYLE_BORDER:
-                case T.STYLE_TEXT_COLOR:
-                    e(t, O[n], r);
-                    break;
-                case T.GENERAL_DISPLAY:
-                    e(t, g.DISPLAY, r)
+            case T.TRANSFORM_MOVE:
+            case T.TRANSFORM_SCALE:
+            case T.TRANSFORM_ROTATE:
+            case T.TRANSFORM_SKEW:
+                e(t, y.TRANSFORM_PREFIXED, r);
+                break;
+            case T.STYLE_FILTER:
+                e(t, g.FILTER, r);
+                break;
+            case T.STYLE_OPACITY:
+                e(t, g.OPACITY, r);
+                break;
+            case T.STYLE_SIZE:
+                e(t, g.WIDTH, r), e(t, g.HEIGHT, r);
+                break;
+            case T.STYLE_BACKGROUND_COLOR:
+            case T.STYLE_BORDER:
+            case T.STYLE_TEXT_COLOR:
+                e(t, m[n], r);
+                break;
+            case T.GENERAL_DISPLAY:
+                e(t, g.DISPLAY, r)
             }
         }
     };
-
     function Y(t, e, n) {
         var r = n.setStyle;
         k(t, e, n), r(t, e, ""), e === y.TRANSFORM_PREFIXED && r(t, y.TRANSFORM_STYLE_PREFIXED, "")
     }
-
     function z(t) {
         var e = 0,
             n = 0;
@@ -5427,7 +5601,8 @@
     t.exports = function(t, e, n, r) {
         var i = -1,
             o = null == t ? 0 : t.length;
-        for (r && o && (n = t[++i]); ++i < o;) n = e(n, t[i], i, t);
+        for (r && o && (n = t[++i]); ++i < o;)
+            n = e(n, t[i], i, t);
         return n
     }
 }, function(t, e, n) {
@@ -5438,7 +5613,8 @@
         return function(e, n, r) {
             for (var i = -1, o = Object(e), a = r(e), u = a.length; u--;) {
                 var c = a[t ? u : ++i];
-                if (!1 === n(o[c], c, o)) break
+                if (!1 === n(o[c], c, o))
+                    break
             }
             return e
         }
@@ -5447,10 +5623,12 @@
     var r = n(10);
     t.exports = function(t, e) {
         return function(n, i) {
-            if (null == n) return n;
-            if (!r(n)) return t(n, i);
-            for (var o = n.length, a = e ? o : -1, u = Object(n);
-                (e ? a-- : ++a < o) && !1 !== i(u[a], a, u););
+            if (null == n)
+                return n;
+            if (!r(n))
+                return t(n, i);
+            for (var o = n.length, a = e ? o : -1, u = Object(n); (e ? a-- : ++a < o) && !1 !== i(u[a], a, u);)
+                ;
             return n
         }
     }
@@ -5471,30 +5649,35 @@
         u = Math.min;
     t.exports = function(t, e, n) {
         var c = null == t ? 0 : t.length;
-        if (!c) return -1;
+        if (!c)
+            return -1;
         var s = c - 1;
         return void 0 !== n && (s = o(n), s = n < 0 ? a(c + s, 0) : u(s, c - 1)), r(t, i(e, 3), s, !0)
     }
 }, function(t, e, n) {
     "use strict";
     var r = Object.prototype.hasOwnProperty;
-
     function i(t, e) {
         return t === e ? 0 !== t || 0 !== e || 1 / t == 1 / e : t != t && e != e
     }
     t.exports = function(t, e) {
-        if (i(t, e)) return !0;
-        if ("object" != typeof t || null === t || "object" != typeof e || null === e) return !1;
+        if (i(t, e))
+            return !0;
+        if ("object" != typeof t || null === t || "object" != typeof e || null === e)
+            return !1;
         var n = Object.keys(t),
             o = Object.keys(e);
-        if (n.length !== o.length) return !1;
+        if (n.length !== o.length)
+            return !1;
         for (var a = 0; a < n.length; a++)
-            if (!r.call(e, n[a]) || !i(t[n[a]], e[n[a]])) return !1;
+            if (!r.call(e, n[a]) || !i(t[n[a]], e[n[a]]))
+                return !1;
         return !0
     }
 }, function(t, e, n) {
     "use strict";
-    var r, i = n(0)(n(14)),
+    var r,
+        i = n(0)(n(14)),
         o = n(0);
     Object.defineProperty(e, "__esModule", {
         value: !0
@@ -5564,52 +5747,52 @@
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : h,
             e = arguments.length > 1 ? arguments[1] : void 0;
         switch (e.type) {
-            case a:
-                var n = e.payload.hasBoundaryNodes;
-                return (0, i.set)(t, "hasBoundaryNodes", n);
-            case u:
-                return (0, i.set)(t, "active", !0);
-            case c:
-                var r = e.payload.step,
-                    o = void 0 === r ? 20 : r;
-                return (0, i.set)(t, "tick", t.tick + o);
-            case s:
-                return h;
-            case d:
-                var _ = e.payload.now;
-                return (0, i.set)(t, "tick", _);
-            case f:
-                var g = (0, i.addLast)(t.eventListeners, e.payload);
-                return (0, i.set)(t, "eventListeners", g);
-            case l:
-                var I = e.payload,
-                    T = I.stateKey,
-                    y = I.newState;
-                return (0, i.setIn)(t, ["eventState", T], y);
-            case p:
-                var m = e.payload,
-                    O = m.actionListId,
-                    A = m.isPlaying;
-                return (0, i.setIn)(t, ["playbackState", O], A);
-            case v:
-                for (var S = e.payload, R = S.width, b = S.mediaQueries, w = b.length, N = null, C = 0; C < w; C++) {
-                    var L = b[C],
-                        x = L.key,
-                        D = L.min,
-                        P = L.max;
-                    if (R >= D && R <= P) {
-                        N = x;
-                        break
-                    }
+        case a:
+            var n = e.payload.hasBoundaryNodes;
+            return (0, i.set)(t, "hasBoundaryNodes", n);
+        case u:
+            return (0, i.set)(t, "active", !0);
+        case c:
+            var r = e.payload.step,
+                o = void 0 === r ? 20 : r;
+            return (0, i.set)(t, "tick", t.tick + o);
+        case s:
+            return h;
+        case d:
+            var _ = e.payload.now;
+            return (0, i.set)(t, "tick", _);
+        case f:
+            var g = (0, i.addLast)(t.eventListeners, e.payload);
+            return (0, i.set)(t, "eventListeners", g);
+        case l:
+            var I = e.payload,
+                T = I.stateKey,
+                y = I.newState;
+            return (0, i.setIn)(t, ["eventState", T], y);
+        case p:
+            var O = e.payload,
+                m = O.actionListId,
+                A = O.isPlaying;
+            return (0, i.setIn)(t, ["playbackState", m], A);
+        case v:
+            for (var S = e.payload, R = S.width, b = S.mediaQueries, w = b.length, N = null, C = 0; C < w; C++) {
+                var L = b[C],
+                    x = L.key,
+                    D = L.min,
+                    P = L.max;
+                if (R >= D && R <= P) {
+                    N = x;
+                    break
                 }
-                return (0, i.merge)(t, {
-                    viewportWidth: R,
-                    mediaQueryKey: N
-                });
-            case E:
-                return (0, i.set)(t, "hasDefinedMediaQueries", !0);
-            default:
-                return t
+            }
+            return (0, i.merge)(t, {
+                viewportWidth: R,
+                mediaQueryKey: N
+            });
+        case E:
+            return (0, i.set)(t, "hasDefinedMediaQueries", !0);
+        default:
+            return t
         }
     }
 }, function(t, e, n) {
@@ -5648,11 +5831,16 @@
                 d = Math.max(1 - u, .01),
                 E = l[r];
             null == E && (d = 1, E = c);
-            var h, _, I, T, y = Math.max(E, 0) || 0,
-                m = p(y - n),
-                O = p(n + m * d),
-                A = 100 * O;
-            if (O === n && t.current) return t;
+            var h,
+                _,
+                I,
+                T,
+                y = Math.max(E, 0) || 0,
+                O = p(y - n),
+                m = p(n + O * d),
+                A = 100 * m;
+            if (m === n && t.current)
+                return t;
             for (var S = 0, R = o.length; S < R; S++) {
                 var b = o[S],
                     w = b.keyframe,
@@ -5669,19 +5857,20 @@
                 for (var D = 0, P = a.length; D < P; D++) {
                     var M = a[D];
                     x[M] = g(s, M, h.config)
-                } else if (h && _)
-                    for (var F = (O - I) / T, G = h.config.easing, j = v(G, F, f), V = 0, U = a.length; V < U; V++) {
-                        var X = a[V],
-                            k = g(s, X, h.config),
-                            W = (g(s, X, _.config) - k) * j + k;
-                        x[X] = W
-                    }
+                }
+            else if (h && _ && void 0 !== I && void 0 !== T)
+                for (var F = (m - I) / T, G = h.config.easing, j = v(G, F, f), U = 0, V = a.length; U < V; U++) {
+                    var X = a[U],
+                        k = g(s, X, h.config),
+                        W = (g(s, X, _.config) - k) * j + k;
+                    x[X] = W
+                }
             return (0, i.merge)(t, {
-                position: O,
+                position: m,
                 current: x
             })
         },
-        m = function(t, e) {
+        O = function(t, e) {
             var n = t,
                 r = n.active,
                 o = n.origin,
@@ -5698,18 +5887,19 @@
                 I = f.config.easing,
                 T = f.config,
                 y = T.duration,
-                m = T.delay;
-            null != E && (y = E), m = null != _ ? _ : m, c === h ? y = 0 : u && (y = m = 0);
-            var O = e.payload.now;
+                O = T.delay;
+            null != E && (y = E), O = null != _ ? _ : O, c === h ? y = 0 : u && (y = O = 0);
+            var m = e.payload.now;
             if (r && o) {
-                var A = O - (a + m);
+                var A = m - (a + O);
                 if (s) {
-                    var S = O - a,
-                        R = y + m,
+                    var S = m - a,
+                        R = y + O,
                         b = p(Math.min(Math.max(0, S / R), 1));
                     t = (0, i.set)(t, "verboseTimeElapsed", R * b)
                 }
-                if (A < 0) return t;
+                if (A < 0)
+                    return t;
                 var w = p(Math.min(Math.max(0, A / y), 1)),
                     N = v(I, w, g),
                     C = {},
@@ -5727,99 +5917,100 @@
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Object.freeze({}),
             e = arguments.length > 1 ? arguments[1] : void 0;
         switch (e.type) {
-            case a:
-                return e.payload.ixInstances || Object.freeze({});
-            case u:
-                return Object.freeze({});
-            case c:
-                var n = e.payload,
-                    r = n.instanceId,
-                    o = n.elementId,
-                    d = n.actionItem,
-                    p = n.eventId,
-                    v = n.eventTarget,
-                    h = n.eventStateKey,
-                    _ = n.actionListId,
-                    g = n.groupIndex,
-                    O = n.isCarrier,
-                    A = n.origin,
-                    S = n.destination,
-                    R = n.immediate,
-                    b = n.verbose,
-                    w = n.continuous,
-                    N = n.parameterId,
-                    C = n.actionGroups,
-                    L = n.smoothing,
-                    x = n.restingValue,
-                    D = n.pluginInstance,
-                    P = n.pluginDuration,
-                    M = n.instanceDelay,
-                    F = d.actionTypeId,
-                    G = I(F),
-                    j = T(G, F),
-                    V = Object.keys(S).filter(function(t) {
-                        return null != S[t]
-                    }),
-                    U = d.config.easing;
-                return (0, i.set)(t, r, {
-                    id: r,
-                    elementId: o,
-                    active: !1,
-                    position: 0,
-                    start: 0,
-                    origin: A,
-                    destination: S,
-                    destinationKeys: V,
-                    immediate: R,
-                    verbose: b,
-                    current: null,
-                    actionItem: d,
-                    actionTypeId: F,
-                    eventId: p,
-                    eventTarget: v,
-                    eventStateKey: h,
-                    actionListId: _,
-                    groupIndex: g,
-                    renderType: G,
-                    isCarrier: O,
-                    styleProp: j,
-                    continuous: w,
-                    parameterId: N,
-                    actionGroups: C,
-                    smoothing: L,
-                    restingValue: x,
-                    pluginInstance: D,
-                    pluginDuration: P,
-                    instanceDelay: M,
-                    customEasingFn: Array.isArray(U) && 4 === U.length ? E(U) : void 0
-                });
-            case s:
-                var X = e.payload,
-                    k = X.instanceId,
-                    W = X.time;
-                return (0, i.mergeIn)(t, [k], {
-                    active: !0,
-                    complete: !1,
-                    start: W
-                });
-            case f:
-                var B = e.payload.instanceId;
-                if (!t[B]) return t;
-                for (var H = {}, Y = Object.keys(t), z = Y.length, K = 0; K < z; K++) {
-                    var Q = Y[K];
-                    Q !== B && (H[Q] = t[Q])
-                }
-                return H;
-            case l:
-                for (var q = t, $ = Object.keys(t), Z = $.length, J = 0; J < Z; J++) {
-                    var tt = $[J],
-                        et = t[tt],
-                        nt = et.continuous ? y : m;
-                    q = (0, i.set)(q, tt, nt(et, e))
-                }
-                return q;
-            default:
-                return t
+        case a:
+            return e.payload.ixInstances || Object.freeze({});
+        case u:
+            return Object.freeze({});
+        case c:
+            var n = e.payload,
+                r = n.instanceId,
+                o = n.elementId,
+                d = n.actionItem,
+                p = n.eventId,
+                v = n.eventTarget,
+                h = n.eventStateKey,
+                _ = n.actionListId,
+                g = n.groupIndex,
+                m = n.isCarrier,
+                A = n.origin,
+                S = n.destination,
+                R = n.immediate,
+                b = n.verbose,
+                w = n.continuous,
+                N = n.parameterId,
+                C = n.actionGroups,
+                L = n.smoothing,
+                x = n.restingValue,
+                D = n.pluginInstance,
+                P = n.pluginDuration,
+                M = n.instanceDelay,
+                F = d.actionTypeId,
+                G = I(F),
+                j = T(G, F),
+                U = Object.keys(S).filter(function(t) {
+                    return null != S[t]
+                }),
+                V = d.config.easing;
+            return (0, i.set)(t, r, {
+                id: r,
+                elementId: o,
+                active: !1,
+                position: 0,
+                start: 0,
+                origin: A,
+                destination: S,
+                destinationKeys: U,
+                immediate: R,
+                verbose: b,
+                current: null,
+                actionItem: d,
+                actionTypeId: F,
+                eventId: p,
+                eventTarget: v,
+                eventStateKey: h,
+                actionListId: _,
+                groupIndex: g,
+                renderType: G,
+                isCarrier: m,
+                styleProp: j,
+                continuous: w,
+                parameterId: N,
+                actionGroups: C,
+                smoothing: L,
+                restingValue: x,
+                pluginInstance: D,
+                pluginDuration: P,
+                instanceDelay: M,
+                customEasingFn: Array.isArray(V) && 4 === V.length ? E(V) : void 0
+            });
+        case s:
+            var X = e.payload,
+                k = X.instanceId,
+                W = X.time;
+            return (0, i.mergeIn)(t, [k], {
+                active: !0,
+                complete: !1,
+                start: W
+            });
+        case f:
+            var B = e.payload.instanceId;
+            if (!t[B])
+                return t;
+            for (var H = {}, Y = Object.keys(t), z = Y.length, K = 0; K < z; K++) {
+                var Q = Y[K];
+                Q !== B && (H[Q] = t[Q])
+            }
+            return H;
+        case l:
+            for (var q = t, $ = Object.keys(t), Z = $.length, J = 0; J < Z; J++) {
+                var tt = $[J],
+                    et = t[tt],
+                    nt = et.continuous ? y : O;
+                q = (0, i.set)(q, tt, nt(et, e))
+            }
+            return q;
+        default:
+            return t
         }
     }
 }, function(t, e, n) {
@@ -5835,36 +6026,44 @@
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
             e = arguments.length > 1 ? arguments[1] : void 0;
         switch (e.type) {
-            case i:
-                return e.payload.ixParameters || {};
-            case o:
-                return {};
-            case a:
-                var n = e.payload,
-                    r = n.key,
-                    u = n.value;
-                return t[r] = u, t;
-            default:
-                return t
+        case i:
+            return e.payload.ixParameters || {};
+        case o:
+            return {};
+        case a:
+            var n = e.payload,
+                r = n.key,
+                u = n.value;
+            return t[r] = u, t;
+        default:
+            return t
         }
     }
 }, function(t, e, n) {
     var r = n(209);
     t.exports = function(t, e) {
-        if (null == t) return {};
-        var n, i, o = r(t, e);
+        if (null == t)
+            return {};
+        var n,
+            i,
+            o = r(t, e);
         if (Object.getOwnPropertySymbols) {
             var a = Object.getOwnPropertySymbols(t);
-            for (i = 0; i < a.length; i++) n = a[i], e.indexOf(n) >= 0 || Object.prototype.propertyIsEnumerable.call(t, n) && (o[n] = t[n])
+            for (i = 0; i < a.length; i++)
+                n = a[i], e.indexOf(n) >= 0 || Object.prototype.propertyIsEnumerable.call(t, n) && (o[n] = t[n])
         }
         return o
     }
 }, function(t, e) {
     t.exports = function(t, e) {
-        if (null == t) return {};
-        var n, r, i = {},
+        if (null == t)
+            return {};
+        var n,
+            r,
+            i = {},
             o = Object.keys(t);
-        for (r = 0; r < o.length; r++) n = o[r], e.indexOf(n) >= 0 || (i[n] = t[n]);
+        for (r = 0; r < o.length; r++)
+            n = o[r], e.indexOf(n) >= 0 || (i[n] = t[n]);
         return i
     }
 }, function(t, e, n) {
@@ -5876,8 +6075,10 @@
         c = "[object Map]",
         s = "[object Set]";
     t.exports = function(t) {
-        if (null == t) return 0;
-        if (o(t)) return a(t) ? u(t) : t.length;
+        if (null == t)
+            return 0;
+        if (o(t))
+            return a(t) ? u(t) : t.length;
         var e = i(t);
         return e == c || e == s ? t.size : r(t).length
     }
@@ -5916,7 +6117,8 @@
         f = "(?:" + [o + r + "?", r, a, u, n].join("|") + ")",
         l = RegExp(i + "(?=" + i + ")|" + f + s, "g");
     t.exports = function(t) {
-        for (var e = l.lastIndex = 0; l.test(t);) ++e;
+        for (var e = l.lastIndex = 0; l.test(t);)
+            ++e;
         return e
     }
 }, function(t, e, n) {
@@ -5929,18 +6131,19 @@
 }, function(t, e) {
     var n = "Expected a function";
     t.exports = function(t) {
-        if ("function" != typeof t) throw new TypeError(n);
+        if ("function" != typeof t)
+            throw new TypeError(n);
         return function() {
             var e = arguments;
             switch (e.length) {
-                case 0:
-                    return !t.call(this);
-                case 1:
-                    return !t.call(this, e[0]);
-                case 2:
-                    return !t.call(this, e[0], e[1]);
-                case 3:
-                    return !t.call(this, e[0], e[1], e[2])
+            case 0:
+                return !t.call(this);
+            case 1:
+                return !t.call(this, e[0]);
+            case 2:
+                return !t.call(this, e[0], e[1]);
+            case 3:
+                return !t.call(this, e[0], e[1], e[2])
             }
             return !t.apply(this, e)
         }
@@ -5951,7 +6154,8 @@
         o = n(219),
         a = n(222);
     t.exports = function(t, e) {
-        if (null == t) return {};
+        if (null == t)
+            return {};
         var n = r(a(t), function(t) {
             return [t]
         });
@@ -5978,7 +6182,8 @@
         a = n(5),
         u = n(12);
     t.exports = function(t, e, n, c) {
-        if (!a(t)) return t;
+        if (!a(t))
+            return t;
         for (var s = -1, f = (e = i(e, t)).length, l = f - 1, d = t; null != d && ++s < f;) {
             var p = u(e[s]),
                 v = n;
@@ -6011,7 +6216,8 @@
         o = n(71),
         a = n(72),
         u = Object.getOwnPropertySymbols ? function(t) {
-            for (var e = []; t;) r(e, o(t)), t = i(t);
+            for (var e = []; t;)
+                r(e, o(t)), t = i(t);
             return e
         } : a;
     t.exports = u
@@ -6031,17 +6237,20 @@
         o = n(227),
         a = Object.prototype.hasOwnProperty;
     t.exports = function(t) {
-        if (!r(t)) return o(t);
+        if (!r(t))
+            return o(t);
         var e = i(t),
             n = [];
-        for (var u in t)("constructor" != u || !e && a.call(t, u)) && n.push(u);
+        for (var u in t)
+            ("constructor" != u || !e && a.call(t, u)) && n.push(u);
         return n
     }
 }, function(t, e) {
     t.exports = function(t) {
         var e = [];
         if (null != t)
-            for (var n in Object(t)) e.push(n);
+            for (var n in Object(t))
+                e.push(n);
         return e
     }
 }, function(t, e, n) {
@@ -6057,13 +6266,18 @@
         d = "[object Set]",
         p = Object.prototype.hasOwnProperty;
     t.exports = function(t) {
-        if (null == t) return !0;
-        if (u(t) && (a(t) || "string" == typeof t || "function" == typeof t.splice || c(t) || f(t) || o(t))) return !t.length;
+        if (null == t)
+            return !0;
+        if (u(t) && (a(t) || "string" == typeof t || "function" == typeof t.splice || c(t) || f(t) || o(t)))
+            return !t.length;
         var e = i(t);
-        if (e == l || e == d) return !t.size;
-        if (s(t)) return !r(t).length;
+        if (e == l || e == d)
+            return !t.size;
+        if (s(t))
+            return !r(t).length;
         for (var n in t)
-            if (p.call(t, n)) return !1;
+            if (p.call(t, n))
+                return !1;
         return !0
     }
 }, function(t, e, n) {
@@ -6086,7 +6300,8 @@
     }
 }, function(t, e) {
     t.exports = function(t, e) {
-        for (var n = -1, r = null == t ? 0 : t.length; ++n < r && !1 !== e(t[n], n, t););
+        for (var n = -1, r = null == t ? 0 : t.length; ++n < r && !1 !== e(t[n], n, t);)
+            ;
         return t
     }
 }, function(t, e, n) {
@@ -6112,7 +6327,8 @@
     t.exports = function(t, e, n) {
         var a = !0,
             u = !0;
-        if ("function" != typeof t) throw new TypeError(o);
+        if ("function" != typeof t)
+            throw new TypeError(o);
         return i(n) && (a = "leading" in n ? !!n.leading : a, u = "trailing" in n ? !!n.trailing : u), r(t, e, {
             leading: a,
             maxWait: e,
@@ -6127,52 +6343,57 @@
         u = Math.max,
         c = Math.min;
     t.exports = function(t, e, n) {
-        var s, f, l, d, p, v, E = 0,
+        var s,
+            f,
+            l,
+            d,
+            p,
+            v,
+            E = 0,
             h = !1,
             _ = !1,
             g = !0;
-        if ("function" != typeof t) throw new TypeError(a);
-
+        if ("function" != typeof t)
+            throw new TypeError(a);
         function I(e) {
             var n = s,
                 r = f;
             return s = f = void 0, E = e, d = t.apply(r, n)
         }
-
         function T(t) {
             var n = t - v;
             return void 0 === v || n >= e || n < 0 || _ && t - E >= l
         }
-
         function y() {
             var t = i();
-            if (T(t)) return m(t);
+            if (T(t))
+                return O(t);
             p = setTimeout(y, function(t) {
                 var n = e - (t - v);
                 return _ ? c(n, l - (t - E)) : n
             }(t))
         }
-
-        function m(t) {
+        function O(t) {
             return p = void 0, g && s ? I(t) : (s = f = void 0, d)
         }
-
-        function O() {
+        function m() {
             var t = i(),
                 n = T(t);
             if (s = arguments, f = this, v = t, n) {
-                if (void 0 === p) return function(t) {
-                    return E = t, p = setTimeout(y, e), h ? I(t) : d
-                }(v);
-                if (_) return clearTimeout(p), p = setTimeout(y, e), I(v)
+                if (void 0 === p)
+                    return function(t) {
+                        return E = t, p = setTimeout(y, e), h ? I(t) : d
+                    }(v);
+                if (_)
+                    return clearTimeout(p), p = setTimeout(y, e), I(v)
             }
             return void 0 === p && (p = setTimeout(y, e)), d
         }
-        return e = o(e) || 0, r(n) && (h = !!n.leading, l = (_ = "maxWait" in n) ? u(o(n.maxWait) || 0, e) : l, g = "trailing" in n ? !!n.trailing : g), O.cancel = function() {
+        return e = o(e) || 0, r(n) && (h = !!n.leading, l = (_ = "maxWait" in n) ? u(o(n.maxWait) || 0, e) : l, g = "trailing" in n ? !!n.trailing : g), m.cancel = function() {
             void 0 !== p && clearTimeout(p), E = 0, s = v = f = p = void 0
-        }, O.flush = function() {
-            return void 0 === p ? d : m(i())
-        }, O
+        }, m.flush = function() {
+            return void 0 === p ? d : O(i())
+        }, m
     }
 }, function(t, e, n) {
     var r = n(3);
@@ -6202,13 +6423,15 @@
             if (-1 !== e.indexOf(u)) {
                 var i = e.split(u),
                     o = i[0];
-                if (r = i[1], o !== document.documentElement.getAttribute(f)) return null
+                if (r = i[1], o !== document.documentElement.getAttribute(f))
+                    return null
             }
             return '[data-w-id^="'.concat(r, '"]')
         }
         return n
     }, e.getValidDocument = function(t) {
-        if (null == t || t === document.documentElement.getAttribute(f)) return document;
+        if (null == t || t === document.documentElement.getAttribute(f))
+            return document;
         return null
     }, e.queryDocument = function(t, e) {
         return Array.prototype.slice.call(document.querySelectorAll(e ? t + " " + e : t))
@@ -6216,12 +6439,13 @@
         return t.contains(e)
     }, e.isSiblingNode = function(t, e) {
         return t !== e && t.parentNode === e.parentNode
-    }, e.getChildElements = function() {
-        for (var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [], e = [], n = 0, r = t.length; n < r; n++) {
+    }, e.getChildElements = function(t) {
+        for (var e = [], n = 0, r = (t || []).length; n < r; n++) {
             var i = t[n].children,
                 o = i.length;
             if (o)
-                for (var a = 0; a < o; a++) e.push(i[a])
+                for (var a = 0; a < o; a++)
+                    e.push(i[a])
         }
         return e
     }, e.getSiblingElements = function() {
@@ -6229,12 +6453,14 @@
             var o = t[r].parentNode;
             if (o && o.children && o.children.length && -1 === n.indexOf(o)) {
                 n.push(o);
-                for (var a = o.firstElementChild; null != a;) - 1 === t.indexOf(a) && e.push(a), a = a.nextElementSibling
+                for (var a = o.firstElementChild; null != a;)
+                    -1 === t.indexOf(a) && e.push(a), a = a.nextElementSibling
             }
         }
         return e
     }, e.getRefType = function(t) {
-        if (null != t && "object" == (0, r.default)(t)) return t instanceof Element ? c : s;
+        if (null != t && "object" == (0, r.default)(t))
+            return t instanceof Element ? c : s;
         return null
     }, e.getClosestElement = void 0;
     var i = n(2),
@@ -6247,10 +6473,12 @@
     var l = Element.prototype.closest ? function(t, e) {
         return document.documentElement.contains(t) ? t.closest(e) : null
     } : function(t, e) {
-        if (!document.documentElement.contains(t)) return null;
+        if (!document.documentElement.contains(t))
+            return null;
         var n = t;
         do {
-            if (n[o] && n[o](e)) return n;
+            if (n[o] && n[o](e))
+                return n;
             n = n.parentNode
         } while (null != n);
         return null
@@ -6258,14 +6486,18 @@
     e.getClosestElement = l
 }, function(t, e, n) {
     "use strict";
-    var r, i = n(0),
+    var r,
+        i = n(0),
         o = i(n(14)),
         a = i(n(15)),
         u = n(0);
     Object.defineProperty(e, "__esModule", {
         value: !0
     }), e.default = void 0;
-    var c, s, f, l = u(n(26)),
+    var c,
+        s,
+        f,
+        l = u(n(26)),
         d = u(n(239)),
         p = u(n(23)),
         v = u(n(258)),
@@ -6276,8 +6508,8 @@
         I = g.MOUSE_CLICK,
         T = g.MOUSE_SECOND_CLICK,
         y = g.MOUSE_DOWN,
-        m = g.MOUSE_UP,
-        O = g.MOUSE_OVER,
+        O = g.MOUSE_UP,
+        m = g.MOUSE_OVER,
         A = g.MOUSE_OUT,
         S = g.DROPDOWN_CLOSE,
         R = g.DROPDOWN_OPEN,
@@ -6293,8 +6525,8 @@
         F = g.COMPONENT_ACTIVE,
         G = g.COMPONENT_INACTIVE,
         j = g.SCROLL_OUT_OF_VIEW,
-        V = g.PAGE_SCROLL_UP,
-        U = g.SCROLLING_IN_VIEW,
+        U = g.PAGE_SCROLL_UP,
+        V = g.SCROLLING_IN_VIEW,
         X = g.PAGE_FINISH,
         k = g.ECOMMERCE_CART_CLOSE,
         W = g.ECOMMERCE_CART_OPEN,
@@ -6322,7 +6554,8 @@
         et = function(t, e) {
             if (e) {
                 var n = t.getState().ixData.events[e];
-                if (n && !ct[n.eventTypeId]) return n
+                if (n && !ct[n.eventTypeId])
+                    return n
             }
             return null
         },
@@ -6404,12 +6637,15 @@
                 i = n.target,
                 o = n.relatedTarget,
                 a = e.contains(i);
-            if ("mouseover" === r && a) return !0;
+            if ("mouseover" === r && a)
+                return !0;
             var u = e.contains(o);
             return !("mouseout" !== r || !a || !u)
         },
         lt = function(t) {
-            var e, n, r = t.element,
+            var e,
+                n,
+                r = t.element,
                 i = t.event.config,
                 o = st(),
                 a = o.clientWidth,
@@ -6455,8 +6691,11 @@
                     d = "PX" === c.scrollOffsetUnit,
                     p = o - a,
                     v = Number((i / p).toFixed(2));
-                if (n && n.percentTop === v) return n;
-                var E, h, _ = (d ? f : a * (f || 0) / 100) / p,
+                if (n && n.percentTop === v)
+                    return n;
+                var E,
+                    h,
+                    _ = (d ? f : a * (f || 0) / 100) / p,
                     g = 0;
                 n && (E = v > n.percentTop, g = (h = n.scrollingDown !== E) ? v : n.anchorTop);
                 var I = s === P ? v >= g + _ : v <= g - _,
@@ -6519,7 +6758,10 @@
         }), (0, o.default)(r, I, {
             types: "click",
             handler: rt(tt, Et(function(t, e) {
-                var n, r, i, o = e.clickCount;
+                var n,
+                    r,
+                    i,
+                    o = e.clickCount;
                 r = (n = t).store, i = n.event.action.config.autoStopEventId, Boolean(et(r, i)) ? 1 === o && nt(t) : nt(t)
             }))
         }), (0, o.default)(r, T, {
@@ -6529,9 +6771,9 @@
             }))
         }), (0, o.default)(r, y, (0, l.default)({}, it, {
             types: "mousedown"
-        })), (0, o.default)(r, m, (0, l.default)({}, it, {
+        })), (0, o.default)(r, O, (0, l.default)({}, it, {
             types: "mouseup"
-        })), (0, o.default)(r, O, {
+        })), (0, o.default)(r, m, {
             types: "mouseover mouseout",
             handler: rt(tt, pt(function(t, e) {
                 e.elementHovered && nt(t)
@@ -6569,45 +6811,47 @@
                     I = void 0 === g ? a.pageX : g,
                     T = i.pageY,
                     y = void 0 === T ? a.pageY : T,
-                    m = "X_AXIS" === c,
-                    O = "mouseout" === i.type,
+                    O = "X_AXIS" === c,
+                    m = "mouseout" === i.type,
                     A = d / 100,
                     S = s,
                     R = !1;
                 switch (u) {
-                    case z:
-                        A = m ? Math.min(v, window.innerWidth) / window.innerWidth : Math.min(_, window.innerHeight) / window.innerHeight;
+                case z:
+                    A = O ? Math.min(v, window.innerWidth) / window.innerWidth : Math.min(_, window.innerHeight) / window.innerHeight;
+                    break;
+                case K:
+                    var b = st(),
+                        w = b.scrollLeft,
+                        N = b.scrollTop,
+                        C = b.scrollWidth,
+                        L = b.scrollHeight;
+                    A = O ? Math.min(w + I, C) / C : Math.min(N + y, L) / L;
+                    break;
+                case Y:
+                default:
+                    S = q(o, s);
+                    var x = 0 === i.type.indexOf("mouse");
+                    if (x && !0 !== tt({
+                        element: n,
+                        nativeEvent: i
+                    }))
                         break;
-                    case K:
-                        var b = st(),
-                            w = b.scrollLeft,
-                            N = b.scrollTop,
-                            C = b.scrollWidth,
-                            L = b.scrollHeight;
-                        A = m ? Math.min(w + I, C) / C : Math.min(N + y, L) / L;
+                    var D = n.getBoundingClientRect(),
+                        P = D.left,
+                        M = D.top,
+                        F = D.width,
+                        G = D.height;
+                    if (!x && !function(t, e) {
+                        return t.left > e.left && t.left < e.right && t.top > e.top && t.top < e.bottom
+                    }({
+                        left: v,
+                        top: _
+                    }, D))
                         break;
-                    case Y:
-                    default:
-                        S = q(o, s);
-                        var x = 0 === i.type.indexOf("mouse");
-                        if (x && !0 !== tt({
-                                element: n,
-                                nativeEvent: i
-                            })) break;
-                        var D = n.getBoundingClientRect(),
-                            P = D.left,
-                            M = D.top,
-                            F = D.width,
-                            G = D.height;
-                        if (!x && ! function(t, e) {
-                                return t.left > e.left && t.left < e.right && t.top > e.top && t.top < e.bottom
-                            }({
-                                left: v,
-                                top: _
-                            }, D)) break;
-                        R = !0, A = m ? (v - P) / F : (_ - M) / G
+                    R = !0, A = O ? (v - P) / F : (_ - M) / G
                 }
-                return O && (A > .95 || A < .05) && (A = Math.round(A)), (u !== Y || R || R !== a.elementHovered) && (A = f ? 1 - A : A, e.dispatch((0, h.parameterChanged)(S, A))), {
+                return m && (A > .95 || A < .05) && (A = Math.round(A)), (u !== Y || R || R !== a.elementHovered) && (A = f ? 1 - A : A, e.dispatch((0, h.parameterChanged)(S, A))), {
                     elementHovered: R,
                     clientX: v,
                     clientY: _,
@@ -6626,7 +6870,7 @@
                     a = o.scrollTop / (o.scrollHeight - o.clientHeight);
                 a = i ? 1 - a : a, e.dispatch((0, h.parameterChanged)(r, a))
             }
-        }), (0, o.default)(r, U, {
+        }), (0, o.default)(r, V, {
             types: at,
             handler: function(t) {
                 var e = t.element,
@@ -6651,8 +6895,8 @@
                     I = r.addStartOffset,
                     T = r.addOffsetValue,
                     y = void 0 === T ? 0 : T,
-                    m = r.endOffsetValue,
-                    O = void 0 === m ? 0 : m;
+                    O = r.endOffsetValue,
+                    m = void 0 === O ? 0 : O;
                 if (d === z) {
                     var A = "X_AXIS" === p ? u / s : c / f;
                     return A !== o.scrollPercent && n.dispatch((0, h.parameterChanged)(v, A)), {
@@ -6662,7 +6906,7 @@
                 var S = q(i, v),
                     R = e.getBoundingClientRect(),
                     b = (I ? y : 0) / 100,
-                    w = (g ? O : 0) / 100;
+                    w = (g ? m : 0) / 100;
                 b = E ? b : 1 - b, w = _ ? w : 1 - w;
                 var N = R.top + Math.min(R.height * b, l),
                     C = R.top + R.height * w - N,
@@ -6676,7 +6920,7 @@
             handler: vt(function(t, e) {
                 e.scrollingDown && nt(t)
             })
-        })), (0, o.default)(r, V, (0, l.default)({}, ut, {
+        })), (0, o.default)(r, U, (0, l.default)({}, ut, {
             handler: vt(function(t, e) {
                 e.scrollingDown || nt(t)
             })
@@ -6723,8 +6967,10 @@
                 v = r.prototype.thru;
             for (t && e.reverse(); i--;) {
                 var E = e[i];
-                if ("function" != typeof E) throw new TypeError(s);
-                if (v && !h && "wrapper" == a(E)) var h = new r([], !0)
+                if ("function" != typeof E)
+                    throw new TypeError(s);
+                if (v && !h && "wrapper" == a(E))
+                    var h = new r([], !0)
             }
             for (i = h ? i : n; ++i < n;) {
                 E = e[i];
@@ -6735,8 +6981,10 @@
             return function() {
                 var t = arguments,
                     r = t[0];
-                if (h && 1 == t.length && u(r)) return h.plant(r).value();
-                for (var i = 0, o = n ? e[i].apply(this, t) : r; ++i < n;) o = e[i].call(this, o);
+                if (h && 1 == t.length && u(r))
+                    return h.plant(r).value();
+                for (var i = 0, o = n ? e[i].apply(this, t) : r; ++i < n;)
+                    o = e[i].call(this, o);
                 return o
             }
         })
@@ -6777,25 +7025,26 @@
     var r = n(246),
         i = Math.max;
     t.exports = function(t, e, n) {
-        return e = i(void 0 === e ? t.length - 1 : e, 0),
-            function() {
-                for (var o = arguments, a = -1, u = i(o.length - e, 0), c = Array(u); ++a < u;) c[a] = o[e + a];
-                a = -1;
-                for (var s = Array(e + 1); ++a < e;) s[a] = o[a];
-                return s[e] = n(c), r(t, this, s)
-            }
+        return e = i(void 0 === e ? t.length - 1 : e, 0), function() {
+            for (var o = arguments, a = -1, u = i(o.length - e, 0), c = Array(u); ++a < u;)
+                c[a] = o[e + a];
+            a = -1;
+            for (var s = Array(e + 1); ++a < e;)
+                s[a] = o[a];
+            return s[e] = n(c), r(t, this, s)
+        }
     }
 }, function(t, e) {
     t.exports = function(t, e, n) {
         switch (n.length) {
-            case 0:
-                return t.call(e);
-            case 1:
-                return t.call(e, n[0]);
-            case 2:
-                return t.call(e, n[0], n[1]);
-            case 3:
-                return t.call(e, n[0], n[1], n[2])
+        case 0:
+            return t.call(e);
+        case 1:
+            return t.call(e, n[0]);
+        case 2:
+            return t.call(e, n[0], n[1]);
+        case 3:
+            return t.call(e, n[0], n[1], n[2])
         }
         return t.apply(e, n)
     }
@@ -6833,8 +7082,10 @@
             var a = i(),
                 u = r - (a - o);
             if (o = a, u > 0) {
-                if (++e >= n) return arguments[0]
-            } else e = 0;
+                if (++e >= n)
+                    return arguments[0]
+            } else
+                e = 0;
             return t.apply(void 0, arguments)
         }
     }
@@ -6854,8 +7105,10 @@
     t.exports = function(t) {
         var e = o(t),
             n = a[e];
-        if ("function" != typeof n || !(e in r.prototype)) return !1;
-        if (t === n) return !0;
+        if ("function" != typeof n || !(e in r.prototype))
+            return !1;
+        if (t === n)
+            return !0;
         var u = i(n);
         return !!u && t === u[0]
     }
@@ -6867,11 +7120,12 @@
         u = n(8),
         c = n(256),
         s = Object.prototype.hasOwnProperty;
-
     function f(t) {
         if (u(t) && !a(t) && !(t instanceof r)) {
-            if (t instanceof i) return t;
-            if (s.call(t, "__wrapped__")) return c(t)
+            if (t instanceof i)
+                return t;
+            if (s.call(t, "__wrapped__"))
+                return c(t)
         }
         return new i(t)
     }
@@ -6881,7 +7135,8 @@
         i = n(51),
         o = n(257);
     t.exports = function(t) {
-        if (t instanceof r) return t.clone();
+        if (t instanceof r)
+            return t.clone();
         var e = new i(t.__wrapped__, t.__chain__);
         return e.__actions__ = o(t.__actions__), e.__index__ = t.__index__, e.__values__ = t.__values__, e
     }
@@ -6889,7 +7144,8 @@
     t.exports = function(t, e) {
         var n = -1,
             r = t.length;
-        for (e || (e = Array(r)); ++n < r;) e[n] = t[n];
+        for (e || (e = Array(r)); ++n < r;)
+            e[n] = t[n];
         return e
     }
 }, function(t, e, n) {
@@ -6902,7 +7158,10 @@
     "use strict";
     var r = n(4);
     r.define("links", t.exports = function(t, e) {
-        var n, i, o, a = {},
+        var n,
+            i,
+            o,
+            a = {},
             u = t(window),
             c = r.env(),
             s = window.location,
@@ -6910,13 +7169,13 @@
             l = "w--current",
             d = /index\.(html|php)$/,
             p = /\/$/;
-
         function v(e) {
             var r = n && e.getAttribute("href-disabled") || e.getAttribute("href");
             if (f.href = r, !(r.indexOf(":") >= 0)) {
                 var a = t(e);
                 if (f.hash.length > 1 && f.host + f.pathname === s.host + s.pathname) {
-                    if (!/^#[a-zA-Z0-9\-\_]+$/.test(f.hash)) return;
+                    if (!/^#[a-zA-Z0-9\-\_]+$/.test(f.hash))
+                        return;
                     var u = t(f.hash);
                     u.length && i.push({
                         link: a,
@@ -6929,7 +7188,6 @@
                 }
             }
         }
-
         function E() {
             var t = u.scrollTop(),
                 n = u.height();
@@ -6943,14 +7201,14 @@
                 e.active !== c && (e.active = c, h(r, l, c))
             })
         }
-
         function h(t, e, n) {
             var r = t.hasClass(e);
             n && r || (n || r) && (n ? t.addClass(e) : t.removeClass(e))
         }
         return a.ready = a.design = a.preview = function() {
             n = c && r.env("design"), o = r.env("slug") || s.pathname || "", r.scroll.off(E), i = [];
-            for (var t = document.links, e = 0; e < t.length; ++e) v(t[e]);
+            for (var t = document.links, e = 0; e < t.length; ++e)
+                v(t[e]);
             i.length && (r.scroll.on(E), E())
         }, a
     })
@@ -6991,7 +7249,7 @@
                                             l = t("header, " + f + " > .header, " + f + " > .w-nav:not([data-no-scroll])"),
                                             d = "fixed" === l.css("position") ? l.outerHeight() : 0;
                                         n.setTimeout(function() {
-                                            ! function(e, r) {
+                                            !function(e, r) {
                                                 var i = t(n).scrollTop(),
                                                     o = e.offset().top - r;
                                                 if ("mid" === e.data("scroll")) {
@@ -7011,7 +7269,7 @@
                                                         n.setTimeout(t, 15)
                                                     },
                                                     l = (472.143 * Math.log(Math.abs(i - o) + 125) - 2e3) * c;
-                                                ! function t() {
+                                                !function t() {
                                                     var e = Date.now() - s;
                                                     n.scroll(0, function(t, e, n, r) {
                                                         return n > r ? e : t + (e - t) * ((i = n / r) < .5 ? 4 * i * i * i : (i - 1) * (2 * i - 2) * (2 * i - 2) + 1);
@@ -7023,7 +7281,8 @@
                                     }
                                 }
                             }(s, e)
-                        } else e.preventDefault()
+                        } else
+                            e.preventDefault()
                 })
             }
         }
@@ -7033,24 +7292,24 @@
     n(4).define("touch", t.exports = function(t) {
         var e = {},
             n = window.getSelection;
-
         function r(e) {
-            var r, i, o = !1,
+            var r,
+                i,
+                o = !1,
                 a = !1,
                 u = Math.min(Math.round(.04 * window.innerWidth), 40);
-
             function c(t) {
                 var e = t.touches;
                 e && e.length > 1 || (o = !0, e ? (a = !0, r = e[0].clientX) : r = t.clientX, i = r)
             }
-
             function s(e) {
                 if (o) {
-                    if (a && "mousemove" === e.type) return e.preventDefault(), void e.stopPropagation();
+                    if (a && "mousemove" === e.type)
+                        return e.preventDefault(), void e.stopPropagation();
                     var r = e.touches,
                         c = r ? r[0].clientX : e.clientX,
                         s = c - i;
-                    i = c, Math.abs(s) > u && n && "" === String(n()) && (! function(e, n, r) {
+                    i = c, Math.abs(s) > u && n && "" === String(n()) && (!function(e, n, r) {
                         var i = t.Event(e, {
                             originalEvent: n
                         });
@@ -7060,11 +7319,10 @@
                     }), l())
                 }
             }
-
             function f(t) {
-                if (o) return o = !1, a && "mouseup" === t.type ? (t.preventDefault(), t.stopPropagation(), void(a = !1)) : void 0
+                if (o)
+                    return o = !1, a && "mouseup" === t.type ? (t.preventDefault(), t.stopPropagation(), void (a = !1)) : void 0
             }
-
             function l() {
                 o = !1
             }
@@ -7081,10 +7339,214 @@
     })
 }, function(t, e, n) {
     "use strict";
-    var r = n(0)(n(263)),
+    var r = n(4),
+        i = n(27),
+        o = {
+            ARROW_UP: 38,
+            ARROW_DOWN: 40,
+            ESCAPE: 27,
+            SPACE: 32,
+            ENTER: 13,
+            HOME: 36,
+            END: 35
+        },
+        a = !0;
+    r.define("dropdown", t.exports = function(t, e) {
+        var n,
+            u,
+            c = {},
+            s = t(document),
+            f = r.env(),
+            l = r.env.touch,
+            d = l ? "click" : "mouseup",
+            p = ".w-dropdown",
+            v = "w--open",
+            E = "w-close" + p,
+            h = i.triggers,
+            _ = 900,
+            g = !1;
+        function I() {
+            u = f && r.env("design"), (n = s.find(p)).each(T)
+        }
+        function T(n, i) {
+            var c = t(i),
+                l = t.data(i, p);
+            l || (l = t.data(i, p, {
+                open: !1,
+                el: c,
+                config: {},
+                selectedIdx: -1
+            })), l.list = c.children(".w-dropdown-list"), l.toggle = c.children(".w-dropdown-toggle"), l.links = l.list.children(".w-dropdown-link"), l.outside = function(n) {
+                n.outside && s.off(d + p, n.outside);
+                return e.debounce(function(e) {
+                    if (n.open) {
+                        var i = t(e.target);
+                        if (!i.closest(".w-dropdown-toggle").length) {
+                            var o = -1 === t.inArray(n.el[0], i.parents(p)),
+                                a = r.env("editor");
+                            if (o) {
+                                if (a) {
+                                    var u = 1 === i.parents().length && 1 === i.parents("svg").length,
+                                        c = i.parents(".w-editor-bem-EditorHoverControls").length;
+                                    if (u || c)
+                                        return
+                                }
+                                S(n)
+                            }
+                        }
+                    }
+                })
+            }(l), l.complete = function(t) {
+                return function() {
+                    t.list.removeClass(v), t.toggle.removeClass(v), t.manageZ && t.el.css("z-index", "")
+                }
+            }(l), l.leave = function(t) {
+                return function() {
+                    t.hovering = !1, t.links.is(":focus") || S(t)
+                }
+            }(l), l.moveOutside = function(n) {
+                return e.debounce(function(e) {
+                    if (n.open) {
+                        var r = t(e.target),
+                            i = -1 === t.inArray(n.el[0], r.parents(p));
+                        if (i) {
+                            var o = r.parents(".w-editor-bem-EditorHoverControls").length,
+                                a = r.parents(".w-editor-bem-RTToolbar").length,
+                                u = t(".w-editor-bem-EditorOverlay"),
+                                c = u.find(".w-editor-edit-outline").length || u.find(".w-editor-bem-RTToolbar").length;
+                            if (o || a || c)
+                                return;
+                            n.hovering = !1, S(n)
+                        }
+                    }
+                })
+            }(l), c.off(p), l.toggle.off(p), y(l), l.nav && l.nav.off(p), l.nav = c.closest(".w-nav"), l.nav.on(E, O(l)), u ? c.on("setting" + p, O(l)) : (l.toggle.on(d + p, m(l, a)), l.config.hover && l.toggle.on("mouseenter" + p, function(t) {
+                return function() {
+                    t.hovering = !0, A(t), t.links.is(":focus") || t.toggle.focus()
+                }
+            }(l)), c.on(E, O(l)), f && (l.hovering = !1, S(l)));
+            var h = l.list.attr("id"),
+                _ = l.toggle.attr("id");
+            c.attr("role", "menu"), c.on("keydown", b), h || (h = "w-dropdown-list-" + n, l.list.attr("id", h)), c.on("keyup", function(t) {
+                return function(e) {
+                    if (!u && !g && (t.open || t.toggle.is(":focus")))
+                        switch (e.keyCode) {
+                        case o.HOME:
+                            if (!t.open)
+                                return;
+                            return t.selectedIdx = 0, void R(t);
+                        case o.END:
+                            if (!t.open)
+                                return;
+                            return t.selectedIdx = t.links.length - 1, void R(t);
+                        case o.ESCAPE:
+                            return void S(t, {
+                                forceClose: !0
+                            });
+                        case o.ARROW_DOWN:
+                            return t.selectedIdx = Math.min(t.links.length - 1, t.selectedIdx + 1), void (t.selectedIdx >= 0 && (t.open || (t.selectedIdx = 0), A(t), R(t)));
+                        case o.ARROW_UP:
+                            return t.selectedIdx = Math.max(-1, t.selectedIdx - 1), void (t.selectedIdx < 0 ? (S(t, {
+                                immediate: !0,
+                                forceClose: !0
+                            }), t.toggle.focus()) : (A(t), R(t)));
+                        default:
+                            return
+                        }
+                }
+            }(l)), l.links.attr("tabindex", "-1"), l.links.attr("role", "menuitem"), l.toggle.attr("tabindex") || l.toggle.attr("tabindex", "0"), _ || (_ = "w-dropdown-toggle-" + n, l.toggle.attr("id", _)), l.toggle.attr("aria-controls", h), l.toggle.attr("aria-haspopup", "menu"), l.toggle.on("keyup", function(t) {
+                var e = m(t, a);
+                return function(t) {
+                    u || g || t.keyCode !== o.SPACE && t.keyCode !== o.ENTER || (t.stopPropagation(), e())
+                }
+            }(l)), c.attr("aria-labelledby", _), l.toggle.css("outline", "none"), l.links.css("outline", "none")
+        }
+        function y(t) {
+            var e = Number(t.el.css("z-index"));
+            t.manageZ = e === _ || e === _ + 1, t.config = {
+                hover: (!0 === t.el.attr("data-hover") || "1" === t.el.attr("data-hover")) && !l,
+                delay: Number(t.el.attr("data-delay")) || 0
+            }
+        }
+        function O(t) {
+            return function(e, n) {
+                return n = n || {}, "w-close" === e.type ? S(t, {
+                    focusToggle: !1
+                }) : "setting" === e.type ? (y(t), !0 === n.open && A(t), void (!1 === n.open && S(t, {
+                    immediate: !0
+                }))) : void 0
+            }
+        }
+        function m(t, n) {
+            return e.debounce(function() {
+                if (t.open)
+                    return S(t, {
+                        forceClose: n
+                    });
+                A(t), R(t)
+            })
+        }
+        function A(e) {
+            if (!e.open) {
+                !function(e) {
+                    var r = e.el[0];
+                    n.each(function(e, n) {
+                        var i = t(n);
+                        i.is(r) || i.has(r).length || i.triggerHandler(E)
+                    })
+                }(e), e.open = !0, e.list.addClass(v), e.toggle.addClass(v), e.toggle.attr("aria-expanded", "true"), h.intro(0, e.el[0]), r.redraw.up(), e.manageZ && e.el.css("z-index", _ + 1);
+                var i = r.env("editor");
+                u || s.on(d + p, e.outside), e.hovering && !i && e.el.on("mouseleave" + p, e.leave), e.hovering && i && s.on("mousemove" + p, e.moveOutside), window.clearTimeout(e.delayId)
+            }
+        }
+        function S(t) {
+            var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+                n = e.immediate,
+                r = e.forceClose,
+                i = e.focusToggle,
+                o = void 0 === i || i;
+            if (t.open && (!t.config.hover || !t.hovering || r)) {
+                t.toggle.removeAttr("aria-expanded"), o && t.toggle.focus(), t.open = !1;
+                var a = t.config;
+                if (h.outro(0, t.el[0]), s.off(d + p, t.outside), t.el.off("mouseleave" + p, t.leave), s.off("mousemove" + p, t.moveOutside), window.clearTimeout(t.delayId), !a.delay || n)
+                    return t.complete();
+                t.delayId = window.setTimeout(t.complete, a.delay)
+            }
+        }
+        function R(t) {
+            t.links[t.selectedIdx] && t.links[t.selectedIdx].focus()
+        }
+        function b(t) {
+            if (!u)
+                switch (t.keyCode) {
+                case o.HOME:
+                case o.END:
+                case o.ARROW_DOWN:
+                case o.ARROW_UP:
+                    return t.preventDefault();
+                default:
+                    return
+                }
+        }
+        return c.ready = I, c.design = function() {
+            g && s.find(p).each(function(e, n) {
+                t(n).triggerHandler(E)
+            }), g = !1, I()
+        }, c.preview = function() {
+            g = !0, I()
+        }, c
+    })
+}, function(t, e, n) {
+    "use strict";
+    var r = n(0)(n(264)),
         i = n(4);
     i.define("forms", t.exports = function(t, e) {
-        var n, o, a, u, c, s = {},
+        var n,
+            o,
+            a,
+            u,
+            c,
+            s = {},
             f = t(document),
             l = window.location,
             d = window.XDomainRequest && !window.atob,
@@ -7097,7 +7559,6 @@
             I = e.debounce(function() {
                 h("Oops! This page has improperly configured forms. Please contact your website administrator to fix this issue.")
             }, 100);
-
         function T(e, n) {
             var r = t(n),
                 i = t.data(n, p);
@@ -7106,9 +7567,11 @@
             })), y(i);
             var a = r.closest("div.w-form");
             i.done = a.find("> .w-form-done"), i.fail = a.find("> .w-form-fail"), i.fileUploads = a.find(".w-file-upload"), i.fileUploads.each(function(e) {
-                ! function(e, n) {
-                    if (!n.fileUploads || !n.fileUploads[e]) return;
-                    var r, i = t(n.fileUploads[e]),
+                !function(e, n) {
+                    if (!n.fileUploads || !n.fileUploads[e])
+                        return;
+                    var r,
+                        i = t(n.fileUploads[e]),
                         o = i.find("> .w-file-upload-default"),
                         a = i.find("> .w-file-upload-uploading"),
                         u = i.find("> .w-file-upload-success"),
@@ -7123,18 +7586,19 @@
                         g = p.attr("data-w-size-error"),
                         I = p.attr("data-w-type-error"),
                         T = p.attr("data-w-generic-error");
-                    if (_) f.on("click", function(t) {
-                        t.preventDefault()
-                    }), l.on("click", function(t) {
-                        t.preventDefault()
-                    }), d.on("click", function(t) {
-                        t.preventDefault()
-                    });
+                    if (_)
+                        f.on("click", function(t) {
+                            t.preventDefault()
+                        }), l.on("click", function(t) {
+                            t.preventDefault()
+                        }), d.on("click", function(t) {
+                            t.preventDefault()
+                        });
                     else {
                         E.on("click", function() {
                             f.removeAttr("data-value"), f.val(""), h.html(""), o.toggle(!0), u.toggle(!1)
                         }), f.on("change", function(i) {
-                            (r = i.target && i.target.files && i.target.files[0]) && (o.toggle(!1), s.toggle(!1), a.toggle(!0), h.text(r.name), b() || m(n), n.fileUploads[e].uploading = !0, function(e, n) {
+                            (r = i.target && i.target.files && i.target.files[0]) && (o.toggle(!1), s.toggle(!1), a.toggle(!0), h.text(r.name), b() || O(n), n.fileUploads[e].uploading = !0, function(e, n) {
                                 var r = {
                                     name: e.name,
                                     size: e.size
@@ -7152,45 +7616,43 @@
                                 })
                             }(r, S))
                         });
-                        var O = l.outerHeight();
-                        f.height(O), f.width(1)
+                        var m = l.outerHeight();
+                        f.height(m), f.width(1)
                     }
-
                     function A(t) {
                         var r = t.responseJSON && t.responseJSON.msg,
                             i = T;
                         "string" == typeof r && 0 === r.indexOf("InvalidFileTypeError") ? i = I : "string" == typeof r && 0 === r.indexOf("MaxFileSizeError") && (i = g), p.text(i), f.removeAttr("data-value"), f.val(""), a.toggle(!1), o.toggle(!0), s.toggle(!0), n.fileUploads[e].uploading = !1, b() || y(n)
                     }
-
                     function S(e, n) {
-                        if (e) return A(e);
+                        if (e)
+                            return A(e);
                         var i = n.fileName,
                             o = n.postData,
                             a = n.fileId,
                             u = n.s3Url;
-                        f.attr("data-value", a),
-                            function(e, n, r, i, o) {
-                                var a = new FormData;
-                                for (var u in n) a.append(u, n[u]);
-                                a.append("file", r, i), t.ajax({
-                                    type: "POST",
-                                    url: e,
-                                    data: a,
-                                    processData: !1,
-                                    contentType: !1
-                                }).done(function() {
-                                    o(null)
-                                }).fail(function(t) {
-                                    o(t)
-                                })
-                            }(u, o, r, i, R)
+                        f.attr("data-value", a), function(e, n, r, i, o) {
+                            var a = new FormData;
+                            for (var u in n)
+                                a.append(u, n[u]);
+                            a.append("file", r, i), t.ajax({
+                                type: "POST",
+                                url: e,
+                                data: a,
+                                processData: !1,
+                                contentType: !1
+                            }).done(function() {
+                                o(null)
+                            }).fail(function(t) {
+                                o(t)
+                            })
+                        }(u, o, r, i, R)
                     }
-
                     function R(t) {
-                        if (t) return A(t);
+                        if (t)
+                            return A(t);
                         a.toggle(!1), u.css("display", "inline-block"), n.fileUploads[e].uploading = !1, b() || y(n)
                     }
-
                     function b() {
                         var t = n.fileUploads && n.fileUploads.toArray() || [];
                         return t.some(function(t) {
@@ -7202,38 +7664,36 @@
             var u = i.action = r.attr("action");
             i.handler = null, i.redirect = r.attr("data-redirect"), g.test(u) ? i.handler = S : u || (o ? i.handler = A : I())
         }
-
         function y(t) {
             var e = t.btn = t.form.find(':input[type="submit"]');
             t.wait = t.btn.attr("data-wait") || null, t.success = !1, e.prop("disabled", !1), t.label && e.val(t.label)
         }
-
-        function m(t) {
+        function O(t) {
             var e = t.btn,
                 n = t.wait;
             e.prop("disabled", !0), n && (t.label = e.val(), e.val(n))
         }
-
-        function O(e, n) {
+        function m(e, n) {
             var r = null;
             return n = n || {}, e.find(':input:not([type="submit"]):not([type="file"])').each(function(i, o) {
                 var a = t(o),
                     u = a.attr("type"),
                     c = a.attr("data-name") || a.attr("name") || "Field " + (i + 1),
                     s = a.val();
-                if ("checkbox" === u) s = a.is(":checked");
+                if ("checkbox" === u)
+                    s = a.is(":checked");
                 else if ("radio" === u) {
-                    if (null === n[c] || "string" == typeof n[c]) return;
+                    if (null === n[c] || "string" == typeof n[c])
+                        return;
                     s = e.find('input[name="' + a.attr("name") + '"]:checked').val() || null
                 }
                 "string" == typeof s && (s = t.trim(s)), n[c] = s, r = r || function(t, e, n, r) {
                     var i = null;
-                    "password" === e ? i = "Passwords cannot be submitted." : t.attr("required") ? r ? v.test(t.attr("type")) && (E.test(r) || (i = "Please enter a valid email address for: " + n)) : i = "Please fill out the required field: " + n : "g-recaptcha-response" !== n || r || (i = "Please confirm youâ€™re not a robot.");
+                    "password" === e ? i = "Passwords cannot be submitted." : t.attr("required") ? r ? v.test(t.attr("type")) && (E.test(r) || (i = "Please enter a valid email address for: " + n)) : i = "Please fill out the required field: " + n : "g-recaptcha-response" !== n || r || (i = "Please confirm you’re not a robot.");
                     return i
                 }(a, u, c, s)
             }), r
         }
-
         function A(e) {
             y(e);
             var n = e.form,
@@ -7246,8 +7706,9 @@
                     dolphin: /pass[\s-_]?(word|code)|secret|login|credentials/i.test(n.html())
                 };
             b(e);
-            var a = O(n, r.fields);
-            if (a) return h(a);
+            var a = m(n, r.fields);
+            if (a)
+                return h(a);
             r.fileUploads = function(e) {
                 var n = {};
                 return e.find(':input[type="file"]').each(function(e, r) {
@@ -7256,7 +7717,7 @@
                         a = i.attr("data-value");
                     "string" == typeof a && (a = t.trim(a)), n[o] = a
                 }), n
-            }(n), m(e), o ? t.ajax({
+            }(n), O(e), o ? t.ajax({
                 url: u,
                 type: "POST",
                 data: r,
@@ -7268,16 +7729,17 @@
                 R(e)
             }) : R(e)
         }
-
         function S(n) {
             y(n);
             var r = n.form,
                 i = {};
             if (!/^https/.test(l.href) || /^https/.test(n.action)) {
                 b(n);
-                var o, a = O(r, i);
-                if (a) return h(a);
-                m(n), e.each(i, function(t, e) {
+                var o,
+                    a = m(r, i);
+                if (a)
+                    return h(a);
+                O(n), e.each(i, function(t, e) {
                     v.test(e) && (i.EMAIL = t), /^((full[ _-]?)?name)$/i.test(e) && (o = t), /^(first[ _-]?name)$/i.test(e) && (i.FNAME = t), /^(last[ _-]?name)$/i.test(e) && (i.LNAME = t)
                 }), o && !i.FNAME && (o = o.split(" "), i.FNAME = o[0], i.LNAME = i.LNAME || o[1]);
                 var u = n.action.replace("/post?", "/post-json?") + "&c=?",
@@ -7293,33 +7755,30 @@
                 }).fail(function() {
                     R(n)
                 })
-            } else r.attr("method", "post")
+            } else
+                r.attr("method", "post")
         }
-
         function R(t) {
             var e = t.form,
                 n = t.redirect,
                 r = t.success;
             r && n ? i.location(n) : (t.done.toggle(r), t.fail.toggle(!r), e.toggle(!r), y(t))
         }
-
         function b(t) {
             t.evt && t.evt.preventDefault(), t.evt = null
         }
         return s.ready = s.design = s.preview = function() {
-            ! function() {
+            !function() {
                 o = t("html").attr("data-wf-site"), u = "https://webflow.com/api/v1/form/" + o, d && u.indexOf("https://webflow.com") >= 0 && (u = u.replace("https://webflow.com", "http://formdata.webflow.com"));
-                if (c = "".concat(u, "/signFile"), !(n = t(p + " form")).length) return;
+                if (c = "".concat(u, "/signFile"), !(n = t(p + " form")).length)
+                    return;
                 n.each(T)
             }(), _ || a || function() {
                 a = !0, f.on("submit", p + " form", function(e) {
                     var n = t.data(this, p);
                     n.handler && (n.evt = e, n.handler(n))
                 });
-                var e = [
-                    ["checkbox", ".w-checkbox-input"],
-                    ["radio", ".w-radio-input"]
-                ];
+                var e = [["checkbox", ".w-checkbox-input"], ["radio", ".w-radio-input"]];
                 f.on("change", p + ' form input[type="checkbox"]:not(.w-checkbox-input)', function(e) {
                     t(e.target).siblings(".w-checkbox-input").toggleClass("w--redirected-checked")
                 }), f.on("change", p + ' form input[type="radio"]', function(e) {
@@ -7342,15 +7801,16 @@
         }, s
     })
 }, function(t, e, n) {
-    var r = n(264),
-        i = n(265),
-        o = n(266);
+    var r = n(265),
+        i = n(266),
+        o = n(267);
     t.exports = function(t, e) {
         return r(t) || i(t, e) || o()
     }
 }, function(t, e) {
     t.exports = function(t) {
-        if (Array.isArray(t)) return t
+        if (Array.isArray(t))
+            return t
     }
 }, function(t, e) {
     t.exports = function(t, e) {
@@ -7359,14 +7819,16 @@
             i = !1,
             o = void 0;
         try {
-            for (var a, u = t[Symbol.iterator](); !(r = (a = u.next()).done) && (n.push(a.value), !e || n.length !== e); r = !0);
+            for (var a, u = t[Symbol.iterator](); !(r = (a = u.next()).done) && (n.push(a.value), !e || n.length !== e); r = !0)
+                ;
         } catch (t) {
             i = !0, o = t
         } finally {
             try {
                 r || null == u.return || u.return()
             } finally {
-                if (i) throw o
+                if (i)
+                    throw o
             }
         }
         return n
@@ -7380,7 +7842,11 @@
     var r = n(4),
         i = n(27);
     r.define("navbar", t.exports = function(t, e) {
-        var n, o, a, u, c = {},
+        var n,
+            o,
+            a,
+            u,
+            c = {},
             s = t.tram,
             f = t(window),
             l = t(document),
@@ -7388,23 +7854,19 @@
             p = '<div class="w-nav-overlay" data-wf-ignore />',
             v = ".w-nav",
             E = "w--open",
-            h = "w--nav-menu-open",
-            _ = "w--nav-dropdown-open",
-            g = "w--nav-dropdown-toggle-open",
-            I = "w--nav-dropdown-list-open",
-            T = "w--nav-link-open",
-            y = i.triggers,
-            m = t();
-
+            h = "w--nav-dropdown-open",
+            _ = "w--nav-dropdown-toggle-open",
+            g = "w--nav-dropdown-list-open",
+            I = "w--nav-link-open",
+            T = i.triggers,
+            y = t();
         function O() {
-            r.resize.off(A)
+            r.resize.off(m)
         }
-
-        function A() {
-            o.each(L)
+        function m() {
+            o.each(C)
         }
-
-        function S(n, i) {
+        function A(n, i) {
             var o = t(i),
                 c = t.data(i, v);
             c || (c = t.data(i, v, {
@@ -7415,101 +7877,104 @@
                 e.outside && l.off("click" + v, e.outside);
                 return function(n) {
                     var r = t(n.target);
-                    u && r.closest(".w-editor-bem-EditorOverlay").length || C(e, r)
+                    u && r.closest(".w-editor-bem-EditorOverlay").length || N(e, r)
                 }
-            }(c), c.el.off(v), c.button.off(v), c.menu.off(v), w(c), a ? (b(c), c.el.on("setting" + v, function(t) {
+            }(c), c.el.off(v), c.button.off(v), c.menu.off(v), b(c), a ? (R(c), c.el.on("setting" + v, function(t) {
                 return function(n, r) {
                     r = r || {};
                     var i = f.width();
-                    w(t), !0 === r.open && D(t, !0), !1 === r.open && M(t, !0), t.open && e.defer(function() {
-                        i !== f.width() && N(t)
+                    b(t), !0 === r.open && P(t, !0), !1 === r.open && F(t, !0), t.open && e.defer(function() {
+                        i !== f.width() && w(t)
                     })
                 }
-            }(c))) : (! function(e) {
-                if (e.overlay) return;
-                e.overlay = t(p).appendTo(e.el), e.parent = e.menu.parent(), M(e, !0)
+            }(c))) : (!function(e) {
+                if (e.overlay)
+                    return;
+                e.overlay = t(p).appendTo(e.el), e.parent = e.menu.parent(), F(e, !0)
             }(c), c.button.on("click" + v, function(t) {
                 return e.debounce(function() {
-                    t.open ? M(t) : D(t)
+                    t.open ? F(t) : P(t)
                 })
             }(c)), c.menu.on("click" + v, "a", function(e) {
                 return function(n) {
                     var i = t(this),
                         o = i.attr("href");
-                    r.validClick(n.currentTarget) ? o && 0 === o.indexOf("#") && e.open && M(e) : n.preventDefault()
+                    r.validClick(n.currentTarget) ? o && 0 === o.indexOf("#") && e.open && F(e) : n.preventDefault()
                 }
-            }(c))), L(n, i)
+            }(c))), C(n, i)
         }
-
-        function R(e, n) {
+        function S(e, n) {
             var r = t.data(n, v);
-            r && (b(r), t.removeData(n, v))
+            r && (R(r), t.removeData(n, v))
         }
-
+        function R(t) {
+            t.overlay && (F(t, !0), t.overlay.remove(), t.overlay = null)
+        }
         function b(t) {
-            t.overlay && (M(t, !0), t.overlay.remove(), t.overlay = null)
-        }
-
-        function w(t) {
             var n = {},
                 r = t.config || {},
                 i = n.animation = t.el.attr("data-animation") || "default";
-            n.animOver = /^over/.test(i), n.animDirect = /left$/.test(i) ? -1 : 1, r.animation !== i && t.open && e.defer(N, t), n.easing = t.el.attr("data-easing") || "ease", n.easing2 = t.el.attr("data-easing2") || "ease";
+            n.animOver = /^over/.test(i), n.animDirect = /left$/.test(i) ? -1 : 1, r.animation !== i && t.open && e.defer(w, t), n.easing = t.el.attr("data-easing") || "ease", n.easing2 = t.el.attr("data-easing2") || "ease";
             var o = t.el.attr("data-duration");
             n.duration = null != o ? Number(o) : 400, n.docHeight = t.el.attr("data-doc-height"), t.config = n
         }
-
-        function N(t) {
-            t.open && (M(t, !0), D(t, !0))
+        function w(t) {
+            t.open && (F(t, !0), P(t, !0))
         }
         c.ready = c.design = c.preview = function() {
-            if (a = d && r.env("design"), u = r.env("editor"), n = t(document.body), !(o = l.find(v)).length) return;
-            o.each(S), O(), r.resize.on(A)
+            if (a = d && r.env("design"), u = r.env("editor"), n = t(document.body), !(o = l.find(v)).length)
+                return;
+            o.each(A), O(), r.resize.on(m)
         }, c.destroy = function() {
-            m = t(), O(), o && o.length && o.each(R)
+            y = t(), O(), o && o.length && o.each(S)
         };
-        var C = e.debounce(function(t, e) {
+        var N = e.debounce(function(t, e) {
             if (t.open) {
                 var n = e.closest(".w-nav-menu");
-                t.menu.is(n) || M(t)
+                t.menu.is(n) || F(t)
             }
         });
-
-        function L(e, n) {
+        function C(e, n) {
             var r = t.data(n, v),
                 i = r.collapsed = "none" !== r.button.css("display");
-            if (!r.open || i || a || M(r, !0), r.container.length) {
+            if (!r.open || i || a || F(r, !0), r.container.length) {
                 var o = function(e) {
-                    var n = e.container.css(x);
+                    var n = e.container.css(L);
                     "none" === n && (n = "");
                     return function(e, r) {
-                        (r = t(r)).css(x, ""), "none" === r.css(x) && r.css(x, n)
+                        (r = t(r)).css(L, ""), "none" === r.css(L) && r.css(L, n)
                     }
                 }(r);
                 r.links.each(o), r.dropdowns.each(o)
             }
-            r.open && P(r)
+            r.open && M(r)
         }
-        var x = "max-width";
-
+        var L = "max-width";
+        function x(t, e) {
+            e.setAttribute("data-nav-menu-open", "")
+        }
         function D(t, e) {
+            e.removeAttribute("data-nav-menu-open")
+        }
+        function P(t, e) {
             if (!t.open) {
-                t.open = !0, t.menu.addClass(h), t.links.addClass(T), t.dropdowns.addClass(_), t.dropdownToggle.addClass(g), t.dropdownList.addClass(I), t.button.addClass(E);
+                t.open = !0, t.menu.each(x), t.links.addClass(I), t.dropdowns.addClass(h), t.dropdownToggle.addClass(_), t.dropdownList.addClass(g), t.button.addClass(E);
                 var n = t.config;
                 "none" !== n.animation && s.support.transform || (e = !0);
-                var i = P(t),
+                var i = M(t),
                     o = t.menu.outerHeight(!0),
                     u = t.menu.outerWidth(!0),
                     c = t.el.height(),
                     f = t.el[0];
-                if (L(0, f), y.intro(0, f), r.redraw.up(), a || l.on("click" + v, t.outside), !e) {
+                if (C(0, f), T.intro(0, f), r.redraw.up(), a || l.on("click" + v, t.outside), !e) {
                     var d = "transform " + n.duration + "ms " + n.easing;
-                    if (t.overlay && (m = t.menu.prev(), t.overlay.show().append(t.menu)), n.animOver) return s(t.menu).add(d).set({
-                        x: n.animDirect * u,
-                        height: i
-                    }).start({
-                        x: 0
-                    }), void(t.overlay && t.overlay.width(u));
+                    if (t.overlay && (y = t.menu.prev(), t.overlay.show().append(t.menu)), n.animOver)
+                        return s(t.menu).add(d).set({
+                            x: n.animDirect * u,
+                            height: i
+                        }).start({
+                            x: 0
+                        }), void (t.overlay && t.overlay.width(u));
                     var p = c + o;
                     s(t.menu).add(d).set({
                         y: -p
@@ -7519,25 +7984,25 @@
                 }
             }
         }
-
-        function P(t) {
+        function M(t) {
             var e = t.config,
                 r = e.docHeight ? l.height() : n.height();
             return e.animOver ? t.menu.height(r) : "fixed" !== t.el.css("position") && (r -= t.el.height()), t.overlay && t.overlay.height(r), r
         }
-
-        function M(t, e) {
+        function F(t, e) {
             if (t.open) {
                 t.open = !1, t.button.removeClass(E);
                 var n = t.config;
-                if (("none" === n.animation || !s.support.transform || n.duration <= 0) && (e = !0), y.outro(0, t.el[0]), l.off("click" + v, t.outside), e) return s(t.menu).stop(), void c();
+                if (("none" === n.animation || !s.support.transform || n.duration <= 0) && (e = !0), T.outro(0, t.el[0]), l.off("click" + v, t.outside), e)
+                    return s(t.menu).stop(), void c();
                 var r = "transform " + n.duration + "ms " + n.easing2,
                     i = t.menu.outerHeight(!0),
                     o = t.menu.outerWidth(!0),
                     a = t.el.height();
-                if (n.animOver) s(t.menu).add(r).start({
-                    x: o * n.animDirect
-                }).then(c);
+                if (n.animOver)
+                    s(t.menu).add(r).start({
+                        x: o * n.animDirect
+                    }).then(c);
                 else {
                     var u = a + i;
                     s(t.menu).add(r).start({
@@ -7545,300 +8010,61 @@
                     }).then(c)
                 }
             }
-
             function c() {
                 t.menu.height(""), s(t.menu).set({
                     x: 0,
                     y: 0
-                }), t.menu.removeClass(h), t.links.removeClass(T), t.dropdowns.removeClass(_), t.dropdownToggle.removeClass(g), t.dropdownList.removeClass(I), t.overlay && t.overlay.children().length && (m.length ? t.menu.insertAfter(m) : t.menu.prependTo(t.parent), t.overlay.attr("style", "").hide()), t.el.triggerHandler("w-close")
+                }), t.menu.each(D), t.links.removeClass(I), t.dropdowns.removeClass(h), t.dropdownToggle.removeClass(_), t.dropdownList.removeClass(g), t.overlay && t.overlay.children().length && (y.length ? t.menu.insertAfter(y) : t.menu.prependTo(t.parent), t.overlay.attr("style", "").hide()), t.el.triggerHandler("w-close")
             }
         }
         return c
     })
-}, function(t, e, n) {
-    "use strict";
-    var r = n(4),
-        i = n(27);
-    r.define("slider", t.exports = function(t, e) {
-        var n, o, a, u, c = {},
-            s = t.tram,
-            f = t(document),
-            l = r.env(),
-            d = ".w-slider",
-            p = '<div class="w-slider-dot" data-wf-ignore />',
-            v = i.triggers;
-
-        function E() {
-            (n = f.find(d)).length && (n.each(g), u = null, a || (h(), r.resize.on(_), r.redraw.on(c.redraw)))
-        }
-
-        function h() {
-            r.resize.off(_), r.redraw.off(c.redraw)
-        }
-
-        function _() {
-            n.filter(":visible").each(R)
-        }
-
-        function g(e, n) {
-            var r = t(n),
-                i = t.data(n, d);
-            if (i || (i = t.data(n, d, {
-                    index: 0,
-                    depth: 1,
-                    el: r,
-                    config: {}
-                })), i.mask = r.children(".w-slider-mask"), i.left = r.children(".w-slider-arrow-left"), i.right = r.children(".w-slider-arrow-right"), i.nav = r.children(".w-slider-nav"), i.slides = i.mask.children(".w-slide"), i.slides.each(v.reset), u && (i.maskWidth = 0), !s.support.transform) return i.left.hide(), i.right.hide(), i.nav.hide(), void(a = !0);
-            i.el.off(d), i.left.off(d), i.right.off(d), i.nav.off(d), I(i), o ? (i.el.on("setting" + d, A(i)), O(i), i.hasTimer = !1) : (i.el.on("swipe" + d, A(i)), i.left.on("click" + d, y(i)), i.right.on("click" + d, m(i)), i.config.autoplay && !i.hasTimer && (i.hasTimer = !0, i.timerCount = 1, function t(e) {
-                O(e);
-                var n = e.config;
-                var r = n.timerMax;
-                if (r && e.timerCount++ > r) return;
-                e.timerId = window.setTimeout(function() {
-                    null == e.timerId || o || (m(e)(), t(e))
-                }, n.delay)
-            }(i))), i.nav.on("click" + d, "> div", A(i)), l || i.mask.contents().filter(function() {
-                return 3 === this.nodeType
-            }).remove();
-            var c = r.filter(":hidden");
-            c.show();
-            var f = r.parents(":hidden");
-            f.show(), R(e, n), c.css("display", ""), f.css("display", "")
-        }
-
-        function I(t) {
-            var e = {
-                crossOver: 0
-            };
-            e.animation = t.el.attr("data-animation") || "slide", "outin" === e.animation && (e.animation = "cross", e.crossOver = .5), e.easing = t.el.attr("data-easing") || "ease";
-            var n = t.el.attr("data-duration");
-            if (e.duration = null != n ? parseInt(n, 10) : 500, T(t.el.attr("data-infinite")) && (e.infinite = !0), T(t.el.attr("data-disable-swipe")) && (e.disableSwipe = !0), T(t.el.attr("data-hide-arrows")) ? e.hideArrows = !0 : t.config.hideArrows && (t.left.show(), t.right.show()), T(t.el.attr("data-autoplay"))) {
-                e.autoplay = !0, e.delay = parseInt(t.el.attr("data-delay"), 10) || 2e3, e.timerMax = parseInt(t.el.attr("data-autoplay-limit"), 10);
-                var r = "mousedown" + d + " touchstart" + d;
-                o || t.el.off(r).one(r, function() {
-                    O(t)
-                })
-            }
-            var i = t.right.width();
-            e.edge = i ? i + 40 : 100, t.config = e
-        }
-
-        function T(t) {
-            return "1" === t || "true" === t
-        }
-
-        function y(t) {
-            return function() {
-                S(t, {
-                    index: t.index - 1,
-                    vector: -1
-                })
-            }
-        }
-
-        function m(t) {
-            return function() {
-                S(t, {
-                    index: t.index + 1,
-                    vector: 1
-                })
-            }
-        }
-
-        function O(t) {
-            window.clearTimeout(t.timerId), t.timerId = null
-        }
-
-        function A(n) {
-            return function(i, a) {
-                a = a || {};
-                var u = n.config;
-                if (o && "setting" === i.type) {
-                    if ("prev" === a.select) return y(n)();
-                    if ("next" === a.select) return m(n)();
-                    if (I(n), b(n), null == a.select) return;
-                    ! function(n, r) {
-                        var i = null;
-                        r === n.slides.length && (E(), b(n)), e.each(n.anchors, function(e, n) {
-                            t(e.els).each(function(e, o) {
-                                t(o).index() === r && (i = n)
-                            })
-                        }), null != i && S(n, {
-                            index: i,
-                            immediate: !0
-                        })
-                    }(n, a.select)
-                } else {
-                    if ("swipe" === i.type) {
-                        if (u.disableSwipe) return;
-                        if (r.env("editor")) return;
-                        return "left" === a.direction ? m(n)() : "right" === a.direction ? y(n)() : void 0
-                    }
-                    n.nav.has(i.target).length && S(n, {
-                        index: t(i.target).index()
-                    })
-                }
-            }
-        }
-
-        function S(e, n) {
-            n = n || {};
-            var r = e.config,
-                i = e.anchors;
-            e.previous = e.index;
-            var a = n.index,
-                c = {};
-            a < 0 ? (a = i.length - 1, r.infinite && (c.x = -e.endX, c.from = 0, c.to = i[0].width)) : a >= i.length && (a = 0, r.infinite && (c.x = i[i.length - 1].width, c.from = -i[i.length - 1].x, c.to = c.from - c.x)), e.index = a;
-            var f = e.nav.children().eq(e.index).addClass("w-active");
-            e.nav.children().not(f).removeClass("w-active"), r.hideArrows && (e.index === i.length - 1 ? e.right.hide() : e.right.show(), 0 === e.index ? e.left.hide() : e.left.show());
-            var l = e.offsetX || 0,
-                d = e.offsetX = -i[e.index].x,
-                p = {
-                    x: d,
-                    opacity: 1,
-                    visibility: ""
-                },
-                E = t(i[e.index].els),
-                h = t(i[e.previous] && i[e.previous].els),
-                _ = e.slides.not(E),
-                g = r.animation,
-                I = r.easing,
-                T = Math.round(r.duration),
-                y = n.vector || (e.index > e.previous ? 1 : -1),
-                m = "opacity " + T + "ms " + I,
-                O = "transform " + T + "ms " + I;
-            if (o || (E.each(v.intro), _.each(v.outro)), n.immediate && !u) return s(E).set(p), void R();
-            if (e.index !== e.previous) {
-                if ("cross" === g) {
-                    var A = Math.round(T - T * r.crossOver),
-                        S = Math.round(T - A);
-                    return m = "opacity " + A + "ms " + I, s(h).set({
-                        visibility: ""
-                    }).add(m).start({
-                        opacity: 0
-                    }), void s(E).set({
-                        visibility: "",
-                        x: d,
-                        opacity: 0,
-                        zIndex: e.depth++
-                    }).add(m).wait(S).then({
-                        opacity: 1
-                    }).then(R)
-                }
-                if ("fade" === g) return s(h).set({
-                    visibility: ""
-                }).stop(), void s(E).set({
-                    visibility: "",
-                    x: d,
-                    opacity: 0,
-                    zIndex: e.depth++
-                }).add(m).start({
-                    opacity: 1
-                }).then(R);
-                if ("over" === g) return p = {
-                    x: e.endX
-                }, s(h).set({
-                    visibility: ""
-                }).stop(), void s(E).set({
-                    visibility: "",
-                    zIndex: e.depth++,
-                    x: d + i[e.index].width * y
-                }).add(O).start({
-                    x: d
-                }).then(R);
-                r.infinite && c.x ? (s(e.slides.not(h)).set({
-                    visibility: "",
-                    x: c.x
-                }).add(O).start({
-                    x: d
-                }), s(h).set({
-                    visibility: "",
-                    x: c.from
-                }).add(O).start({
-                    x: c.to
-                }), e.shifted = h) : (r.infinite && e.shifted && (s(e.shifted).set({
-                    visibility: "",
-                    x: l
-                }), e.shifted = null), s(e.slides).set({
-                    visibility: ""
-                }).add(O).start({
-                    x: d
-                }))
-            }
-
-            function R() {
-                E = t(i[e.index].els), _ = e.slides.not(E), "slide" !== g && (p.visibility = "hidden"), s(_).set(p)
-            }
-        }
-
-        function R(e, n) {
-            var r = t.data(n, d);
-            if (r) return function(t) {
-                var e = t.mask.width();
-                if (t.maskWidth !== e) return t.maskWidth = e, !0;
-                return !1
-            }(r) ? b(r) : void(o && function(e) {
-                var n = 0;
-                if (e.slides.each(function(e, r) {
-                        n += t(r).outerWidth(!0)
-                    }), e.slidesWidth !== n) return e.slidesWidth = n, !0;
-                return !1
-            }(r) && b(r))
-        }
-
-        function b(e) {
-            var n = 1,
-                r = 0,
-                i = 0,
-                a = 0,
-                u = e.maskWidth,
-                c = u - e.config.edge;
-            c < 0 && (c = 0), e.anchors = [{
-                els: [],
-                x: 0,
-                width: 0
-            }], e.slides.each(function(o, s) {
-                i - r > c && (n++, r += u, e.anchors[n - 1] = {
-                    els: [],
-                    x: i,
-                    width: 0
-                }), a = t(s).outerWidth(!0), i += a, e.anchors[n - 1].width += a, e.anchors[n - 1].els.push(s)
-            }), e.endX = i, o && (e.pages = null), e.nav.length && e.pages !== n && (e.pages = n, function(e) {
-                var n, r = [],
-                    i = e.el.attr("data-nav-spacing");
-                i && (i = parseFloat(i) + "px");
-                for (var o = 0; o < e.pages; o++) n = t(p), e.nav.hasClass("w-num") && n.text(o + 1), null != i && n.css({
-                    "margin-left": i,
-                    "margin-right": i
-                }), r.push(n);
-                e.nav.empty().append(r)
-            }(e));
-            var s = e.index;
-            s >= n && (s = n - 1), S(e, {
-                immediate: !0,
-                index: s
-            })
-        }
-        return c.ready = function() {
-            o = r.env("design"), E()
-        }, c.design = function() {
-            o = !0, E()
-        }, c.preview = function() {
-            o = !1, E()
-        }, c.redraw = function() {
-            u = !0, E()
-        }, c.destroy = h, c
-    })
-}]);
-/**
+}]); /**
  * ----------------------------------------------------------------------
  * Webflow: Interactions 2.0: Init
  */
-Webflow.require('ix2').init({
+
+
+
+Webflow.require('ix2').init(
+{
     "events": {
-        "e-3": {
-            "id": "e-3",
-            "eventTypeId": "MOUSE_CLICK",
+        "e": {
+            "id": "e",
+            "eventTypeId": "NAVBAR_OPEN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-2"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "50020eae-abb3-e75c-0b85-e210a1b2bf7b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580265699427
+        },
+        "e-2": {
+            "id": "e-2",
+            "eventTypeId": "NAVBAR_CLOSE",
             "action": {
                 "id": "",
                 "actionTypeId": "GENERAL_START_ACTION",
@@ -7849,14 +8075,14 @@ Webflow.require('ix2').init({
                     "actionListId": "a-2",
                     "affectedElements": {},
                     "playInReverse": false,
-                    "autoStopEventId": "e-4"
+                    "autoStopEventId": "e"
                 }
             },
             "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|5d206bdc-4f2a-e90a-2ead-258c334aa37e"
+                "id": "50020eae-abb3-e75c-0b85-e210a1b2bf7b"
             },
             "config": {
                 "loop": false,
@@ -7867,11 +8093,11 @@ Webflow.require('ix2').init({
                 "direction": null,
                 "effectIn": null
             },
-            "createdOn": 1574342067479
+            "createdOn": 1580265699427
         },
-        "e-4": {
-            "id": "e-4",
-            "eventTypeId": "MOUSE_SECOND_CLICK",
+        "e-3": {
+            "id": "e-3",
+            "eventTypeId": "DROPDOWN_OPEN",
             "action": {
                 "id": "",
                 "actionTypeId": "GENERAL_START_ACTION",
@@ -7882,14 +8108,14 @@ Webflow.require('ix2').init({
                     "actionListId": "a-3",
                     "affectedElements": {},
                     "playInReverse": false,
-                    "autoStopEventId": "e-3"
+                    "autoStopEventId": "e-4"
                 }
             },
             "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|5d206bdc-4f2a-e90a-2ead-258c334aa37e"
+                "id": "50020eae-abb3-e75c-0b85-e210a1b2bf98"
             },
             "config": {
                 "loop": false,
@@ -7900,69 +8126,107 @@ Webflow.require('ix2').init({
                 "direction": null,
                 "effectIn": null
             },
-            "createdOn": 1574342067480
+            "createdOn": 1580265699427
+        },
+        "e-4": {
+            "id": "e-4",
+            "eventTypeId": "DROPDOWN_CLOSE",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-4",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-3"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "50020eae-abb3-e75c-0b85-e210a1b2bf98"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580265699427
         },
         "e-5": {
             "id": "e-5",
             "eventTypeId": "SCROLL_INTO_VIEW",
             "action": {
                 "id": "",
-                "actionTypeId": "SLIDE_EFFECT",
+                "actionTypeId": "GENERAL_START_ACTION",
                 "config": {
-                    "actionListId": "slideInRight",
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-5",
+                    "affectedElements": {},
+                    "playInReverse": false,
                     "autoStopEventId": "e-6"
-                },
-                "instant": false
+                }
             },
-            "mediaQueries": ["main", "medium"],
+            "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
-                "selector": ".feature-wrapper",
-                "originalId": "5dd4413d366139846ba5f5ef|16a6797c-87d9-2411-36bf-387d33076da2",
-                "appliesTo": "CLASS"
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|fb267484-8aea-7fc9-a44c-cb7dfe938c1e"
             },
             "config": {
                 "loop": false,
                 "playInReverse": false,
-                "scrollOffsetValue": 40,
+                "scrollOffsetValue": 0,
                 "scrollOffsetUnit": "%",
-                "delay": 300,
-                "direction": "RIGHT",
-                "effectIn": true
+                "delay": null,
+                "direction": null,
+                "effectIn": null
             },
-            "createdOn": 1574420185829
+            "createdOn": 1580268936308
         },
         "e-7": {
             "id": "e-7",
-            "eventTypeId": "SCROLL_INTO_VIEW",
+            "eventTypeId": "SCROLLING_IN_VIEW",
             "action": {
                 "id": "",
-                "actionTypeId": "SLIDE_EFFECT",
+                "actionTypeId": "GENERAL_CONTINUOUS_ACTION",
                 "config": {
-                    "actionListId": "slideInLeft",
-                    "autoStopEventId": "e-8"
-                },
-                "instant": false
+                    "actionListId": "a-6",
+                    "affectedElements": {},
+                    "duration": 0
+                }
             },
-            "mediaQueries": ["main", "medium"],
+            "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
-                "selector": ".feature-img-wrapper",
-                "originalId": "5dd4413d366139846ba5f5ef|a9fa997f-5f9b-d6ff-172e-7fe54697006a",
-                "appliesTo": "CLASS"
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|45d02740-815a-cc1c-4877-040dd5300553"
             },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": 40,
-                "scrollOffsetUnit": "%",
-                "delay": 0,
-                "direction": "LEFT",
-                "effectIn": true
-            },
-            "createdOn": 1574420271477
+            "config": [{
+                "continuousParameterGroupId": "a-6-p",
+                "smoothing": 50,
+                "startsEntering": true,
+                "addStartOffset": false,
+                "addOffsetValue": 50,
+                "startsExiting": false,
+                "addEndOffset": false,
+                "endOffsetValue": 50
+            }],
+            "createdOn": 1580270832676
         },
         "e-9": {
             "id": "e-9",
-            "eventTypeId": "MOUSE_OVER",
+            "eventTypeId": "SCROLL_INTO_VIEW",
             "action": {
                 "id": "",
                 "actionTypeId": "GENERAL_START_ACTION",
@@ -7976,125 +8240,56 @@ Webflow.require('ix2').init({
                     "autoStopEventId": "e-10"
                 }
             },
-            "mediaQueries": ["main"],
+            "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "2e9cac75-8976-3a0e-2c1c-80a9c0b27883"
+                "id": "5e30f06b05f796620b1ddc26|e9c5233f-7146-6914-7283-06983f4a4e53"
             },
             "config": {
                 "loop": false,
                 "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
                 "delay": null,
                 "direction": null,
                 "effectIn": null
             },
-            "createdOn": 1574422528451
-        },
-        "e-10": {
-            "id": "e-10",
-            "eventTypeId": "MOUSE_OUT",
-            "action": {
-                "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
-                "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-6",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-9"
-                }
-            },
-            "mediaQueries": ["main"],
-            "target": {
-                "appliesTo": "ELEMENT",
-                "styleBlockIds": [],
-                "id": "2e9cac75-8976-3a0e-2c1c-80a9c0b27883"
-            },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
-            },
-            "createdOn": 1574422528451
+            "createdOn": 1580273700807
         },
         "e-11": {
             "id": "e-11",
-            "eventTypeId": "MOUSE_OVER",
+            "eventTypeId": "SCROLLING_IN_VIEW",
             "action": {
                 "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
+                "actionTypeId": "GENERAL_CONTINUOUS_ACTION",
                 "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-5",
+                    "actionListId": "a-10",
                     "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-12"
+                    "duration": 0
                 }
             },
-            "mediaQueries": ["main"],
+            "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|131f0cc8-97fe-bdf3-7292-8dc119772817"
+                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c983"
             },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
-            },
-            "createdOn": 1574422949173
+            "config": [{
+                "continuousParameterGroupId": "a-10-p",
+                "smoothing": 50,
+                "startsEntering": true,
+                "addStartOffset": false,
+                "addOffsetValue": 50,
+                "startsExiting": false,
+                "addEndOffset": false,
+                "endOffsetValue": 50
+            }],
+            "createdOn": 1580274581568
         },
         "e-12": {
             "id": "e-12",
-            "eventTypeId": "MOUSE_OUT",
-            "action": {
-                "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
-                "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-6",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-11"
-                }
-            },
-            "mediaQueries": ["main"],
-            "target": {
-                "appliesTo": "ELEMENT",
-                "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|131f0cc8-97fe-bdf3-7292-8dc119772817"
-            },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
-            },
-            "createdOn": 1574422949173
-        },
-        "e-13": {
-            "id": "e-13",
-            "eventTypeId": "MOUSE_OVER",
+            "eventTypeId": "SCROLL_INTO_VIEW",
             "action": {
                 "id": "",
                 "actionTypeId": "GENERAL_START_ACTION",
@@ -8103,328 +8298,874 @@ Webflow.require('ix2').init({
                     "easing": "",
                     "duration": 0,
                     "actionListId": "a-5",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-14"
-                }
-            },
-            "mediaQueries": ["main"],
-            "target": {
-                "appliesTo": "ELEMENT",
-                "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|54bd31a9-91b1-d299-1e21-8e0b7ee09485"
-            },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
-            },
-            "createdOn": 1574422949420
-        },
-        "e-14": {
-            "id": "e-14",
-            "eventTypeId": "MOUSE_OUT",
-            "action": {
-                "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
-                "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-6",
                     "affectedElements": {},
                     "playInReverse": false,
                     "autoStopEventId": "e-13"
                 }
             },
-            "mediaQueries": ["main"],
+            "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|54bd31a9-91b1-d299-1e21-8e0b7ee09485"
+                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c988"
             },
             "config": {
                 "loop": false,
                 "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
                 "delay": null,
                 "direction": null,
                 "effectIn": null
             },
-            "createdOn": 1574422949420
-        },
-        "e-15": {
-            "id": "e-15",
-            "eventTypeId": "MOUSE_OVER",
-            "action": {
-                "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
-                "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-5",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-16"
-                }
-            },
-            "mediaQueries": ["main"],
-            "target": {
-                "appliesTo": "ELEMENT",
-                "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|8200b88b-4ca9-a117-68e5-f62602f5d124"
-            },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
-            },
-            "createdOn": 1574422987867
+            "createdOn": 1580274581568
         },
         "e-16": {
             "id": "e-16",
-            "eventTypeId": "MOUSE_OUT",
+            "eventTypeId": "SCROLL_INTO_VIEW",
             "action": {
                 "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
+                "actionTypeId": "SLIDE_EFFECT",
                 "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-6",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-15"
-                }
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-17"
+                },
+                "instant": false
             },
-            "mediaQueries": ["main"],
+            "mediaQueries": ["main", "medium"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|8200b88b-4ca9-a117-68e5-f62602f5d124"
+                "id": "5e30f06b05f796620b1ddc26|8a354722-8be0-8511-7231-deb288a89c1a"
             },
             "config": {
                 "loop": false,
                 "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 1200,
+                "direction": "LEFT",
+                "effectIn": true
             },
-            "createdOn": 1574422987867
-        },
-        "e-17": {
-            "id": "e-17",
-            "eventTypeId": "MOUSE_OVER",
-            "action": {
-                "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
-                "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-5",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-18"
-                }
-            },
-            "mediaQueries": ["main"],
-            "target": {
-                "appliesTo": "ELEMENT",
-                "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|667a8d1a-8ec6-2a57-75b7-a793c7637388"
-            },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
-            },
-            "createdOn": 1574422988438
+            "createdOn": 1580275139279
         },
         "e-18": {
             "id": "e-18",
-            "eventTypeId": "MOUSE_OUT",
+            "eventTypeId": "SCROLL_INTO_VIEW",
             "action": {
                 "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
+                "actionTypeId": "SLIDE_EFFECT",
                 "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-6",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-17"
-                }
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-19"
+                },
+                "instant": false
             },
-            "mediaQueries": ["main"],
+            "mediaQueries": ["main", "medium"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd4413d366139846ba5f5ef|667a8d1a-8ec6-2a57-75b7-a793c7637388"
+                "id": "5e30f06b05f796620b1ddc26|92a9f4f6-a612-6cd3-7412-2fb1438e74fa"
             },
             "config": {
                 "loop": false,
                 "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 1400,
+                "direction": "LEFT",
+                "effectIn": true
             },
-            "createdOn": 1574422988438
-        },
-        "e-19": {
-            "id": "e-19",
-            "eventTypeId": "MOUSE_OVER",
-            "action": {
-                "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
-                "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-5",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-20"
-                }
-            },
-            "mediaQueries": ["main"],
-            "target": {
-                "appliesTo": "ELEMENT",
-                "styleBlockIds": [],
-                "id": "5dd4426ddc6c746f95e5012a|73e01a57-f129-c592-d48d-95e8933ac01b"
-            },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
-            },
-            "createdOn": 1574666951846
+            "createdOn": 1580275164360
         },
         "e-20": {
             "id": "e-20",
-            "eventTypeId": "MOUSE_OUT",
+            "eventTypeId": "SCROLL_INTO_VIEW",
             "action": {
                 "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
+                "actionTypeId": "SLIDE_EFFECT",
                 "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-6",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-19"
-                }
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-21"
+                },
+                "instant": false
             },
-            "mediaQueries": ["main"],
+            "mediaQueries": ["main", "medium"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd4426ddc6c746f95e5012a|73e01a57-f129-c592-d48d-95e8933ac01b"
+                "id": "5e30f06b05f796620b1ddc26|2f5fc572-757c-f829-5a20-86a8e64f8231"
             },
             "config": {
                 "loop": false,
                 "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 1000,
+                "direction": "TOP",
+                "effectIn": true
             },
-            "createdOn": 1574666951846
-        },
-        "e-21": {
-            "id": "e-21",
-            "eventTypeId": "MOUSE_OVER",
-            "action": {
-                "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
-                "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-5",
-                    "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-22"
-                }
-            },
-            "mediaQueries": ["main"],
-            "target": {
-                "appliesTo": "ELEMENT",
-                "styleBlockIds": [],
-                "id": "5dd71a6fb9c85c4c5b79c196|58c24989-2609-0218-e11c-65e7d7035d75"
-            },
-            "config": {
-                "loop": false,
-                "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
-                "direction": null,
-                "effectIn": null
-            },
-            "createdOn": 1574666964600
+            "createdOn": 1580275272186
         },
         "e-22": {
             "id": "e-22",
-            "eventTypeId": "MOUSE_OUT",
+            "eventTypeId": "SCROLL_INTO_VIEW",
             "action": {
                 "id": "",
-                "actionTypeId": "GENERAL_START_ACTION",
+                "actionTypeId": "FADE_EFFECT",
                 "config": {
-                    "delay": 0,
-                    "easing": "",
-                    "duration": 0,
-                    "actionListId": "a-6",
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-23"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|bef07d08-5417-8ed9-f158-6925b8cf2ef9"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 1500,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580275313453
+        },
+        "e-24": {
+            "id": "e-24",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-25"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|b1c16193-a8e4-9fba-a563-18b977742972"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580275607222
+        },
+        "e-26": {
+            "id": "e-26",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-27"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|c2f4a8c0-a7d1-16d4-b8dd-995056e33b29"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 1000,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580275627419
+        },
+        "e-28": {
+            "id": "e-28",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-29"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|8ebb027d-e121-07c0-417d-79903db2ce49"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 1200,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580275647725
+        },
+        "e-30": {
+            "id": "e-30",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "GROW_BIG_EFFECT",
+                "config": {
+                    "actionListId": "growBigIn",
+                    "autoStopEventId": "e-31"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|a307c3d9-32be-481a-a843-b0e6365e46fe"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 0,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580275689233
+        },
+        "e-32": {
+            "id": "e-32",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-33"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|e9c5233f-7146-6914-7283-06983f4a4e46"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580275839206
+        },
+        "e-34": {
+            "id": "e-34",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-35"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|e9c5233f-7146-6914-7283-06983f4a4e48"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 350,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580275852241
+        },
+        "e-36": {
+            "id": "e-36",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-37"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|e9c5233f-7146-6914-7283-06983f4a4e4b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580275865493
+        },
+        "e-38": {
+            "id": "e-38",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-39"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|e9c5233f-7146-6914-7283-06983f4a4e42"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "TOP",
+                "effectIn": true
+            },
+            "createdOn": 1580275893737
+        },
+        "e-40": {
+            "id": "e-40",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-41"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c977"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "TOP",
+                "effectIn": true
+            },
+            "createdOn": 1580276017247
+        },
+        "e-42": {
+            "id": "e-42",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-43"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c97b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580276077330
+        },
+        "e-44": {
+            "id": "e-44",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-45"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c97d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 350,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580276088632
+        },
+        "e-46": {
+            "id": "e-46",
+            "eventTypeId": "SCROLLING_IN_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_CONTINUOUS_ACTION",
+                "config": {
+                    "actionListId": "a-8",
                     "affectedElements": {},
-                    "playInReverse": false,
-                    "autoStopEventId": "e-21"
+                    "duration": 0
                 }
             },
             "mediaQueries": ["main"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd71a6fb9c85c4c5b79c196|58c24989-2609-0218-e11c-65e7d7035d75"
+                "id": "5e30f06b05f796620b1ddc26|e9c5233f-7146-6914-7283-06983f4a4e4e"
+            },
+            "config": [{
+                "continuousParameterGroupId": "a-8-p",
+                "smoothing": 50,
+                "startsEntering": true,
+                "addStartOffset": false,
+                "addOffsetValue": 50,
+                "startsExiting": false,
+                "addEndOffset": false,
+                "endOffsetValue": 50
+            }],
+            "createdOn": 1580276610564
+        },
+        "e-47": {
+            "id": "e-47",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-48"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|45d02740-815a-cc1c-4877-040dd5300553"
             },
             "config": {
                 "loop": false,
                 "playInReverse": false,
-                "scrollOffsetValue": null,
-                "scrollOffsetUnit": null,
-                "delay": null,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 500,
                 "direction": null,
-                "effectIn": null
+                "effectIn": true
             },
-            "createdOn": 1574666964600
+            "createdOn": 1580276900925
         },
-        "e-23": {
-            "id": "e-23",
-            "eventTypeId": "MOUSE_OVER",
+        "e-49": {
+            "id": "e-49",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-50"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|5fcc8cd2-b3ac-9ce6-075a-37e9d8c5bb23"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580276916525
+        },
+        "e-51": {
+            "id": "e-51",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-52"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|e9c5233f-7146-6914-7283-06983f4a4e4e"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 300,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580277683628
+        },
+        "e-53": {
+            "id": "e-53",
+            "eventTypeId": "SCROLLING_IN_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_CONTINUOUS_ACTION",
+                "config": {
+                    "actionListId": "a-9",
+                    "affectedElements": {},
+                    "duration": 0
+                }
+            },
+            "mediaQueries": ["main"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|5fcc8cd2-b3ac-9ce6-075a-37e9d8c5bb23"
+            },
+            "config": [{
+                "continuousParameterGroupId": "a-9-p",
+                "smoothing": 50,
+                "startsEntering": true,
+                "addStartOffset": false,
+                "addOffsetValue": 50,
+                "startsExiting": false,
+                "addEndOffset": false,
+                "endOffsetValue": 50
+            }],
+            "createdOn": 1580277749835
+        },
+        "e-54": {
+            "id": "e-54",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-55"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|d902bd8c-3d8e-4e27-3ada-08cb01ba8dc5"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "TOP",
+                "effectIn": true
+            },
+            "createdOn": 1580278606526
+        },
+        "e-56": {
+            "id": "e-56",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-57"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|93f9b489-ced5-0ace-74d6-81f5346e1d4c"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 0,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580278646848
+        },
+        "e-58": {
+            "id": "e-58",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-59"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|5094ce32-27a6-ff42-c7b8-e212401391f4"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 350,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580278706948
+        },
+        "e-60": {
+            "id": "e-60",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-61"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|d902bd8c-3d8e-4e27-3ada-08cb01ba8dc6"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "TOP",
+                "effectIn": true
+            },
+            "createdOn": 1580279127226
+        },
+        "e-68": {
+            "id": "e-68",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-69"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|55fdd6d0-c5ae-07f4-d14e-f1928b17f777"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580279559212
+        },
+        "e-70": {
+            "id": "e-70",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-71"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d4a1"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "TOP",
+                "effectIn": true
+            },
+            "createdOn": 1580279688983
+        },
+        "e-72": {
+            "id": "e-72",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-73"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d4a4"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580279688983
+        },
+        "e-74": {
+            "id": "e-74",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-75"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d4a6"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 350,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580279688983
+        },
+        "e-76": {
+            "id": "e-76",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-77"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d4aa"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 300,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580279688983
+        },
+        "e-81": {
+            "id": "e-81",
+            "eventTypeId": "SCROLL_INTO_VIEW",
             "action": {
                 "id": "",
                 "actionTypeId": "GENERAL_START_ACTION",
@@ -8435,14 +9176,222 @@ Webflow.require('ix2').init({
                     "actionListId": "a-5",
                     "affectedElements": {},
                     "playInReverse": false,
-                    "autoStopEventId": "e-24"
+                    "autoStopEventId": "e-82"
                 }
             },
-            "mediaQueries": ["main"],
+            "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd7181454fb63ba62960719|e6c64f11-4bcd-f53f-98fa-a92b2efb17d0"
+                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d4b2"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580279688983
+        },
+        "e-83": {
+            "id": "e-83",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-84"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d4ac"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580333588376
+        },
+        "e-85": {
+            "id": "e-85",
+            "eventTypeId": "SCROLLING_IN_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_CONTINUOUS_ACTION",
+                "config": {
+                    "actionListId": "a-11",
+                    "affectedElements": {},
+                    "duration": 0
+                }
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d49f"
+            },
+            "config": [{
+                "continuousParameterGroupId": "a-11-p",
+                "smoothing": 50,
+                "startsEntering": true,
+                "addStartOffset": false,
+                "addOffsetValue": 50,
+                "startsExiting": false,
+                "addEndOffset": false,
+                "endOffsetValue": 50
+            }],
+            "createdOn": 1580333820856
+        },
+        "e-86": {
+            "id": "e-86",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-87"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|763710a7-a155-451d-4f52-246cad77c97d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "TOP",
+                "effectIn": true
+            },
+            "createdOn": 1580334196202
+        },
+        "e-88": {
+            "id": "e-88",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-89"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|763710a7-a155-451d-4f52-246cad77c97e"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "TOP",
+                "effectIn": true
+            },
+            "createdOn": 1580334196202
+        },
+        "e-90": {
+            "id": "e-90",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-91"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|4cdf0a61-fd29-264a-36c1-2a12dfb31bde"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 0,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580334205342
+        },
+        "e-92": {
+            "id": "e-92",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-93"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|d5f7b869-14f7-62b9-41e3-6ab7cc4bbb49"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 350,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580334221312
+        },
+        "e-94": {
+            "id": "e-94",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-12",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-95"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|5c076b59-43e5-a4f8-1be0-eb645084def0"
             },
             "config": {
                 "loop": false,
@@ -8453,10 +9402,10 @@ Webflow.require('ix2').init({
                 "direction": null,
                 "effectIn": null
             },
-            "createdOn": 1574666974328
+            "createdOn": 1580342375122
         },
-        "e-24": {
-            "id": "e-24",
+        "e-95": {
+            "id": "e-95",
             "eventTypeId": "MOUSE_OUT",
             "action": {
                 "id": "",
@@ -8465,17 +9414,17 @@ Webflow.require('ix2').init({
                     "delay": 0,
                     "easing": "",
                     "duration": 0,
-                    "actionListId": "a-6",
+                    "actionListId": "a-13",
                     "affectedElements": {},
                     "playInReverse": false,
-                    "autoStopEventId": "e-23"
+                    "autoStopEventId": "e-94"
                 }
             },
-            "mediaQueries": ["main"],
+            "mediaQueries": ["main", "medium", "small", "tiny"],
             "target": {
                 "appliesTo": "ELEMENT",
                 "styleBlockIds": [],
-                "id": "5dd7181454fb63ba62960719|e6c64f11-4bcd-f53f-98fa-a92b2efb17d0"
+                "id": "5e30f06b05f796620b1ddc26|5c076b59-43e5-a4f8-1be0-eb645084def0"
             },
             "config": {
                 "loop": false,
@@ -8486,115 +9435,4075 @@ Webflow.require('ix2').init({
                 "direction": null,
                 "effectIn": null
             },
-            "createdOn": 1574666974328
+            "createdOn": 1580342375125
+        },
+        "e-96": {
+            "id": "e-96",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-97"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c980"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580346025887
+        },
+        "e-98": {
+            "id": "e-98",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-99"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|5c076b59-43e5-a4f8-1be0-eb645084def0"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580346052112
+        },
+        "e-100": {
+            "id": "e-100",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-101"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|63e07f26-0ee3-c4ab-8f9d-b5bc872f79dd"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 80,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580351659822
+        },
+        "e-102": {
+            "id": "e-102",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-103"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|138e9714-5c57-6949-ac59-14d628836324"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580351669223
+        },
+        "e-104": {
+            "id": "e-104",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-105"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|b4d452eb-1c38-0a28-d6a5-8805d9a0868d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 80,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580351692439
+        },
+        "e-106": {
+            "id": "e-106",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-107"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|6876fdc2-ede6-a4af-0842-8a8576e7b82f"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 150,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580351707950
+        },
+        "e-108": {
+            "id": "e-108",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-109"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|2df09586-053d-dc6d-ba4f-428771a770aa"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580351718365
+        },
+        "e-110": {
+            "id": "e-110",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-111"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|2df09586-053d-dc6d-ba4f-428771a770ad"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 100,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580351735579
+        },
+        "e-112": {
+            "id": "e-112",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-113"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|2df09586-053d-dc6d-ba4f-428771a770b9"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580351756809
+        },
+        "e-114": {
+            "id": "e-114",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-115"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5559221c-41b9-c7f7-236f-c0cb4682a9ad"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 0,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580352339264
+        },
+        "e-116": {
+            "id": "e-116",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInRight",
+                    "autoStopEventId": "e-117"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5559221c-41b9-c7f7-236f-c0cb4682a9ae"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 0,
+                "direction": "RIGHT",
+                "effectIn": true
+            },
+            "createdOn": 1580352351395
+        },
+        "e-118": {
+            "id": "e-118",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-119"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5559221c-41b9-c7f7-236f-c0cb4682a9b6"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 100,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580352388382
+        },
+        "e-120": {
+            "id": "e-120",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-121"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5559221c-41b9-c7f7-236f-c0cb4682a9c9"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580352398896
+        },
+        "e-122": {
+            "id": "e-122",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-123"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5559221c-41b9-c7f7-236f-c0cb4682a9dc"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 300,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580352414895
+        },
+        "e-124": {
+            "id": "e-124",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-125"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5559221c-41b9-c7f7-236f-c0cb4682a9ef"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 350,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580352434041
+        },
+        "e-126": {
+            "id": "e-126",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-127"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5559221c-41b9-c7f7-236f-c0cb4682a9fa"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 250,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580352465238
+        },
+        "e-128": {
+            "id": "e-128",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-129"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|1bec2f37-7ae7-d738-3f07-ac161009b7ec"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580353244864
+        },
+        "e-129": {
+            "id": "e-129",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-128"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|1bec2f37-7ae7-d738-3f07-ac161009b7ec"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580353244867
+        },
+        "e-130": {
+            "id": "e-130",
+            "eventTypeId": "PAGE_SCROLL_UP",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-16",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-131"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580353480965
+        },
+        "e-131": {
+            "id": "e-131",
+            "eventTypeId": "PAGE_SCROLL_DOWN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-17",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-130"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580353480972
+        },
+        "e-132": {
+            "id": "e-132",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-133"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c983"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580357599769
+        },
+        "e-134": {
+            "id": "e-134",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-135"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e30f06b05f796620b1ddc26|d740cfe7-516d-7ace-684a-fc3d101df9ee"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580441582254
+        },
+        "e-146": {
+            "id": "e-146",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-147"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a95b0fdd74025ce3face|d6b247da-2d3e-3944-5a1c-bbc41e1d1694"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580445573373
+        },
+        "e-148": {
+            "id": "e-148",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-149"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e339ba7806f6d9ff2025e36|abbc40eb-eb83-dd4c-bdba-83bcb030422f"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580446426605
+        },
+        "e-150": {
+            "id": "e-150",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-151"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|2129099c-a6b1-cc5a-713c-3384b49f0315"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 80,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580449491612
+        },
+        "e-152": {
+            "id": "e-152",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-153"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|2129099c-a6b1-cc5a-713c-3384b49f0317"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580449491612
+        },
+        "e-154": {
+            "id": "e-154",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-155"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|2129099c-a6b1-cc5a-713c-3384b49f032d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 80,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580449491612
+        },
+        "e-156": {
+            "id": "e-156",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-157"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|2129099c-a6b1-cc5a-713c-3384b49f032f"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 150,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580449491612
+        },
+        "e-158": {
+            "id": "e-158",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-159"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|2129099c-a6b1-cc5a-713c-3384b49f033a"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580449491612
+        },
+        "e-160": {
+            "id": "e-160",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-161"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|2129099c-a6b1-cc5a-713c-3384b49f033d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 100,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580449491612
+        },
+        "e-162": {
+            "id": "e-162",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-163"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|2129099c-a6b1-cc5a-713c-3384b49f0349"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580449491612
+        },
+        "e-164": {
+            "id": "e-164",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-165"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a95b0fdd74025ce3face|43b58a31-0e47-72e1-377a-da70dcb167ea"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580450154356
+        },
+        "e-165": {
+            "id": "e-165",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-164"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a95b0fdd74025ce3face|43b58a31-0e47-72e1-377a-da70dcb167ea"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580450154356
+        },
+        "e-166": {
+            "id": "e-166",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-167"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e339ba7806f6d9ff2025e36|a31f2fd3-7e57-4e69-1e0c-0c9410356664"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580450185215
+        },
+        "e-167": {
+            "id": "e-167",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-166"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e339ba7806f6d9ff2025e36|a31f2fd3-7e57-4e69-1e0c-0c9410356664"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580450185215
+        },
+        "e-168": {
+            "id": "e-168",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-169"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a8c80fdd74ac8ae3f9cf|40d593f4-4905-a940-f0b5-3df1edf46fb8"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580451320606
+        },
+        "e-176": {
+            "id": "e-176",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-177"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|b74a7497-8aca-453b-b5ae-aa28e8df0b5a"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580452528087
+        },
+        "e-178": {
+            "id": "e-178",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-179"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e339ba7806f6d9ff2025e36|866a6266-6986-9f24-e0ff-5cc7c3e1942a"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 345,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580484150759
+        },
+        "e-180": {
+            "id": "e-180",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-181"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a8e7806f6d299d02c3cc|c2db8e26-38e9-309f-9261-18dc78816b2e"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580683506054
+        },
+        "e-182": {
+            "id": "e-182",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-183"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9487cc5741cf61f0ba3|d9a57890-2823-d212-7f66-95998d96f80a"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580683613364
+        },
+        "e-184": {
+            "id": "e-184",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-185"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9487cc5741cf61f0ba3|cc0e71a4-80c6-9271-d673-3b7a44fa6596"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580683682545
+        },
+        "e-186": {
+            "id": "e-186",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-12",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-187"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9487cc5741cf61f0ba3|cc0e71a4-80c6-9271-d673-3b7a44fa6596"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580683682545
+        },
+        "e-187": {
+            "id": "e-187",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-13",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-186"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9487cc5741cf61f0ba3|cc0e71a4-80c6-9271-d673-3b7a44fa6596"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580683682545
+        },
+        "e-188": {
+            "id": "e-188",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-189"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9137cc57444951f0acd|c6f4d29a-7708-5f7b-7187-bef821ad3748"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580684103359
+        },
+        "e-190": {
+            "id": "e-190",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-12",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-191"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9137cc57444951f0acd|c6f4d29a-7708-5f7b-7187-bef821ad3754"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580684103359
+        },
+        "e-191": {
+            "id": "e-191",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-13",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-190"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9137cc57444951f0acd|c6f4d29a-7708-5f7b-7187-bef821ad3754"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580684103359
+        },
+        "e-192": {
+            "id": "e-192",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-193"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9137cc57444951f0acd|c6f4d29a-7708-5f7b-7187-bef821ad3754"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580684103359
+        },
+        "e-194": {
+            "id": "e-194",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInTop",
+                    "autoStopEventId": "e-195"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|61a5cbb8-5815-6eed-d530-e71f58cfd962"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "TOP",
+                "effectIn": true
+            },
+            "createdOn": 1580686464998
+        },
+        "e-196": {
+            "id": "e-196",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-197"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|61a5cbb8-5815-6eed-d530-e71f58cfd966"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580686464998
+        },
+        "e-198": {
+            "id": "e-198",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-199"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|61a5cbb8-5815-6eed-d530-e71f58cfd968"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 10,
+                "scrollOffsetUnit": "%",
+                "delay": 350,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580686464998
+        },
+        "e-205": {
+            "id": "e-205",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-5",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-206"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|61a5cbb8-5815-6eed-d530-e71f58cfd971"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580686464998
+        },
+        "e-207": {
+            "id": "e-207",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-208"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|b985ba5a-af87-36b1-e7ba-7f8c1888e63a"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 250,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580689551773
+        },
+        "e-209": {
+            "id": "e-209",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-12",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-210"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|b985ba5a-af87-36b1-e7ba-7f8c1888e63a"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580689551773
+        },
+        "e-210": {
+            "id": "e-210",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-13",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-209"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|b985ba5a-af87-36b1-e7ba-7f8c1888e63a"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580689551773
+        },
+        "e-227": {
+            "id": "e-227",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-228"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33ca186902d6053e478e7d|a1eb6672-f18d-cbad-8f64-6c842bee87ff"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580690510433
+        },
+        "e-229": {
+            "id": "e-229",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-230"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33ca186902d6053e478e7d|a1eb6672-f18d-cbad-8f64-6c842bee880b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580690510433
+        },
+        "e-231": {
+            "id": "e-231",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-12",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-232"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33ca186902d6053e478e7d|a1eb6672-f18d-cbad-8f64-6c842bee880b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580690510433
+        },
+        "e-232": {
+            "id": "e-232",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-13",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-231"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33ca186902d6053e478e7d|a1eb6672-f18d-cbad-8f64-6c842bee880b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580690510433
+        },
+        "e-233": {
+            "id": "e-233",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-234"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|45f5c763-8648-f83d-517e-4b83edcdf75d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 1200,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580690760065
+        },
+        "e-235": {
+            "id": "e-235",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-236"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|990e7e85-231a-6abf-10bb-453f3af5bc21"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 1100,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580690775555
+        },
+        "e-237": {
+            "id": "e-237",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-238"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|655b5c98-55eb-885a-cf6f-85bd91a16c3d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 1450,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580690792463
+        },
+        "e-239": {
+            "id": "e-239",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-240"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|a77ce22a-78e1-548c-2e26-20ede244be37"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580690809868
+        },
+        "e-241": {
+            "id": "e-241",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-242"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|a8651bf8-f017-8989-72ee-189921d1b987"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 1450,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580690834420
+        },
+        "e-261": {
+            "id": "e-261",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-262"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|63508800-bcf0-9986-7c32-5dce6c774272"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580693886148
+        },
+        "e-263": {
+            "id": "e-263",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInRight",
+                    "autoStopEventId": "e-264"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|feede6ae-cd1f-9d41-ebd9-a5614135769c"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "RIGHT",
+                "effectIn": true
+            },
+            "createdOn": 1580693901378
+        },
+        "e-265": {
+            "id": "e-265",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-266"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|3cfa9df3-0b22-246e-01a5-e87b067392d3"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 300,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580693915872
+        },
+        "e-267": {
+            "id": "e-267",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInRight",
+                    "autoStopEventId": "e-268"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|3cfa9df3-0b22-246e-01a5-e87b067392c7"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 500,
+                "direction": "RIGHT",
+                "effectIn": true
+            },
+            "createdOn": 1580693925574
+        },
+        "e-269": {
+            "id": "e-269",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-270"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|eeba88c1-85fc-93b5-5af6-c5bcf4a4ab78"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580695853865
+        },
+        "e-271": {
+            "id": "e-271",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInRight",
+                    "autoStopEventId": "e-272"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|eeba88c1-85fc-93b5-5af6-c5bcf4a4ab77"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "RIGHT",
+                "effectIn": true
+            },
+            "createdOn": 1580695863938
+        },
+        "e-273": {
+            "id": "e-273",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-274"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|d7f82e21-af2b-7dfb-3770-a4c18f1dff30"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580764888968
+        },
+        "e-274": {
+            "id": "e-274",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-273"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c|d7f82e21-af2b-7dfb-3770-a4c18f1dff30"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580764888968
+        },
+        "e-275": {
+            "id": "e-275",
+            "eventTypeId": "PAGE_SCROLL_UP",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-16",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-276"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580764958000
+        },
+        "e-276": {
+            "id": "e-276",
+            "eventTypeId": "PAGE_SCROLL_DOWN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-17",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-275"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a2da806f6d8a4802946c"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580764958010
+        },
+        "e-277": {
+            "id": "e-277",
+            "eventTypeId": "PAGE_SCROLL_UP",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-16",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-278"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a95b0fdd74025ce3face"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765096405
+        },
+        "e-278": {
+            "id": "e-278",
+            "eventTypeId": "PAGE_SCROLL_DOWN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-17",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-277"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a95b0fdd74025ce3face"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765096415
+        },
+        "e-279": {
+            "id": "e-279",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-280"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a8c80fdd74ac8ae3f9cf|8bf9190b-2bff-0a3a-702e-1ee0d12d58e4"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765261425
+        },
+        "e-280": {
+            "id": "e-280",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-279"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a8c80fdd74ac8ae3f9cf|8bf9190b-2bff-0a3a-702e-1ee0d12d58e4"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765261425
+        },
+        "e-281": {
+            "id": "e-281",
+            "eventTypeId": "PAGE_SCROLL_UP",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-16",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-282"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a8c80fdd74ac8ae3f9cf"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765267306
+        },
+        "e-282": {
+            "id": "e-282",
+            "eventTypeId": "PAGE_SCROLL_DOWN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-17",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-281"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a8c80fdd74ac8ae3f9cf"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765267317
+        },
+        "e-283": {
+            "id": "e-283",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-284"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a8e7806f6d299d02c3cc|b17a146e-6a30-d50e-fec9-9a7a477c20cf"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765279554
+        },
+        "e-284": {
+            "id": "e-284",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-283"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a8e7806f6d299d02c3cc|b17a146e-6a30-d50e-fec9-9a7a477c20cf"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765279554
+        },
+        "e-285": {
+            "id": "e-285",
+            "eventTypeId": "PAGE_SCROLL_UP",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-16",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-286"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a8e7806f6d299d02c3cc"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765283380
+        },
+        "e-286": {
+            "id": "e-286",
+            "eventTypeId": "PAGE_SCROLL_DOWN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-17",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-285"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a8e7806f6d299d02c3cc"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765283388
+        },
+        "e-287": {
+            "id": "e-287",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-288"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9137cc57444951f0acd|e1d7ee06-7d7b-e785-1c44-f0e2db7484fa"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765302350
+        },
+        "e-288": {
+            "id": "e-288",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-287"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9137cc57444951f0acd|e1d7ee06-7d7b-e785-1c44-f0e2db7484fa"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765302350
+        },
+        "e-289": {
+            "id": "e-289",
+            "eventTypeId": "PAGE_SCROLL_UP",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-16",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-290"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a9137cc57444951f0acd"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765306835
+        },
+        "e-290": {
+            "id": "e-290",
+            "eventTypeId": "PAGE_SCROLL_DOWN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-17",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-289"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a9137cc57444951f0acd"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765306843
+        },
+        "e-291": {
+            "id": "e-291",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-292"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9487cc5741cf61f0ba3|4bda319e-a73c-ba43-7cd1-b096a3b6d85c"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765317115
+        },
+        "e-292": {
+            "id": "e-292",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-291"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9487cc5741cf61f0ba3|4bda319e-a73c-ba43-7cd1-b096a3b6d85c"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765317115
+        },
+        "e-293": {
+            "id": "e-293",
+            "eventTypeId": "PAGE_SCROLL_UP",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-16",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-294"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a9487cc5741cf61f0ba3"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765327807
+        },
+        "e-294": {
+            "id": "e-294",
+            "eventTypeId": "PAGE_SCROLL_DOWN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-17",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-293"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a9487cc5741cf61f0ba3"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765327816
+        },
+        "e-295": {
+            "id": "e-295",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-14",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-296"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|b30ba858-b883-8d5e-5895-ca9df7a341db"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765352135
+        },
+        "e-296": {
+            "id": "e-296",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-15",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-295"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|b30ba858-b883-8d5e-5895-ca9df7a341db"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765352135
+        },
+        "e-297": {
+            "id": "e-297",
+            "eventTypeId": "PAGE_SCROLL_UP",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-16",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-298"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765376049
+        },
+        "e-298": {
+            "id": "e-298",
+            "eventTypeId": "PAGE_SCROLL_DOWN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-17",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-297"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "PAGE",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580765376058
+        },
+        "e-299": {
+            "id": "e-299",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInLeft",
+                    "autoStopEventId": "e-300"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33c9f1d095cb3280766632|23809342-bab2-f15e-eeb5-c2f9d289a2a4"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": "LEFT",
+                "effectIn": true
+            },
+            "createdOn": 1580765549065
+        },
+        "e-301": {
+            "id": "e-301",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInRight",
+                    "autoStopEventId": "e-302"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33c9f1d095cb3280766632|23809342-bab2-f15e-eeb5-c2f9d289a2a5"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 500,
+                "direction": "RIGHT",
+                "effectIn": true
+            },
+            "createdOn": 1580765549065
+        },
+        "e-307": {
+            "id": "e-307",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-12",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-308"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33c9f1d095cb3280766632|66164fa2-9015-7526-adbd-3295b9688673"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580782792105
+        },
+        "e-308": {
+            "id": "e-308",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-13",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-307"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33c9f1d095cb3280766632|66164fa2-9015-7526-adbd-3295b9688673"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580782792105
+        },
+        "e-309": {
+            "id": "e-309",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-310"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33c9f1d095cb3280766632|66164fa2-9015-7526-adbd-3295b9688673"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580782792105
+        },
+        "e-313": {
+            "id": "e-313",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-314"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e389047c3c4169290672431|5e389047c3c4165d92672432aN"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 0,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580785340822
+        },
+        "e-315": {
+            "id": "e-315",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-316"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e38da257d729a90417eae99|5e38da257d729a6d117eae9a00000000000d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 0,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580785598081
+        },
+        "e-319": {
+            "id": "e-319",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-320"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e38da257d729a90417eae99|2e9b144a-4db0-816e-ae3c-f14ba45bbc80"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580785620044
+        },
+        "e-321": {
+            "id": "e-321",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-322"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e38da257d729a90417eae99|bda749a8-5689-fe9e-121b-e05d838803d4"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 700,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580785635045
+        },
+        "e-323": {
+            "id": "e-323",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-324"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e38da257d729a90417eae99|5e38da257d729a6d117eae9a00000000000f"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580785676622
+        },
+        "e-325": {
+            "id": "e-325",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-326"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9730fdd7451bbe3fb0e|489cf6db-9278-2f81-2ec7-4596ac025478"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580788482440
+        },
+        "e-327": {
+            "id": "e-327",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-328"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a97ccf951f8d3a20565d|cef85cba-92b1-0209-c188-a0a54443fc26"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580788498632
+        },
+        "e-341": {
+            "id": "e-341",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-342"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9730fdd7451bbe3fb0e|c676e846-d050-8e3c-aba7-bdf67558554b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 850,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580791529913
+        },
+        "e-347": {
+            "id": "e-347",
+            "eventTypeId": "MOUSE_OVER",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-12",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-348"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9730fdd7451bbe3fb0e|103cd7bd-ea1f-afa9-2bea-bff7c9c0cf04"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580791616827
+        },
+        "e-348": {
+            "id": "e-348",
+            "eventTypeId": "MOUSE_OUT",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-13",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-347"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9730fdd7451bbe3fb0e|103cd7bd-ea1f-afa9-2bea-bff7c9c0cf04"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580791616827
+        },
+        "e-357": {
+            "id": "e-357",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-358"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|4ebcda58-c0b2-6f8c-48c8-675a9ce1013d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580850271805
+        },
+        "e-359": {
+            "id": "e-359",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-360"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e31fbcb9dea3d44539f2808|41437b4f-bad2-1b9d-0bcf-b324f56e9345"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 400,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580850273858
+        },
+        "e-363": {
+            "id": "e-363",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-364"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "50020eae-abb3-e75c-0b85-e210a1b2bf79"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 200,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580864733916
+        },
+        "e-365": {
+            "id": "e-365",
+            "eventTypeId": "DROPDOWN_OPEN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-3",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-366"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "b327dadf-d0ed-17e5-c756-291e1b9d62c5"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580865868965
+        },
+        "e-366": {
+            "id": "e-366",
+            "eventTypeId": "DROPDOWN_CLOSE",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-4",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-365"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "b327dadf-d0ed-17e5-c756-291e1b9d62c5"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580865868975
+        },
+        "e-367": {
+            "id": "e-367",
+            "eventTypeId": "DROPDOWN_OPEN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-3",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-368"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "50020eae-abb3-e75c-0b85-e210a1b2bfa2"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580865902324
+        },
+        "e-368": {
+            "id": "e-368",
+            "eventTypeId": "DROPDOWN_CLOSE",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-4",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-367"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "50020eae-abb3-e75c-0b85-e210a1b2bfa2"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580865902334
+        },
+        "e-369": {
+            "id": "e-369",
+            "eventTypeId": "DROPDOWN_OPEN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-3",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-370"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "e2048f99-6cca-412a-1cd0-000c869b7f8b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580865937714
+        },
+        "e-370": {
+            "id": "e-370",
+            "eventTypeId": "DROPDOWN_CLOSE",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-4",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-369"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "e2048f99-6cca-412a-1cd0-000c869b7f8b"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580865937726
+        },
+        "e-371": {
+            "id": "e-371",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-372"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33c9f1d095cb3280766632|0b763225-dc09-3ecb-2dd3-ba8628f18a52"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 600,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580871112784
+        },
+        "e-373": {
+            "id": "e-373",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-374"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a9652e40db52ecca8e53|c3738669-7bc9-5a0e-e1fb-3a1ae1d3ab8d"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 1000,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1580871213843
+        },
+        "e-375": {
+            "id": "e-375",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-376"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a8c80fdd74ac8ae3f9cf|22f3b9f0-5c71-bfb9-8438-caaccf0b8ba6"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580871277470
+        },
+        "e-377": {
+            "id": "e-377",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-378"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a8e7806f6d299d02c3cc|c2db8e26-38e9-309f-9261-18dc78816b3a"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580871301191
+        },
+        "e-379": {
+            "id": "e-379",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "FADE_EFFECT",
+                "config": {
+                    "actionListId": "fadeIn",
+                    "autoStopEventId": "e-380"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a95b0fdd74025ce3face|6b8ae666-7ba5-94f4-6a31-287a6f105b3c"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 800,
+                "direction": null,
+                "effectIn": true
+            },
+            "createdOn": 1580871375296
+        },
+        "e-381": {
+            "id": "e-381",
+            "eventTypeId": "DROPDOWN_OPEN",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-3",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-382"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a97ccf951f8d3a20565d|4e0d45f6-ba66-4de6-715d-8b5f86b831c3"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580871647573
+        },
+        "e-382": {
+            "id": "e-382",
+            "eventTypeId": "DROPDOWN_CLOSE",
+            "action": {
+                "id": "",
+                "actionTypeId": "GENERAL_START_ACTION",
+                "config": {
+                    "delay": 0,
+                    "easing": "",
+                    "duration": 0,
+                    "actionListId": "a-4",
+                    "affectedElements": {},
+                    "playInReverse": false,
+                    "autoStopEventId": "e-381"
+                }
+            },
+            "mediaQueries": ["main", "medium", "small", "tiny"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a97ccf951f8d3a20565d|4e0d45f6-ba66-4de6-715d-8b5f86b831c3"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": null,
+                "scrollOffsetUnit": null,
+                "delay": null,
+                "direction": null,
+                "effectIn": null
+            },
+            "createdOn": 1580871647573
+        },
+        "e-387": {
+            "id": "e-387",
+            "eventTypeId": "SCROLL_INTO_VIEW",
+            "action": {
+                "id": "",
+                "actionTypeId": "SLIDE_EFFECT",
+                "config": {
+                    "actionListId": "slideInBottom",
+                    "autoStopEventId": "e-388"
+                },
+                "instant": false
+            },
+            "mediaQueries": ["main", "medium"],
+            "target": {
+                "appliesTo": "ELEMENT",
+                "styleBlockIds": [],
+                "id": "5e33a97ccf951f8d3a20565d|4b51c984-122d-c629-b547-2f8b887118b5"
+            },
+            "config": {
+                "loop": false,
+                "playInReverse": false,
+                "scrollOffsetValue": 0,
+                "scrollOffsetUnit": "%",
+                "delay": 850,
+                "direction": "BOTTOM",
+                "effectIn": true
+            },
+            "createdOn": 1582256966266
         }
     },
     "actionLists": {
-        "a-2": {
-            "id": "a-2",
-            "title": "Toggle Monthly Pricing",
+        "a": {
+            "id": "a",
+            "title": "Menu Open 2",
             "actionItemGroups": [{
                 "actionItems": [{
-                    "id": "a-2-n",
-                    "actionTypeId": "GENERAL_DISPLAY",
+                    "id": "a-n",
+                    "actionTypeId": "TRANSFORM_MOVE",
                     "config": {
                         "delay": 0,
-                        "easing": "",
-                        "duration": 0,
-                        "value": "none",
+                        "easing": "ease",
+                        "duration": 300,
                         "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
-                        }
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".menu-icon-top-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce70"]
+                        },
+                        "yValue": 10,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
                     }
                 }, {
-                    "id": "a-2-n-2",
+                    "id": "a-n-2",
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 300,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".menu-icon-bottom-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce5e"]
+                        },
+                        "yValue": -10,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }, {
+                    "id": "a-n-3",
                     "actionTypeId": "STYLE_OPACITY",
                     "config": {
                         "delay": 0,
-                        "easing": [0.25, 0.25, 0.75, 0.75],
-                        "duration": 500,
+                        "easing": "ease",
+                        "duration": 300,
                         "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".menu-icon-middle-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce5b"]
                         },
                         "value": 0,
                         "unit": ""
                     }
                 }, {
-                    "id": "a-2-n-3",
-                    "actionTypeId": "GENERAL_DISPLAY",
+                    "id": "a-n-4",
+                    "actionTypeId": "TRANSFORM_ROTATE",
                     "config": {
-                        "delay": 0,
-                        "easing": "",
-                        "duration": 0,
-                        "value": "block",
-                        "target": {
-                            "selector": ".pricing-columns.annually",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "32d991a9-de52-14df-959d-f9a92bb0e274"]
-                        }
-                    }
-                }, {
-                    "id": "a-2-n-4",
-                    "actionTypeId": "STYLE_OPACITY",
-                    "config": {
-                        "delay": 0,
-                        "easing": "",
-                        "duration": 500,
-                        "target": {
-                            "selector": ".pricing-columns.annually",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "32d991a9-de52-14df-959d-f9a92bb0e274"]
-                        },
-                        "value": 1,
-                        "unit": ""
-                    }
-                }, {
-                    "id": "a-2-n-10",
-                    "actionTypeId": "TRANSFORM_MOVE",
-                    "config": {
-                        "delay": 0,
-                        "easing": "",
-                        "duration": 500,
-                        "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
-                        },
-                        "yValue": 20,
-                        "xUnit": "PX",
-                        "yUnit": "PX",
-                        "zUnit": "PX"
-                    }
-                }, {
-                    "id": "a-2-n-12",
-                    "actionTypeId": "TRANSFORM_MOVE",
-                    "config": {
-                        "delay": 0,
-                        "easing": "",
-                        "duration": 500,
+                        "delay": 400,
+                        "easing": "ease",
+                        "duration": 300,
                         "target": {
                             "useEventTarget": "CHILDREN",
-                            "selector": ".toggle-btn",
-                            "selectorGuids": ["ff407948-3bac-32fa-25b7-2a80d42a3e0b"]
+                            "selector": ".menu-icon-top-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce70"]
                         },
-                        "xValue": 0,
-                        "xUnit": "PX",
-                        "yUnit": "PX",
-                        "zUnit": "PX"
+                        "zValue": 45,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
+                    }
+                }, {
+                    "id": "a-n-5",
+                    "actionTypeId": "TRANSFORM_ROTATE",
+                    "config": {
+                        "delay": 400,
+                        "easing": "ease",
+                        "duration": 300,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".menu-icon-bottom-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce5e"]
+                        },
+                        "zValue": -45,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
+                    }
+                }]
+            }],
+            "createdOn": 1580241849343,
+            "useFirstGroupAsInitialState": false
+        },
+        "a-2": {
+            "id": "a-2",
+            "title": "Menu Closes 2",
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "id": "a-2-n",
+                    "actionTypeId": "TRANSFORM_ROTATE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 300,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".menu-icon-top-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce70"]
+                        },
+                        "zValue": 0,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
+                    }
+                }, {
+                    "id": "a-2-n-2",
+                    "actionTypeId": "TRANSFORM_ROTATE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 300,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".menu-icon-bottom-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce5e"]
+                        },
+                        "zValue": 0,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
                     }
                 }]
             }, {
                 "actionItems": [{
-                    "id": "a-2-n-7",
+                    "id": "a-2-n-3",
                     "actionTypeId": "TRANSFORM_MOVE",
                     "config": {
                         "delay": 0,
                         "easing": "ease",
-                        "duration": 400,
+                        "duration": 300,
                         "target": {
-                            "selector": ".pricing-columns.annually",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "32d991a9-de52-14df-959d-f9a92bb0e274"]
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".menu-icon-top-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce70"]
                         },
-                        "yValue": 20,
+                        "yValue": 0,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }, {
+                    "id": "a-2-n-4",
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 300,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".menu-icon-bottom-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce5e"]
+                        },
+                        "yValue": 0,
                         "xUnit": "PX",
                         "yUnit": "PX",
                         "zUnit": "PX"
@@ -8605,254 +13514,244 @@ Webflow.require('ix2').init({
                     "config": {
                         "delay": 0,
                         "easing": "ease",
-                        "duration": 400,
-                        "target": {
-                            "selector": ".pricing-columns.annually",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "32d991a9-de52-14df-959d-f9a92bb0e274"]
-                        },
-                        "value": 0,
-                        "unit": ""
-                    }
-                }, {
-                    "id": "a-2-n-13",
-                    "actionTypeId": "TRANSFORM_MOVE",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
+                        "duration": 300,
                         "target": {
                             "useEventTarget": "CHILDREN",
-                            "selector": ".toggle-btn",
-                            "selectorGuids": ["ff407948-3bac-32fa-25b7-2a80d42a3e0b"]
-                        },
-                        "xValue": 16,
-                        "xUnit": "PX",
-                        "yUnit": "PX",
-                        "zUnit": "PX"
-                    }
-                }, {
-                    "id": "a-2-n-14",
-                    "actionTypeId": "STYLE_TEXT_COLOR",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
-                        "globalSwatchId": "a0d8a042",
-                        "target": {
-                            "useEventTarget": "SIBLINGS",
-                            "selector": ".toggle-text.monthly",
-                            "selectorGuids": ["95f073b1-ae50-9c32-cf51-68c6e0f66944", "b74ed9c8-46b3-a3c5-8504-776e16e53c52"]
-                        },
-                        "rValue": 4,
-                        "gValue": 44,
-                        "bValue": 92,
-                        "aValue": 1
-                    }
-                }, {
-                    "id": "a-2-n-15",
-                    "actionTypeId": "STYLE_TEXT_COLOR",
-                    "config": {
-                        "delay": 0,
-                        "easing": "",
-                        "duration": 400,
-                        "target": {
-                            "useEventTarget": "SIBLINGS",
-                            "selector": ".toggle-text.annually",
-                            "selectorGuids": ["95f073b1-ae50-9c32-cf51-68c6e0f66944", "6d6c5651-be26-d057-dd6c-f114c797511c"]
-                        },
-                        "rValue": 4,
-                        "gValue": 44,
-                        "bValue": 92,
-                        "aValue": 0.7
-                    }
-                }]
-            }, {
-                "actionItems": [{
-                    "id": "a-2-n-6",
-                    "actionTypeId": "GENERAL_DISPLAY",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 0,
-                        "value": "none",
-                        "target": {
-                            "selector": ".pricing-columns.annually",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "32d991a9-de52-14df-959d-f9a92bb0e274"]
-                        }
-                    }
-                }, {
-                    "id": "a-2-n-8",
-                    "actionTypeId": "GENERAL_DISPLAY",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 0,
-                        "value": "block",
-                        "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
-                        }
-                    }
-                }]
-            }, {
-                "actionItems": [{
-                    "id": "a-2-n-9",
-                    "actionTypeId": "STYLE_OPACITY",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
-                        "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
+                            "selector": ".menu-icon-middle-line",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce5b"]
                         },
                         "value": 1,
                         "unit": ""
                     }
-                }, {
-                    "id": "a-2-n-11",
-                    "actionTypeId": "TRANSFORM_MOVE",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
-                        "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
-                        },
-                        "yValue": 0,
-                        "xUnit": "PX",
-                        "yUnit": "PX",
-                        "zUnit": "PX"
-                    }
                 }]
             }],
-            "createdOn": 1574342074422,
-            "useFirstGroupAsInitialState": true
+            "createdOn": 1580242130136,
+            "useFirstGroupAsInitialState": false
         },
         "a-3": {
             "id": "a-3",
-            "title": "Toggle Annually Pricing",
+            "title": "Sub Menu [Open] 2",
             "actionItemGroups": [{
                 "actionItems": [{
-                    "id": "a-3-n-11",
-                    "actionTypeId": "STYLE_TEXT_COLOR",
+                    "id": "a-3-n",
+                    "actionTypeId": "TRANSFORM_MOVE",
                     "config": {
                         "delay": 0,
                         "easing": "",
                         "duration": 500,
-                        "globalSwatchId": "a0d8a042",
                         "target": {
-                            "useEventTarget": "SIBLINGS",
-                            "selector": ".toggle-text.annually",
-                            "selectorGuids": ["95f073b1-ae50-9c32-cf51-68c6e0f66944", "6d6c5651-be26-d057-dd6c-f114c797511c"]
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
                         },
-                        "rValue": 4,
-                        "gValue": 44,
-                        "bValue": 92,
-                        "aValue": 1
+                        "yValue": -12,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
                     }
-                }]
-            }, {
-                "actionItems": [{
+                }, {
                     "id": "a-3-n-2",
                     "actionTypeId": "STYLE_OPACITY",
                     "config": {
                         "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
+                        "easing": "",
+                        "duration": 500,
                         "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
                         },
                         "value": 0,
                         "unit": ""
                     }
                 }, {
-                    "id": "a-3-n-5",
-                    "actionTypeId": "TRANSFORM_MOVE",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
-                        "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
-                        },
-                        "yValue": 20,
-                        "xUnit": "PX",
-                        "yUnit": "PX",
-                        "zUnit": "PX"
-                    }
-                }, {
-                    "id": "a-3-n-8",
-                    "actionTypeId": "TRANSFORM_MOVE",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
-                        "target": {
-                            "useEventTarget": "CHILDREN",
-                            "selector": ".toggle-btn",
-                            "selectorGuids": ["ff407948-3bac-32fa-25b7-2a80d42a3e0b"]
-                        },
-                        "xValue": 0,
-                        "xUnit": "PX",
-                        "yUnit": "PX",
-                        "zUnit": "PX"
-                    }
-                }, {
-                    "id": "a-3-n-9",
-                    "actionTypeId": "STYLE_TEXT_COLOR",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
-                        "globalSwatchId": "a0d8a042",
-                        "target": {
-                            "useEventTarget": "SIBLINGS",
-                            "selector": ".toggle-text.annually",
-                            "selectorGuids": ["95f073b1-ae50-9c32-cf51-68c6e0f66944", "6d6c5651-be26-d057-dd6c-f114c797511c"]
-                        },
-                        "rValue": 4,
-                        "gValue": 44,
-                        "bValue": 92,
-                        "aValue": 1
-                    }
-                }, {
-                    "id": "a-3-n-10",
-                    "actionTypeId": "STYLE_TEXT_COLOR",
+                    "id": "a-3-n-3",
+                    "actionTypeId": "TRANSFORM_ROTATE",
                     "config": {
                         "delay": 0,
                         "easing": "",
                         "duration": 500,
                         "target": {
-                            "useEventTarget": "SIBLINGS",
-                            "selector": ".toggle-text.monthly",
-                            "selectorGuids": ["95f073b1-ae50-9c32-cf51-68c6e0f66944", "b74ed9c8-46b3-a3c5-8504-776e16e53c52"]
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
                         },
-                        "rValue": 4,
-                        "gValue": 44,
-                        "bValue": 92,
-                        "aValue": 0.7
+                        "xValue": -15,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
+                    }
+                }, {
+                    "id": "a-3-n-4",
+                    "actionTypeId": "TRANSFORM_ROTATE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "",
+                        "duration": 500,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-icon",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce6b"]
+                        },
+                        "zValue": 0,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
                     }
                 }]
             }, {
                 "actionItems": [{
-                    "id": "a-3-n",
-                    "actionTypeId": "GENERAL_DISPLAY",
+                    "id": "a-3-n-5",
+                    "actionTypeId": "TRANSFORM_MOVE",
                     "config": {
                         "delay": 0,
-                        "easing": "",
-                        "duration": 0,
-                        "value": "none",
+                        "easing": "easeIn",
+                        "duration": 250,
                         "target": {
-                            "selector": ".pricing-columns.monthly",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "0a455a69-eaed-a568-4c5c-b3d56ad6641f"]
-                        }
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
+                        },
+                        "yValue": 10,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
                     }
                 }, {
-                    "id": "a-3-n-3",
+                    "id": "a-3-n-6",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "easeIn",
+                        "duration": 250,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
+                        },
+                        "value": 1,
+                        "unit": ""
+                    }
+                }, {
+                    "id": "a-3-n-7",
+                    "actionTypeId": "TRANSFORM_ROTATE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "easeInOut",
+                        "duration": 350,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-icon",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce6b"]
+                        },
+                        "zValue": 180,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
+                    }
+                }, {
+                    "id": "a-3-n-8",
+                    "actionTypeId": "TRANSFORM_ROTATE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "easeIn",
+                        "duration": 250,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
+                        },
+                        "xValue": 0,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
+                    }
+                }]
+            }],
+            "createdOn": 1576800116059,
+            "useFirstGroupAsInitialState": true
+        },
+        "a-4": {
+            "id": "a-4",
+            "title": "Sub Menu [Close] 2",
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "id": "a-4-n",
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "easeIn",
+                        "duration": 250,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
+                        },
+                        "yValue": -12,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }, {
+                    "id": "a-4-n-2",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "easeIn",
+                        "duration": 250,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
+                        },
+                        "value": 0,
+                        "unit": ""
+                    }
+                }, {
+                    "id": "a-4-n-3",
+                    "actionTypeId": "TRANSFORM_ROTATE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "easeInOut",
+                        "duration": 250,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-icon",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce6b"]
+                        },
+                        "zValue": 0,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
+                    }
+                }, {
+                    "id": "a-4-n-4",
+                    "actionTypeId": "TRANSFORM_ROTATE",
+                    "config": {
+                        "delay": 200,
+                        "easing": "easeIn",
+                        "duration": 350,
+                        "target": {
+                            "useEventTarget": "CHILDREN",
+                            "selector": ".dropdown-list",
+                            "selectorGuids": ["be599754-9e2a-f139-85e8-2e02df4fce71"]
+                        },
+                        "xValue": 0,
+                        "xUnit": "DEG",
+                        "yUnit": "DEG",
+                        "zUnit": "DEG"
+                    }
+                }]
+            }],
+            "createdOn": 1576800116059,
+            "useFirstGroupAsInitialState": false
+        },
+        "a-5": {
+            "id": "a-5",
+            "title": "Show BG on Scroll",
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "id": "a-5-n",
                     "actionTypeId": "GENERAL_DISPLAY",
                     "config": {
                         "delay": 0,
@@ -8860,180 +13759,611 @@ Webflow.require('ix2').init({
                         "duration": 0,
                         "value": "block",
                         "target": {
-                            "selector": ".pricing-columns.annually",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "32d991a9-de52-14df-959d-f9a92bb0e274"]
+                            "useEventTarget": true,
+                            "id": "5e30f06b05f796620b1ddc26|fb267484-8aea-7fc9-a44c-cb7dfe938c1e"
                         }
-                    }
-                }]
-            }, {
-                "actionItems": [{
-                    "id": "a-3-n-4",
-                    "actionTypeId": "STYLE_OPACITY",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
-                        "target": {
-                            "selector": ".pricing-columns.annually",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "32d991a9-de52-14df-959d-f9a92bb0e274"]
-                        },
-                        "value": 1,
-                        "unit": ""
-                    }
-                }, {
-                    "id": "a-3-n-6",
-                    "actionTypeId": "TRANSFORM_MOVE",
-                    "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 400,
-                        "target": {
-                            "selector": ".pricing-columns.annually",
-                            "selectorGuids": ["690b4977-3a32-bb45-4107-e231a193876e", "32d991a9-de52-14df-959d-f9a92bb0e274"]
-                        },
-                        "yValue": 0,
-                        "xUnit": "PX",
-                        "yUnit": "PX",
-                        "zUnit": "PX"
-                    }
-                }]
-            }],
-            "createdOn": 1574342074422,
-            "useFirstGroupAsInitialState": true
-        },
-        "a-5": {
-            "id": "a-5",
-            "title": "Nav Hover In",
-            "actionItemGroups": [{
-                "actionItems": [{
-                    "id": "a-5-n",
-                    "actionTypeId": "TRANSFORM_SCALE",
-                    "config": {
-                        "delay": 0,
-                        "easing": "",
-                        "duration": 500,
-                        "target": {
-                            "useEventTarget": "SIBLINGS",
-                            "selector": ".nav-line",
-                            "selectorGuids": ["d9e1ca39-6476-97ab-a680-3c7c6f275121"]
-                        },
-                        "xValue": 0,
-                        "locked": false
                     }
                 }]
             }, {
                 "actionItems": [{
                     "id": "a-5-n-2",
-                    "actionTypeId": "TRANSFORM_SCALE",
+                    "actionTypeId": "STYLE_SIZE",
                     "config": {
-                        "delay": 0,
-                        "easing": "ease",
-                        "duration": 300,
+                        "delay": 1400,
+                        "easing": "easeIn",
+                        "duration": 600,
+                        "locked": false,
                         "target": {
-                            "useEventTarget": "SIBLINGS",
-                            "selector": ".nav-line",
-                            "selectorGuids": ["d9e1ca39-6476-97ab-a680-3c7c6f275121"]
+                            "useEventTarget": true,
+                            "id": "5e30f06b05f796620b1ddc26|fb267484-8aea-7fc9-a44c-cb7dfe938c1e"
                         },
-                        "xValue": 1,
-                        "locked": false
+                        "widthValue": 0,
+                        "widthUnit": "PX",
+                        "heightUnit": "PX"
                     }
                 }]
             }],
-            "createdOn": 1574422533992,
+            "createdOn": 1580268944951,
             "useFirstGroupAsInitialState": true
         },
         "a-6": {
             "id": "a-6",
-            "title": "Nav Hover Out",
+            "title": "Parallax Scroll Effect",
+            "continuousParameterGroups": [{
+                "id": "a-6-p",
+                "type": "SCROLL_PROGRESS",
+                "parameterLabel": "Scroll",
+                "continuousActionGroups": [{
+                    "keyframe": 0,
+                    "actionItems": [{
+                        "id": "a-6-n-3",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "selector": ".background-object-1---hero",
+                                "selectorGuids": ["cc03a5cb-9f6f-0bd7-fe11-0d763c5d2385"]
+                            },
+                            "xValue": -86,
+                            "yValue": 214,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }, {
+                    "keyframe": 100,
+                    "actionItems": [{
+                        "id": "a-6-n-6",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "selector": ".background-object-1---hero",
+                                "selectorGuids": ["cc03a5cb-9f6f-0bd7-fe11-0d763c5d2385"]
+                            },
+                            "xValue": -86,
+                            "yValue": 65,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }]
+            }],
+            "createdOn": 1580270848661
+        },
+        "a-10": {
+            "id": "a-10",
+            "title": "Parallax Effect Why Us",
+            "continuousParameterGroups": [{
+                "id": "a-10-p",
+                "type": "SCROLL_PROGRESS",
+                "parameterLabel": "Scroll",
+                "continuousActionGroups": [{
+                    "keyframe": 0,
+                    "actionItems": [{
+                        "id": "a-10-n",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "useEventTarget": true,
+                                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c983"
+                            },
+                            "xValue": 38,
+                            "yValue": 200,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }, {
+                    "keyframe": 100,
+                    "actionItems": [{
+                        "id": "a-10-n-2",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "useEventTarget": true,
+                                "id": "5e30f06b05f796620b1ddc26|adf76295-6499-d943-66f9-d1bce0d3c983"
+                            },
+                            "xValue": 38,
+                            "yValue": 20,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }]
+            }],
+            "createdOn": 1580278272875
+        },
+        "a-8": {
+            "id": "a-8",
+            "title": "Parallax Animation About",
+            "continuousParameterGroups": [{
+                "id": "a-8-p",
+                "type": "SCROLL_PROGRESS",
+                "parameterLabel": "Scroll",
+                "continuousActionGroups": [{
+                    "keyframe": 0,
+                    "actionItems": [{
+                        "id": "a-8-n",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "selector": ".background-object-about",
+                                "selectorGuids": ["d2cf825d-d4c5-15ba-3c07-1bf17d4a27cc"]
+                            },
+                            "xValue": -60,
+                            "yValue": 100,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }, {
+                    "keyframe": 100,
+                    "actionItems": [{
+                        "id": "a-8-n-2",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "selector": ".background-object-about",
+                                "selectorGuids": ["d2cf825d-d4c5-15ba-3c07-1bf17d4a27cc"]
+                            },
+                            "xValue": -60,
+                            "yValue": -60,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }]
+            }],
+            "createdOn": 1580276254239
+        },
+        "a-9": {
+            "id": "a-9",
+            "title": "Parallax Object 2 Hero",
+            "continuousParameterGroups": [{
+                "id": "a-9-p",
+                "type": "SCROLL_PROGRESS",
+                "parameterLabel": "Scroll",
+                "continuousActionGroups": [{
+                    "keyframe": 0,
+                    "actionItems": [{
+                        "id": "a-9-n",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "useEventTarget": true,
+                                "id": "5e30f06b05f796620b1ddc26|5fcc8cd2-b3ac-9ce6-075a-37e9d8c5bb23"
+                            },
+                            "xValue": -60,
+                            "yValue": 500,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }, {
+                    "keyframe": 100,
+                    "actionItems": [{
+                        "id": "a-9-n-2",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "useEventTarget": true,
+                                "id": "5e30f06b05f796620b1ddc26|5fcc8cd2-b3ac-9ce6-075a-37e9d8c5bb23"
+                            },
+                            "xValue": -60,
+                            "yValue": 420,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }]
+            }],
+            "createdOn": 1580277755259
+        },
+        "a-11": {
+            "id": "a-11",
+            "title": "Parallax Banner Object",
+            "continuousParameterGroups": [{
+                "id": "a-11-p",
+                "type": "SCROLL_PROGRESS",
+                "parameterLabel": "Scroll",
+                "continuousActionGroups": [{
+                    "keyframe": 0,
+                    "actionItems": [{
+                        "id": "a-11-n",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "useEventTarget": true,
+                                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d49f"
+                            },
+                            "yValue": 184,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }, {
+                    "keyframe": 100,
+                    "actionItems": [{
+                        "id": "a-11-n-2",
+                        "actionTypeId": "TRANSFORM_MOVE",
+                        "config": {
+                            "delay": 0,
+                            "easing": "ease",
+                            "duration": 500,
+                            "target": {
+                                "useEventTarget": true,
+                                "id": "ddb3dd2b-8950-2628-fcf0-54e84f19d49f"
+                            },
+                            "yValue": -82,
+                            "xUnit": "PX",
+                            "yUnit": "PX",
+                            "zUnit": "PX"
+                        }
+                    }]
+                }]
+            }],
+            "createdOn": 1580333826782
+        },
+        "a-12": {
+            "id": "a-12",
+            "title": "Move Blog Post Arrow Hover On",
             "actionItemGroups": [{
                 "actionItems": [{
-                    "id": "a-6-n",
+                    "id": "a-12-n",
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 500,
+                        "target": {
+                            "boundaryMode": true,
+                            "id": "5e30f06b05f796620b1ddc26|d4b60062-1bf3-e6ec-d67e-d5782210c8b7"
+                        },
+                        "xValue": 6,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }]
+            }],
+            "createdOn": 1580342379745,
+            "useFirstGroupAsInitialState": false
+        },
+        "a-13": {
+            "id": "a-13",
+            "title": "Move Blog Post Arrow Hover Off",
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "id": "a-13-n",
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 500,
+                        "target": {
+                            "boundaryMode": true,
+                            "id": "5e30f06b05f796620b1ddc26|d4b60062-1bf3-e6ec-d67e-d5782210c8b7"
+                        },
+                        "xValue": 0,
+                        "yValue": 0,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }]
+            }],
+            "createdOn": 1580342439628,
+            "useFirstGroupAsInitialState": false
+        },
+        "a-14": {
+            "id": "a-14",
+            "title": "Go Up Button Hover",
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "id": "a-14-n",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "",
+                        "duration": 500,
+                        "target": {
+                            "useEventTarget": true,
+                            "id": "5e30f06b05f796620b1ddc26|1bec2f37-7ae7-d738-3f07-ac161009b7ec"
+                        },
+                        "value": 1,
+                        "unit": ""
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "id": "a-14-n-2",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 500,
+                        "target": {
+                            "useEventTarget": true,
+                            "id": "5e30f06b05f796620b1ddc26|1bec2f37-7ae7-d738-3f07-ac161009b7ec"
+                        },
+                        "value": 1,
+                        "unit": ""
+                    }
+                }, {
+                    "id": "a-14-n-3",
+                    "actionTypeId": "TRANSFORM_SCALE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "",
+                        "duration": 500,
+                        "target": {
+                            "useEventTarget": true,
+                            "id": "5e30f06b05f796620b1ddc26|1bec2f37-7ae7-d738-3f07-ac161009b7ec"
+                        },
+                        "xValue": 1.13,
+                        "yValue": 1.13,
+                        "locked": true
+                    }
+                }]
+            }],
+            "createdOn": 1580353253691,
+            "useFirstGroupAsInitialState": true
+        },
+        "a-15": {
+            "id": "a-15",
+            "title": "Go Up Hover Out",
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "id": "a-15-n",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "",
+                        "duration": 500,
+                        "target": {
+                            "useEventTarget": true,
+                            "id": "5e30f06b05f796620b1ddc26|1bec2f37-7ae7-d738-3f07-ac161009b7ec"
+                        },
+                        "value": 1,
+                        "unit": ""
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "id": "a-15-n-2",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 500,
+                        "target": {
+                            "useEventTarget": true,
+                            "id": "5e30f06b05f796620b1ddc26|1bec2f37-7ae7-d738-3f07-ac161009b7ec"
+                        },
+                        "value": 1,
+                        "unit": ""
+                    }
+                }, {
+                    "id": "a-15-n-3",
                     "actionTypeId": "TRANSFORM_SCALE",
                     "config": {
                         "delay": 0,
                         "easing": "ease",
-                        "duration": 300,
+                        "duration": 500,
                         "target": {
-                            "useEventTarget": "SIBLINGS",
-                            "selector": ".nav-line",
-                            "selectorGuids": ["d9e1ca39-6476-97ab-a680-3c7c6f275121"]
+                            "useEventTarget": true,
+                            "id": "5e30f06b05f796620b1ddc26|1bec2f37-7ae7-d738-3f07-ac161009b7ec"
                         },
-                        "xValue": 0,
-                        "locked": false
+                        "xValue": 1,
+                        "yValue": 1,
+                        "locked": true
                     }
                 }]
             }],
-            "createdOn": 1574422533992,
-            "useFirstGroupAsInitialState": false
+            "createdOn": 1580353411731,
+            "useFirstGroupAsInitialState": true
         },
-        "slideInRight": {
-            "id": "slideInRight",
-            "useFirstGroupAsInitialState": true,
+        "a-16": {
+            "id": "a-16",
+            "title": "Go Up Button Hide",
             "actionItemGroups": [{
                 "actionItems": [{
-                    "actionTypeId": "STYLE_OPACITY",
-                    "config": {
-                        "delay": 0,
-                        "duration": 0,
-                        "target": {
-                            "id": "N/A",
-                            "appliesTo": "TRIGGER_ELEMENT",
-                            "useEventTarget": true
-                        },
-                        "value": 0
-                    }
-                }]
-            }, {
-                "actionItems": [{
+                    "id": "a-16-n",
                     "actionTypeId": "TRANSFORM_MOVE",
                     "config": {
                         "delay": 0,
-                        "duration": 0,
+                        "easing": "",
+                        "duration": 800,
                         "target": {
-                            "id": "N/A",
-                            "appliesTo": "TRIGGER_ELEMENT",
-                            "useEventTarget": true
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
                         },
-                        "xValue": 100,
-                        "yValue": 0,
+                        "yValue": 130,
                         "xUnit": "PX",
                         "yUnit": "PX",
                         "zUnit": "PX"
-                    }
-                }]
-            }, {
-                "actionItems": [{
-                    "actionTypeId": "STYLE_OPACITY",
-                    "config": {
-                        "delay": 0,
-                        "easing": "outQuart",
-                        "duration": 1000,
-                        "target": {
-                            "id": "N/A",
-                            "appliesTo": "TRIGGER_ELEMENT",
-                            "useEventTarget": true
-                        },
-                        "value": 1
                     }
                 }, {
-                    "actionTypeId": "TRANSFORM_MOVE",
+                    "id": "a-16-n-2",
+                    "actionTypeId": "TRANSFORM_SCALE",
                     "config": {
                         "delay": 0,
-                        "easing": "outQuart",
-                        "duration": 1000,
+                        "easing": "ease",
+                        "duration": 500,
                         "target": {
-                            "id": "N/A",
-                            "appliesTo": "TRIGGER_ELEMENT",
-                            "useEventTarget": true
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
                         },
-                        "xValue": 0,
+                        "xValue": 0.2,
+                        "yValue": 0.2,
+                        "locked": true
+                    }
+                }, {
+                    "id": "a-16-n-3",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "ease",
+                        "duration": 500,
+                        "target": {
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
+                        },
+                        "value": 0,
+                        "unit": ""
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "id": "a-16-n-4",
+                    "actionTypeId": "GENERAL_DISPLAY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "",
+                        "duration": 0,
+                        "value": "none",
+                        "target": {
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
+                        }
+                    }
+                }]
+            }],
+            "createdOn": 1580353488822,
+            "useFirstGroupAsInitialState": false
+        },
+        "a-17": {
+            "id": "a-17",
+            "title": "Go Up Button Show",
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "id": "a-17-n",
+                    "actionTypeId": "GENERAL_DISPLAY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "",
+                        "duration": 0,
+                        "value": "none",
+                        "target": {
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
+                        }
+                    }
+                }, {
+                    "id": "a-17-n-2",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "",
+                        "duration": 500,
+                        "target": {
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
+                        },
+                        "value": 0,
+                        "unit": ""
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "id": "a-17-n-3",
+                    "actionTypeId": "GENERAL_DISPLAY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "",
+                        "duration": 0,
+                        "value": "block",
+                        "target": {
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
+                        }
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "id": "a-17-n-4",
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 200,
+                        "easing": "ease",
+                        "duration": 500,
+                        "target": {
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
+                        },
+                        "value": 1,
+                        "unit": ""
+                    }
+                }, {
+                    "id": "a-17-n-5",
+                    "actionTypeId": "TRANSFORM_SCALE",
+                    "config": {
+                        "delay": 200,
+                        "easing": "ease",
+                        "duration": 500,
+                        "target": {
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
+                        },
+                        "xValue": 1,
+                        "yValue": 1,
+                        "locked": true
+                    }
+                }, {
+                    "id": "a-17-n-6",
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 200,
+                        "easing": "ease",
+                        "duration": 500,
+                        "target": {
+                            "selector": ".go-up-button",
+                            "selectorGuids": ["275d7cc2-8f82-1d07-f493-a17ea0cc9181"]
+                        },
                         "yValue": 0,
                         "xUnit": "PX",
                         "yUnit": "PX",
                         "zUnit": "PX"
                     }
                 }]
-            }]
+            }],
+            "createdOn": 1580353596258,
+            "useFirstGroupAsInitialState": true
         },
         "slideInLeft": {
             "id": "slideInLeft",
@@ -9103,6 +14433,310 @@ Webflow.require('ix2').init({
                     }
                 }]
             }]
+        },
+        "slideInTop": {
+            "id": "slideInTop",
+            "useFirstGroupAsInitialState": true,
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 0
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "xValue": 0,
+                        "yValue": -100,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 1
+                    }
+                }, {
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "xValue": 0,
+                        "yValue": 0,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }]
+            }]
+        },
+        "fadeIn": {
+            "id": "fadeIn",
+            "useFirstGroupAsInitialState": true,
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 0
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 1
+                    }
+                }]
+            }]
+        },
+        "slideInBottom": {
+            "id": "slideInBottom",
+            "useFirstGroupAsInitialState": true,
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 0
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "xValue": 0,
+                        "yValue": 100,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "xValue": 0,
+                        "yValue": 0,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }, {
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 1
+                    }
+                }]
+            }]
+        },
+        "growBigIn": {
+            "id": "growBigIn",
+            "useFirstGroupAsInitialState": true,
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 0
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "TRANSFORM_SCALE",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "xValue": 0,
+                        "yValue": 0
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "TRANSFORM_SCALE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "xValue": 1,
+                        "yValue": 1
+                    }
+                }, {
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 1
+                    }
+                }]
+            }]
+        },
+        "slideInRight": {
+            "id": "slideInRight",
+            "useFirstGroupAsInitialState": true,
+            "actionItemGroups": [{
+                "actionItems": [{
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 0
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "duration": 0,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "xValue": 100,
+                        "yValue": 0,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }]
+            }, {
+                "actionItems": [{
+                    "actionTypeId": "STYLE_OPACITY",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "value": 1
+                    }
+                }, {
+                    "actionTypeId": "TRANSFORM_MOVE",
+                    "config": {
+                        "delay": 0,
+                        "easing": "outQuart",
+                        "duration": 1000,
+                        "target": {
+                            "id": "N/A",
+                            "appliesTo": "TRIGGER_ELEMENT",
+                            "useEventTarget": true
+                        },
+                        "xValue": 0,
+                        "yValue": 0,
+                        "xUnit": "PX",
+                        "yUnit": "PX",
+                        "zUnit": "PX"
+                    }
+                }]
+            }]
         }
     },
     "site": {
@@ -9124,4 +14758,6 @@ Webflow.require('ix2').init({
             "max": 479
         }]
     }
-});
+}
+);
+
