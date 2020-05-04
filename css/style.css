@@ -1,8 +1,4 @@
-/* Generated on: Mon Apr 06 2020 13:32:34 GMT+0000 (Coordinated Universal Time) */
-/* ==========================================================================
-   normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css 
-   ========================================================================== */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -2727,7 +2723,7 @@ figcaption {
 }
 
 .transition-bg-image.hero {
-    background-image: url("../images/2-hero.png");
+    background-image: url("../images/masks.png");
     background-position: 50% 0%;
     background-size: cover;
     background-repeat: no-repeat;
