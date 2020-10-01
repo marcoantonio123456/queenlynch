@@ -451,6 +451,25 @@ label {
     background-color: #ffffff;
     border:1px solid #cccccc
 }
+.w-input-half {
+    display: block;
+    width: 50%;
+    height: 38px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border:1px solid #cccccc
+}
+
+.form-to-left{
+    display: table;
+    float:right;
+    margin: 2px;
+}
 
 .w-input:-moz-placeholder, .w-select:-moz-placeholder {
     color:#999
@@ -2642,7 +2661,8 @@ figcaption {
 }
 
 .justify-column.hero {
-    padding-bottom: 100px;
+    /*padding-top: 50px;*/
+    /*padding-bottom: 100px;*/
 }
 
 .subheading-wrapper {
@@ -2723,7 +2743,13 @@ figcaption {
 }
 
 .transition-bg-image.hero {
-    background-image: url("../images/masks.png");
+    background-image: url("../images/protein.jpg");
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.transition-bg-image.hero_flu {
+    background-image: url("../images/flu-season.png");
     background-position: 50% 0%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2902,8 +2928,13 @@ figcaption {
 }
 
 .section.section-contact-bar {
+    margin-top: 60px;
     padding-bottom: 60px;
     background-color: #f1f6fb;
+}
+.hero-container{
+    padding-top: 50px;
+    /*padding-bottom: 20px;*/
 }
 
 .section.section-about-us {
@@ -3308,8 +3339,12 @@ figcaption {
     border-bottom-left-radius: 8px;
     box-shadow: none;
 }
+.shortversion-form{
+    margin-top:-20px;
+}
 
 .form {
+    display: table;
     margin-top: 54px;
 }
 
@@ -3317,6 +3352,16 @@ figcaption {
     margin-bottom: 16px;
     color: #0B5439;
     font-size: 18px;
+}
+.input-label-small {
+    margin-bottom: 16px;
+    color: #0B5439;
+    font-size: 14px;
+}
+.input-label-small-text {
+    color: #666f77;
+    font-size: 12px;
+    font-weight: normal;
 }
 
 .input {
@@ -3330,6 +3375,22 @@ figcaption {
     -webkit-transition: all 200ms cubic-bezier(.645, .045, .355, 1);
     transition: all 200ms cubic-bezier(.645, .045, .355, 1);
     font-size: 18px;
+}
+.input-small {
+    min-height: 44px;
+    margin-bottom: 18px;
+    padding-right: 16px;
+    padding-left: 16px;
+    border: 1px solid #cad6e1;
+    border-radius: 4px;
+    background-color: #fff;
+    -webkit-transition: all 200ms cubic-bezier(.645, .045, .355, 1);
+    transition: all 200ms cubic-bezier(.645, .045, .355, 1);
+    font-size: 13px;
+}
+
+.top-header-container{
+    margin:1px;
 }
 
 .input:hover {
@@ -4805,6 +4866,15 @@ figcaption {
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
+}
+
+#w-node-d5aa208aae56-0b1ddc4432 {
+    -ms-grid-column-align: auto;
+    justify-self: auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
+    align-self: auto;
 }
 
 #w-node-18b977742972-0b1ddc26 {
